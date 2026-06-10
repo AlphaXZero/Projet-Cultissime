@@ -1,0 +1,55 @@
+@startuml
+title Diagramme d'activité — Déroulement d'une partie
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam activityBorderColor #6e1423
+skinparam activityBackgroundColor #faf5f5
+skinparam activityDiamondBackgroundColor #faf5f5
+skinparam activityDiamondBorderColor #6e1423
+skinparam ArrowColor #6e1423
+skinparam swimlaneBorderColor #6e1423
+
+|Joueur|
+start
+:Lancer la partie;
+
+|Système|
+:Initialiser la partie\net charger les questions;
+:Déterminer le mode de cotation;
+
+repeat :Sélectionner la question suivante;
+  :Afficher la question à tous\nles joueurs et démarrer le chrono;
+
+  |Joueur|
+  fork
+    :Répondre (joueur 1);
+  fork again
+    :Répondre (joueur 2);
+  fork again
+    :Répondre (joueur n);
+  end fork
+
+  |Système|
+  if (Cotation au temps ?) then (oui)
+    :Évaluer les réponses et attribuer\nles points selon la rapidité;
+    :Mettre à jour et afficher\nle classement en direct;
+  else (validation en fin de partie)
+    :Enregistrer les réponses\nsans les évaluer;
+  endif
+
+repeat while (Condition de fin atteinte ?) is (non)
+->oui;
+
+if (Cotation au temps ?) then (oui)
+else (validation en fin de partie)
+  :Vérifier toutes les réponses\ncollectées et attribuer les points;
+endif
+
+:Calculer le classement final;
+:Clôturer et enregistrer les résultats;
+
+|Joueur|
+:Consulter le classement final;
+stop
+@enduml

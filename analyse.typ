@@ -795,6 +795,19 @@ En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs conn
 
 En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
 
+= Diagramme d'activité
+
+Le diagramme d'activité décrit la logique du déroulement d'une partie sous forme de flux d'actions, indépendamment des objets qui les réalisent. Contrairement au diagramme de séquence, centré sur les messages échangés, il met en évidence les enchaînements, les décisions et le parallélisme du processus. Les actions sont réparties en deux couloirs selon leur responsable : le joueur et le système.
+
+#figure(
+  image("activite_partie.svg", width: 78%),
+  caption: [Diagramme d'activité du déroulement d'une partie (couloirs Joueur / Système).],
+)
+
+On distingue notamment le #emph[parallélisme] introduit par les barres de synchronisation : tous les joueurs d'un salon répondent simultanément à une même question. La condition de fin de partie structure la boucle principale, qui se répète jusqu'à ce que le seuil de points ou le nombre de questions soit atteint.
+
+Les deux modes de cotation diffèrent par la place de l'évaluation. En cotation au temps, les réponses sont évaluées et le classement actualisé à chaque question, à l'intérieur de la boucle. En validation en fin de partie, les réponses sont seulement collectées pendant la boucle, sans évaluation ni classement intermédiaire ; elles ne sont vérifiées et créditées qu'une fois la partie terminée, en un seul traitement. Cette distinction justifie la présence d'un second point de décision, situé après la boucle.
+
 = Glossaire
 
 #table(
