@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="670px" preserveAspectRatio="none" style="width:816px;height:670px;" version="1.1" viewBox="0 0 816 670" width="816px" zoomAndPan="magnify"><defs/><g><!--cluster Projet Cultissime--><rect fill="#FFFFFF" height="635" style="stroke: #000000; stroke-width: 1.5;" width="518" x="287" y="24"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="133" x="479.5" y="38.9951">Projet Cultissime</text><ellipse cx="405.2036" cy="74.1407" fill="#FAF5F5" rx="63.7036" ry="15.1407" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="360.2036" y="78.7892">S'authentifier</text><ellipse cx="404.7901" cy="142.758" fill="#FAF5F5" rx="79.2901" ry="18.258" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="129" x="340.2901" y="147.4065">Rejoindre un salon</text><ellipse cx="404.8859" cy="296.9772" fill="#FAF5F5" rx="67.8859" ry="15.9772" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="354.3859" y="301.6256">Créer un salon</text><ellipse cx="709.7133" cy="296.8427" fill="#FAF5F5" rx="79.7133" ry="18.3427" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="130" x="644.7133" y="301.4911">Configurer la partie</text><ellipse cx="709.5454" cy="113.1091" fill="#FAF5F5" rx="71.0454" ry="16.6091" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="655.0454" y="117.7575">Jouer une partie</text><ellipse cx="404.8673" cy="220.751" fill="#FAF5F5" rx="90.3673" ry="24.251" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="337.8673" y="219.9091">Noter une question</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="365.3673" y="236.206">(up / down)</text><ellipse cx="405.055" cy="373.756" fill="#FAF5F5" rx="96.555" ry="25.756" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="338.055" y="370.6706">Consulter son profil</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="127" x="341.555" y="386.9674">et ses statistiques</text><ellipse cx="404.8093" cy="456.7619" fill="#FAF5F5" rx="96.8093" ry="21.7619" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="320.3093" y="461.4103">Soumettre une question</text><ellipse cx="404.7923" cy="536.7585" fill="#FAF5F5" rx="101.7923" ry="22.7585" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="180" x="314.7923" y="541.4069">Souscrire un abonnement</text><ellipse cx="405.2287" cy="619.2392" fill="#FAF5F5" rx="94.2287" ry="24.2392" style="stroke: #6E1423; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="364.2287" y="613.0627">Modérer les</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="140" x="335.2287" y="629.3595">questions soumises</text><!--entity V--><ellipse cx="190" cy="113.5" fill="#FFFFFF" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M190,121.5 L190,148.5 M177,129.5 L203,129.5 M190,148.5 L177,163.5 M190,148.5 L203,163.5 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="164.5" y="179.4951">Visiteur</text><!--entity U--><ellipse cx="42.5" cy="377" fill="#FFFFFF" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M42.5,385 L42.5,412 M29.5,393 L55.5,393 M42.5,412 L29.5,427 M42.5,412 L55.5,427 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="6" y="442.9951">Utilisateur</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="6" y="459.292">authentifié</text><!--entity A--><ellipse cx="190" cy="589.5" fill="#FFFFFF" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M190,597.5 L190,624.5 M177,605.5 L203,605.5 M190,624.5 L177,639.5 M190,624.5 L203,639.5 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="140" y="655.4951">Administrateur</text><!--link U to V--><path d="M69.18,367 C94.06,320.48 131.83,249.88 158.29,200.41 " fill="none" id="U-V" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="none" points="152.22,196.91,167.83,182.58,164.57,203.52,152.22,196.91" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link V to UC_AUTH--><path d="M215.71,131.88 C233.17,124.27 257.24,114.29 279,107 C305.18,98.23 335.06,90.27 359.04,84.37 " fill="none" id="V-UC_AUTH" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link V to UC_JOIN--><path d="M215.85,143 C242.63,143 286.61,143 325.32,143 " fill="none" id="V-UC_JOIN" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link V to UC_CREATE--><path d="M210.79,182.55 C226,209.04 249.4,242.67 279,263 C298.37,276.31 322.76,284.41 344.84,289.35 " fill="none" id="V-UC_CREATE" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link V to UC_PLAY--><path d="M213.18,103.44 C228.41,80.57 250.93,53.85 279,41 C419.92,-23.54 610.56,61.46 680.93,97.88 " fill="none" id="V-UC_PLAY" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link U to UC_PROFILE--><path d="M79.05,410.96 C133.59,404.75 239.55,392.7 315.66,384.05 " fill="none" id="U-UC_PROFILE" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link U to UC_SUBMIT--><path d="M79.05,419.14 C134.21,425.57 241.97,438.12 318.25,447.01 " fill="none" id="U-UC_SUBMIT" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link U to UC_SUB--><path d="M79.35,427.51 C125.47,443.56 208.1,472.18 279,496 C300.87,503.35 324.94,511.28 346.07,518.19 " fill="none" id="U-UC_SUB" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link A to UC_MOD--><path d="M240.13,619 C261.14,619 286.4,619 310.72,619 " fill="none" id="A-UC_MOD" style="stroke: #6E1423; stroke-width: 1.0;"/><!--link UC_CREATE to UC_CONFIG--><path d="M473.13,297 C517.81,297 576.83,297 624.6,297 " fill="none" id="UC_CREATE-UC_CONFIG" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="629.77,297,620.77,293,624.77,297,620.77,301,629.77,297" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="538" y="293.0669">«include»</text><!--link UC_RATE to UC_PLAY--><path d="M460.43,201.57 C519.05,180.64 611.13,147.76 665.08,128.5 " fill="none" id="UC_RATE-UC_PLAY" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="669.86,126.79,660.038,126.0633,665.1536,128.478,662.7388,133.5936,669.86,126.79" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="60" x="538.5" y="151.0669">«extend»</text><!--
+@startuml
+
+left to right direction
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam ArrowColor #6e1423
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+  ArrowColor #6e1423
+}
+skinparam actor {
+  BorderColor #333333
+  BackgroundColor #ffffff
+}
+
+actor "Visiteur" as V
+actor "Utilisateur\nauthentifié" as U
+actor "Administrateur" as A
+
+U - -|> V
+
+rectangle "Projet Cultissime" {
+
+  usecase "S'authentifier" as UC_AUTH
+  usecase "Rejoindre un salon" as UC_JOIN
+  usecase "Créer un salon" as UC_CREATE
+  usecase "Configurer la partie" as UC_CONFIG
+  usecase "Jouer une partie" as UC_PLAY
+  usecase "Noter une question\n(up / down)" as UC_RATE
+
+  usecase "Consulter son profil\net ses statistiques" as UC_PROFILE
+  usecase "Soumettre une question" as UC_SUBMIT
+  usecase "Souscrire un abonnement" as UC_SUB
+
+  usecase "Modérer les\nquestions soumises" as UC_MOD
+}
+
+V - - UC_AUTH
+V - - UC_JOIN
+V - - UC_CREATE
+V - - UC_PLAY
+
+U - - UC_PROFILE
+U - - UC_SUBMIT
+U - - UC_SUB
+
+A - - UC_MOD
+
+UC_CREATE ..> UC_CONFIG : <<include>>
+
+UC_RATE ..> UC_PLAY : <<extend>>
+
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

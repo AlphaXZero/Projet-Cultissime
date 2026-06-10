@@ -1,0 +1,66 @@
+@startuml
+' ===== Diagramme de cas d'utilisation - Projet Cultissime =====
+' Notation UML 1.4.1
+
+left to right direction
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam ArrowColor #6e1423
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+  ArrowColor #6e1423
+}
+skinparam actor {
+  BorderColor #333333
+  BackgroundColor #ffffff
+}
+
+actor "Visiteur" as V
+actor "Utilisateur\nauthentifié" as U
+actor "Administrateur" as A
+
+' Généralisation : l'utilisateur authentifié est un visiteur (héritage)
+U --|> V
+
+rectangle "Projet Cultissime" {
+
+  ' --- Cas accessibles au Visiteur (donc aussi à l'authentifié) ---
+  usecase "S'authentifier" as UC_AUTH
+  usecase "Rejoindre un salon" as UC_JOIN
+  usecase "Créer un salon" as UC_CREATE
+  usecase "Configurer la partie" as UC_CONFIG
+  usecase "Jouer une partie" as UC_PLAY
+  usecase "Noter une question\n(up / down)" as UC_RATE
+
+  ' --- Cas réservés à l'utilisateur authentifié ---
+  usecase "Consulter son profil\net ses statistiques" as UC_PROFILE
+  usecase "Soumettre une question" as UC_SUBMIT
+  usecase "Souscrire un abonnement" as UC_SUB
+
+  ' --- Cas réservés à l'administrateur ---
+  usecase "Modérer les\nquestions soumises" as UC_MOD
+}
+
+' ===== Associations acteur / cas =====
+V -- UC_AUTH
+V -- UC_JOIN
+V -- UC_CREATE
+V -- UC_PLAY
+
+U -- UC_PROFILE
+U -- UC_SUBMIT
+U -- UC_SUB
+
+A -- UC_MOD
+
+' ===== Relations entre cas (UML 1.4.1) =====
+' include : le cas de base pointe vers le cas inclus (obligatoire)
+UC_CREATE ..> UC_CONFIG : <<include>>
+
+' extend : le cas d'extension pointe vers le cas de base (optionnel)
+UC_RATE ..> UC_PLAY : <<extend>>
+
+@enduml
