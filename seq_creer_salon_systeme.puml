@@ -1,0 +1,25 @@
+@startuml
+title Créer un salon — séquence système (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+J -> S : créerSalon()
+activate S
+S --> J : afficherOptionsConfiguration()
+deactivate S
+
+J -> S : configurerPartie(pack, mode, cotation, visibilité, conditionVictoire)
+activate S
+note right of S : inclut « Configurer la partie »
+S -> S : enregistrerSalon(configuration)
+S --> J : salonOuvert(lienPartage)
+deactivate S
+@enduml

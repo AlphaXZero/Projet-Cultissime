@@ -1,0 +1,30 @@
+@startuml
+title Soumettre une question — séquence système (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+participant "Système" as S
+
+U -> S : ouvrirFormulaireQuestion()
+activate S
+S --> U : afficherFormulaire()
+deactivate S
+
+U -> S : remplirQuestion(énoncé, réponses, média)
+activate S
+S -> S : suggérerCatégories()
+S --> U : afficherCatégoriesSuggérées(tags)
+deactivate S
+
+U -> S : soumettreQuestion(question, tags)
+activate S
+S -> S : enregistrer(statut = "en attente")
+S --> U : confirmationSoumission()
+deactivate S
+@enduml

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="405px" preserveAspectRatio="none" style="width:453px;height:405px;" version="1.1" viewBox="0 0 453 405" width="453px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="429" x="12" y="29.2419">Rejoindre un salon — séquence système (nominal)</text><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="225.5" y="157.2898"/><rect fill="#FFFFFF" height="76.412" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="225.5" y="220.7018"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="61.5" x2="61.5" y1="123.5838" y2="315.1138"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="230.5" x2="230.5" y1="123.5838" y2="315.1138"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="36.5" y="119.4818">Joueur</text><ellipse cx="61.5" cy="51.5158" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M61.5,59.5158 L61.5,86.5158 M48.5,67.5158 L74.5,67.5158 M61.5,86.5158 L48.5,101.5158 M61.5,86.5158 L74.5,101.5158 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="36.5" y="329.0798">Joueur</text><ellipse cx="61.5" cy="343.1818" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M61.5,351.1818 L61.5,378.1818 M48.5,359.1818 L74.5,359.1818 M61.5,378.1818 L48.5,393.1818 M61.5,378.1818 L74.5,393.1818 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><rect fill="#FAF5F5" height="33.0679" style="stroke: #6E1423; stroke-width: 1.5;" width="70" x="195.5" y="89.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="202.5" y="111.4818">Système</text><rect fill="#FAF5F5" height="33.0679" style="stroke: #6E1423; stroke-width: 1.5;" width="70" x="195.5" y="314.1138"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="202.5" y="336.0798">Système</text><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="225.5" y="157.2898"/><rect fill="#FFFFFF" height="76.412" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="225.5" y="220.7018"/><polygon fill="#6E1423" points="213.5,153.2898,223.5,157.2898,213.5,161.2898,217.5,157.2898" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="61.5" x2="219.5" y1="157.2898" y2="157.2898"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="145" x="68.5" y="151.4808">consulterSalonsPublics()</text><polygon fill="#6E1423" points="72.5,184.9958,62.5,188.9958,72.5,192.9958,68.5,188.9958" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="66.5" x2="229.5" y1="188.9958" y2="188.9958"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="78.5" y="183.1868">listeSalons(salons)</text><polygon fill="#6E1423" points="213.5,216.7018,223.5,220.7018,213.5,224.7018,217.5,220.7018" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="61.5" x2="219.5" y1="220.7018" y2="220.7018"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="68.5" y="214.8928">rejoindreSalon(idSalon)</text><line style="stroke: #6E1423; stroke-width: 1.0;" x1="235.5" x2="277.5" y1="252.4078" y2="252.4078"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="277.5" x2="277.5" y1="252.4078" y2="265.4078"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="236.5" x2="277.5" y1="265.4078" y2="265.4078"/><polygon fill="#6E1423" points="246.5,261.4078,236.5,265.4078,246.5,269.4078,242.5,265.4078" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="167" x="242.5" y="246.5988">vérifierDisponibilité(idSalon)</text><polygon fill="#6E1423" points="72.5,293.1138,62.5,297.1138,72.5,301.1138,68.5,297.1138" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="66.5" x2="229.5" y1="297.1138" y2="297.1138"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="78.5" y="291.3048">salonRejoint(étatSalon)</text><!--MD5=[826e9e5d4d233f735698a84de68b07a6]
+@startuml
+title Rejoindre un salon — séquence système (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+J -> S : consulterSalonsPublics()
+activate S
+S - -> J : listeSalons(salons)
+deactivate S
+
+J -> S : rejoindreSalon(idSalon)
+activate S
+S -> S : vérifierDisponibilité(idSalon)
+S - -> J : salonRejoint(étatSalon)
+deactivate S
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.11+10-1-24.04.2-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: fr
+Country: BE
+--></g></svg>

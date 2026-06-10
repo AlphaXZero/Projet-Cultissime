@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="506px" preserveAspectRatio="none" style="width:642px;height:506px;" version="1.1" viewBox="0 0 642 506" width="642px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="490" x="74.75" y="29.2419">Souscrire un abonnement — séquence système (nominal)</text><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="276" y="176.3577"/><rect fill="#FFFFFF" height="139.8241" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="276" y="239.7697"/><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="577" y="271.4757"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="48" x2="48" y1="142.6517" y2="397.5938"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="281" x2="281" y1="142.6517" y2="397.5938"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="581.5" x2="581.5" y1="142.6517" y2="397.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="10" y="119.4818">Utilisateur</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="8" y="138.5497">authentifié</text><ellipse cx="48" cy="51.5158" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M48,59.5158 L48,86.5158 M35,67.5158 L61,67.5158 M48,86.5158 L35,101.5158 M48,86.5158 L61,101.5158 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="10" y="411.5597">Utilisateur</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="8" y="430.6276">authentifié</text><ellipse cx="48" cy="444.7296" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M48,452.7296 L48,479.7296 M35,460.7296 L61,460.7296 M48,479.7296 L35,494.7296 M48,479.7296 L61,494.7296 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><rect fill="#FAF5F5" height="33.0679" style="stroke: #6E1423; stroke-width: 1.5;" width="70" x="246" y="108.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="253" y="130.5497">Système</text><rect fill="#FAF5F5" height="33.0679" style="stroke: #6E1423; stroke-width: 1.5;" width="70" x="246" y="396.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="253" y="418.5597">Système</text><rect fill="#FAF5F5" height="52.1358" style="stroke: #6E1423; stroke-width: 1.5;" width="99" x="532.5" y="89.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="545.5" y="111.4818">Prestataire</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="539.5" y="130.5497">de paiement</text><rect fill="#FAF5F5" height="52.1358" style="stroke: #6E1423; stroke-width: 1.5;" width="99" x="532.5" y="396.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="545.5" y="418.5597">Prestataire</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="539.5" y="437.6276">de paiement</text><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="276" y="176.3577"/><rect fill="#FFFFFF" height="139.8241" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="276" y="239.7697"/><rect fill="#FFFFFF" height="31.706" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="577" y="271.4757"/><polygon fill="#6E1423" points="264,172.3577,274,176.3577,264,180.3577,268,176.3577" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="48" x2="270" y1="176.3577" y2="176.3577"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="160" x="55" y="170.5487">sélectionnerAbonnement()</text><polygon fill="#6E1423" points="59,204.0637,49,208.0637,59,212.0637,55,208.0637" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="53" x2="280" y1="208.0637" y2="208.0637"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="183" x="65" y="202.2547">afficherRécapitulatif(offre, prix)</text><polygon fill="#6E1423" points="264,235.7697,274,239.7697,264,243.7697,268,239.7697" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="48" x2="270" y1="239.7697" y2="239.7697"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="209" x="55" y="233.9607">confirmerPaiement(infosPaiement)</text><polygon fill="#6E1423" points="565,267.4757,575,271.4757,565,275.4757,569,271.4757" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="286" x2="571" y1="271.4757" y2="271.4757"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="272" x="293" y="265.6667">demanderPaiement(montant, infosPaiement)</text><polygon fill="#6E1423" points="297,299.1818,287,303.1818,297,307.1818,293,303.1818" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="291" x2="581" y1="303.1818" y2="303.1818"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="120" x="303" y="297.3728">paiementConfirmé()</text><line style="stroke: #6E1423; stroke-width: 1.0;" x1="286" x2="328" y1="334.8878" y2="334.8878"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="328" x2="328" y1="334.8878" y2="347.8878"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="287" x2="328" y1="347.8878" y2="347.8878"/><polygon fill="#6E1423" points="297,343.8878,287,347.8878,297,351.8878,293,347.8878" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="127" x="293" y="329.0788">activerAbonnement()</text><polygon fill="#6E1423" points="59,375.5938,49,379.5938,59,383.5938,55,379.5938" style="stroke: #6E1423; stroke-width: 1.0;"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="53" x2="280" y1="379.5938" y2="379.5938"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="65" y="373.7848">abonnementActivé()</text><!--MD5=[5fc222d381d30315e22fc5d61a927d49]
+@startuml
+title Souscrire un abonnement — séquence système (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+participant "Système" as S
+participant "Prestataire\nde paiement" as P
+
+U -> S : sélectionnerAbonnement()
+activate S
+S - -> U : afficherRécapitulatif(offre, prix)
+deactivate S
+
+U -> S : confirmerPaiement(infosPaiement)
+activate S
+S -> P : demanderPaiement(montant, infosPaiement)
+activate P
+P - -> S : paiementConfirmé()
+deactivate P
+S -> S : activerAbonnement()
+S - -> U : abonnementActivé()
+deactivate S
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.11+10-1-24.04.2-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: fr
+Country: BE
+--></g></svg>

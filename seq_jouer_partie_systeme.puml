@@ -1,0 +1,27 @@
+@startuml
+title Jouer une partie — séquence système (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+J -> S : lancerPartie()
+activate S
+
+loop <<UML 2.0>> pour chaque question
+  S ->> J : <<minuté>> afficherQuestion(question, tempsImparti)
+  note right of J : message asynchrone\ndiffusé à tous les joueurs ;\ncontrainte {t = tempsImparti}
+  J -> S : soumettreRéponse(réponse)
+  S ->> J : afficherRésultat(bonneRéponse, points)
+  S ->> J : afficherClassement(classement)
+end
+
+S ->> J : afficherClassementFinal(classement)
+deactivate S
+@enduml

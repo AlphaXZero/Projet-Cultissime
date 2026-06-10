@@ -614,6 +614,51 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 - _E3 — abonnement déjà actif_ : le système informe l'utilisateur et n'effectue aucun nouveau paiement.
 
 *Postconditions.* L'abonnement est actif et l'utilisateur accède au contenu réservé.
+= Diagrammes de séquence
+
+Cette section présente les diagrammes de séquence au niveau _système_ (boîte noire) : le système est vu comme un participant unique, et seuls les échanges entre les acteurs et le système sont représentés. Chaque diagramme correspond au scénario nominal d'un cas d'utilisation ; les scénarios alternatifs et d'erreur font l'objet de diagrammes distincts. Le raffinement en diagrammes de conception (boîte blanche), faisant apparaître les objets internes, est présenté ultérieurement.
+
+== S'authentifier
+
+#figure(
+  image("seq_authentifier_systeme.svg", width: 70%),
+  caption: [Séquence système — « S'authentifier » (scénario nominal).],
+)
+
+== Rejoindre un salon
+
+#figure(
+  image("seq_rejoindre_salon_systeme.svg", width: 70%),
+  caption: [Séquence système — « Rejoindre un salon » (scénario nominal).],
+)
+
+== Créer un salon
+
+#figure(
+  image("seq_creer_salon_systeme.svg", width: 75%),
+  caption: [Séquence système — « Créer un salon » (scénario nominal).],
+)
+
+== Jouer une partie
+
+#figure(
+  image("seq_jouer_partie_systeme.svg", width: 80%),
+  caption: [Séquence système — « Jouer une partie » (scénario nominal).],
+)
+
+== Soumettre une question
+
+#figure(
+  image("seq_soumettre_question_systeme.svg", width: 75%),
+  caption: [Séquence système — « Soumettre une question » (scénario nominal).],
+)
+
+== Souscrire un abonnement
+
+#figure(
+  image("seq_souscrire_abonnement_systeme.svg", width: 80%),
+  caption: [Séquence système — « Souscrire un abonnement » (scénario nominal).],
+)
 
 = Glossaire
 
