@@ -614,7 +614,7 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 - _E3 — abonnement déjà actif_ : le système informe l'utilisateur et n'effectue aucun nouveau paiement.
 
 *Postconditions.* L'abonnement est actif et l'utilisateur accède au contenu réservé.
-= Diagrammes de séquence
+= Diagrammes de séquence - Boîte noire
 
 Cette section présente les diagrammes de séquence au niveau _système_ (boîte noire) : le système est vu comme un participant unique, et seuls les échanges entre les acteurs et le système sont représentés. Chaque diagramme correspond au scénario nominal d'un cas d'utilisation ; les scénarios alternatifs et d'erreur font l'objet de diagrammes distincts. Le raffinement en diagrammes de conception (boîte blanche), faisant apparaître les objets internes, est présenté ultérieurement.
 
@@ -659,6 +659,141 @@ Cette section présente les diagrammes de séquence au niveau _système_ (boîte
   image("seq_souscrire_abonnement_systeme.svg", width: 80%),
   caption: [Séquence système — « Souscrire un abonnement » (scénario nominal).],
 )
+= Diagrammes de séquence de conception
+
+Cette section raffine les diagrammes de séquence système en ouvrant la « boîte noire » : le système est décomposé en objets selon le découpage de Jacobson — objets d'interface (_boundary_), objets de contrôle (_control_) et objets entités (_entity_) — l'accès aux données étant assuré par une base de données unique. Apparaissent ici des messages absents au niveau système : la création et la destruction d'objets (stéréotypes « create » et « destroy »), ainsi que les échanges avec la persistance.
+
+== Jouer une partie
+
+#figure(
+  image("seq_jouer_partie_conception.svg", width: 90%),
+  caption: [Séquence de conception — « Jouer une partie » (scénario nominal).],
+)
+
+== S'authentifier
+
+#figure(
+  image("seq_authentifier_conception.svg", width: 80%),
+  caption: [Séquence de conception — « S'authentifier » (scénario nominal).],
+)
+
+== Rejoindre un salon
+
+#figure(
+  image("seq_rejoindre_salon_conception.svg", width: 85%),
+  caption: [Séquence de conception — « Rejoindre un salon » (scénario nominal).],
+)
+
+== Créer un salon
+
+#figure(
+  image("seq_creer_salon_conception.svg", width: 80%),
+  caption: [Séquence de conception — « Créer un salon » (scénario nominal).],
+)
+
+== Soumettre une question
+
+#figure(
+  image("seq_soumettre_question_conception.svg", width: 85%),
+  caption: [Séquence de conception — « Soumettre une question » (scénario nominal).],
+)
+
+== Souscrire un abonnement
+
+#figure(
+  image("seq_souscrire_abonnement_conception.svg", width: 90%),
+  caption: [Séquence de conception — « Souscrire un abonnement » (scénario nominal).],
+)
+
+= Diagramme de classes
+
+Le diagramme de classes décrit la vue statique du système : les entités métier, leurs attributs et opérations, et les associations qui les relient. Il découle des objets entités identifiés dans les diagrammes de séquence de conception.
+
+#figure(
+  image("classdiagramm.svg", width: 100%),
+  caption: [Diagramme de classes de conception du système « Projet Cultissime ».],
+)
+
+== Choix de modélisation
+
+*Classe `Réponse`.* Une question peut admettre plusieurs réponses correctes (par exemple « France », « la France » ou « FR » pour une même question). La réponse est donc modélisée comme une classe à part entière, reliée à `Question` par une composition de multiplicité `1..*`, plutôt que comme un simple attribut.
+
+*Classe `Tag`.* Les tags sont modélisés comme une classe partagée plutôt que comme une liste de chaînes interne à `Question`. Ce choix permet de réutiliser un même tag entre plusieurs questions, d'éviter les doublons de catégories et de parcourir l'ensemble des questions associées à un tag donné (filtrage par catégorie), ce qui est central dans le concept de l'application.
+
+*Classe `Média`.* L'indice d'une question pouvant être une image ou un son, le média est représenté par une classe dédiée (de type `IMAGE` ou `SON`) reliée à `Question`, plutôt que par un attribut, afin de permettre plusieurs médias et de porter leurs métadonnées.
+
+*Fusion de `Configuration` et de `Statistiques`.* Les paramètres de partie (mode, cotation, condition de victoire) sont des attributs simples sans comportement propre : ils sont intégrés à `Salon`. De même, les statistiques d'un membre, en relation un-à-un obligatoire avec celui-ci, sont intégrées directement à la classe `Membre`, une relation 1–1 systématique justifiant rarement une classe séparée.
+
+*Classes d'association et associations plusieurs-à-plusieurs.* Lorsqu'une association plusieurs-à-plusieurs porte des données propres au lien, elle est modélisée par une classe d'association : `Participation` (score, rang, vies) sur le lien `Joueur`–`Partie`, et `Vote` (valeur) sur le lien `Joueur`–`Question`. En revanche, l'association `Question`–`Tag` ne porte aucune donnée : elle reste une association plusieurs-à-plusieurs simple. La table de jointure correspondante n'apparaîtra qu'au niveau de l'implémentation relationnelle, et non dans le modèle conceptuel.
+
+*Expression des contraintes.* Les règles non exprimables par la seule notation graphique sont indiquées entre accolades `{…}`, conformément à la notation des contraintes d'UML 1.4. Le langage OCL, normalisé plus tardivement avec UML 2.0, n'est pas employé tel quel afin de rester cohérent avec la version de référence.
+
+= Étude technologique
+
+Le choix des technologies n'est pas figé à ce stade. Cette section recense les solutions envisagées et les met en regard de la contrainte directrice du projet, afin d'éclairer une décision ultérieure.
+
+== Contrainte directrice : le temps réel
+
+La fonctionnalité déterminante de l'application est la partie multijoueur synchrone : une même question est diffusée simultanément à tous les joueurs d'un salon, un chronomètre est partagé et un classement se met à jour en direct. Cela impose une communication bidirectionnelle persistante entre le serveur et les clients, typiquement au moyen de #emph[WebSockets], là où une application web classique se contente de requêtes-réponses. Les autres fonctionnalités (comptes, packs, modération, abonnements) relèvent en revanche d'un développement web classique que toutes les solutions étudiées prennent en charge sans difficulté. C'est donc la qualité du support temps réel qui distingue principalement les options.
+
+== Solutions back-end envisagées
+
+*ASP.NET Core avec SignalR (C\#).* SignalR est une bibliothèque de communication temps réel qui abstrait la gestion des WebSockets (reconnexion automatique, repli sur d'autres transports, diffusion groupée). Sa notion de #emph[groupes] correspond directement à celle de salon : ajouter ou retirer un joueur d'un groupe, puis diffuser un message à l'ensemble du groupe, se fait nativement. C'est l'une des solutions les plus matures du marché pour ce besoin précis. Le diagramme de classes de conception se traduit par ailleurs naturellement en C\#.
+
+*Python avec FastAPI.* FastAPI est un cadriciel web asynchrone moderne, doté d'un support natif des WebSockets et reconnu pour sa rapidité de développement. La gestion des salons et de la diffusion doit être implémentée explicitement, et la montée en charge sur plusieurs processus s'appuie généralement sur un mécanisme de publication-souscription externe (par exemple Redis). Le langage est d'un abord aisé et favorise une mise au point rapide de la logique de jeu.
+
+*Rust avec Axum ou Actix-web.* Rust offre des performances et une maîtrise de la latence et de la concurrence particulièrement adaptées à un serveur temps réel, au prix d'une courbe d'apprentissage sensiblement plus élevée (gestion de la propriété, programmation asynchrone). C'est la solution la plus exigeante, mais aussi la plus formatrice et la plus performante.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 7pt,
+  align: (left + horizon, left, left),
+  table.header([*Critère*], [*Atouts*], [*Limites*]),
+  [ASP.NET + SignalR],
+  [Temps réel le plus abouti (groupes = salons) ; intégration front/back forte ; écosystème mûr.],
+  [Langage et environnement à reprendre en main ; pile propriétaire à l'origine.],
+
+  [Python (FastAPI)],
+  [Développement rapide ; asynchrone ; langage maîtrisé ; large écosystème.],
+  [Gestion des salons et de la diffusion à câbler ; montée en charge à outiller.],
+
+  [Rust (Axum/Actix)],
+  [Performances et latence excellentes ; sûreté mémoire ; valeur d'apprentissage.],
+  [Courbe d'apprentissage forte ; productivité initiale réduite ; risque sur les délais.],
+)
+
+== Solutions front-end envisagées
+
+*Blazor.* Cadriciel d'interface en C\#, il s'intègre étroitement à un back-end ASP.NET et repose lui-même sur SignalR pour son mode serveur, ce qui en fait un complément cohérent de la solution .NET. Il évite d'écrire du JavaScript.
+
+*Vue.* Cadriciel JavaScript réputé pour sa douceur de prise en main et sa clarté. Il convient bien à une interface réactive (chronomètre, classement en direct) et s'associe à n'importe quel back-end via WebSockets.
+
+*React.* Cadriciel JavaScript très répandu, doté d'un vaste écosystème. Plus verbeux que Vue, il offre en contrepartie une grande richesse de bibliothèques et une forte demande sur le marché.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 7pt,
+  align: (left + horizon, left, left),
+  table.header([*Front-end*], [*Atouts*], [*Limites*]),
+  [Blazor],
+  [Intégration native avec .NET ; pas de JavaScript ; même langage que le back-end C\#.],
+  [Couplage fort à l'écosystème .NET ; moins pertinent hors back-end .NET.],
+
+  [Vue], [Prise en main aisée ; réactivité ; indépendant du back-end.], [Écosystème plus restreint que React.],
+  [React], [Écosystème très riche ; largement répandu.], [Plus verbeux ; davantage de configuration.],
+)
+
+On notera la cohérence particulière du couple ASP.NET + Blazor (même langage de part et d'autre), tandis que Vue et React s'associent indifféremment à un back-end Python, Rust ou .NET.
+
+== Base de données
+
+Les données du système sont fortement structurées et reliées entre elles, comme le montre le diagramme de classes : un joueur participe à des parties, un pack contient des questions, une question admet des réponses, etc. Cette nature relationnelle oriente naturellement vers un #emph[système de gestion de base de données relationnelle] (SGBDR), où chaque entité devient une table et où les associations se traduisent par des clés étrangères — l'association plusieurs-à-plusieurs entre question et tag donnant lieu, à ce niveau, à une table de jointure.
+
+*PostgreSQL* constitue un choix de référence : libre, robuste, riche en fonctionnalités et compatible avec les trois back-ends envisagés (via Entity Framework pour .NET, SQLAlchemy pour Python, Diesel ou SeaORM pour Rust). *MySQL* ou *MariaDB* représentent des alternatives équivalentes pour ce projet. *SQL Server* s'intègre naturellement à l'écosystème .NET mais reste propriétaire.
+
+En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs connectés, scores instantanés, file de diffusion) gagne à être géré par un magasin de données en mémoire tel que *Redis*, qui sert également de mécanisme de publication-souscription pour synchroniser plusieurs instances du serveur temps réel. Une base orientée document (par exemple MongoDB) a été écartée : la structure des données étant nettement relationnelle, elle n'apporterait pas d'avantage déterminant ici.
+
+En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
 
 = Glossaire
 

@@ -1,0 +1,38 @@
+@startuml
+title Soumettre une question — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+boundary ":IHMQuestion" as IHM
+control ":CtrlContenu" as C
+entity "question:Question" as Q
+database ":BaseDeDonnées" as BD
+
+U -> IHM : ouvrirFormulaireQuestion()
+activate IHM
+IHM --> U : afficherFormulaire()
+
+U -> IHM : remplirQuestion(énoncé, réponses, média)
+IHM -> C : suggérerCatégories(énoncé)
+activate C
+C --> IHM : tagsSuggérés
+deactivate C
+IHM --> U : afficherCatégories(tagsSuggérés)
+
+U -> IHM : soumettreQuestion(énoncé, réponses, média, tags)
+IHM -> C : soumettreQuestion(données)
+activate C
+create Q
+C -> Q : <<create>> créer(données, statut="en attente")
+C -> BD : enregistrerQuestion(question)
+C --> IHM : confirmationSoumission()
+deactivate C
+IHM --> U : afficherConfirmation()
+deactivate IHM
+@enduml

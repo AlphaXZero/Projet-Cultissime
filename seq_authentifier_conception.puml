@@ -1,0 +1,38 @@
+@startuml
+title S'authentifier — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur" as U
+boundary ":IHMConnexion" as IHM
+control ":CtrlAuthentification" as C
+entity "joueur:Joueur" as J
+database ":BaseDeDonnées" as BD
+
+U -> IHM : demanderConnexion()
+activate IHM
+IHM --> U : afficherFormulaire()
+
+U -> IHM : soumettreIdentifiants(login, motDePasse)
+IHM -> C : authentifier(login, motDePasse)
+activate C
+C -> BD : trouverParLogin(login)
+activate BD
+BD --> C : donnéesJoueur
+deactivate BD
+create J
+C -> J : <<create>> créer(donnéesJoueur)
+C -> J : vérifierMotDePasse(motDePasse)
+activate J
+J --> C : valide
+deactivate J
+C --> IHM : sessionOuverte(joueur)
+deactivate C
+IHM --> U : afficherEspaceUtilisateur()
+deactivate IHM
+@enduml

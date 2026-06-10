@@ -1,0 +1,61 @@
+@startuml
+title Jouer une partie — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+boundary ":IHMJeu" as IHM
+control ":CtrlPartie" as C
+entity "partie:Partie" as P
+database ":BaseDeDonnées" as BD
+
+J -> IHM : lancerPartie()
+activate IHM
+IHM -> C : démarrerPartie(idSalon)
+activate C
+
+create P
+C -> P : <<create>> créer(configuration)
+C -> BD : chargerQuestions(pack)
+activate BD
+BD --> C : listeQuestions
+deactivate BD
+
+loop <<UML 2.0>> pour chaque question
+  C -> P : questionSuivante()
+  activate P
+  P --> C : question
+  deactivate P
+
+  C ->> IHM : <<minuté>> afficherQuestion(question, tempsImparti)
+  note right of IHM : diffusé à tous\nles joueurs ; {t = tempsImparti}
+  IHM ->> J : afficherQuestion(question)
+
+  J -> IHM : soumettreRéponse(réponse)
+  IHM -> C : enregistrerRéponse(idJoueur, réponse)
+  C -> P : évaluerRéponse(idJoueur, réponse)
+  activate P
+  P --> C : points
+  deactivate P
+
+  C ->> IHM : afficherClassement(classement)
+end
+
+C -> P : clôturer()
+activate P
+P --> C : classementFinal
+deactivate P
+C -> BD : enregistrerRésultats(classementFinal)
+C ->> IHM : afficherClassementFinal(classementFinal)
+
+destroy P
+C -> P : <<destroy>> détruire()
+
+deactivate C
+deactivate IHM
+@enduml

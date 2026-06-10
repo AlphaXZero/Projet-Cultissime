@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1171px" preserveAspectRatio="none" style="width:1621px;height:1171px;" version="1.1" viewBox="0 0 1621 1171" width="1621px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="500" x="563.5" y="19.2419">Diagramme de classes — Projet Cultissime (entités métier)</text><!--MD5=[bd5217fec2ee809b07c738d8bd5974e2]
+class Visibilité--><rect fill="#FAF5F5" height="88.652" id="Visibilité" style="stroke: #6E1423; stroke-width: 1.5;" width="84" x="284.5" y="498.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="285.5" y="516.3439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="46" x="303.5" y="532.6881">Visibilité</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="285.5" x2="367.5" y1="541.2041" y2="541.2041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39" x="290.5" y="556.963">PUBLIC</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="31" x="290.5" y="571.9449">PRIVÉ</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="285.5" x2="367.5" y1="579.1679" y2="579.1679"/><!--MD5=[425ea7450eb8e63471728efc80d2e291]
+class ModeJeu--><rect fill="#FAF5F5" height="103.6339" id="ModeJeu" style="stroke: #6E1423; stroke-width: 1.5;" width="115" x="404" y="491.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="420.5" y="508.8439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="49" x="437" y="525.1881">ModeJeu</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="405" x2="518" y1="533.7041" y2="533.7041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="103" x="410" y="549.463">COURSE_AU_SCORE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="72" x="410" y="564.4449">ÉLIMINATION</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="410" y="579.4268">ÉQUIPES</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="405" x2="518" y1="586.6497" y2="586.6497"/><!--MD5=[b44c8e309540348d6cbfa32ba141925e]
+class TypeCotation--><rect fill="#FAF5F5" height="88.652" id="TypeCotation" style="stroke: #6E1423; stroke-width: 1.5;" width="152" x="554.5" y="498.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="589.5" y="516.3439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="74" x="593.5" y="532.6881">TypeCotation</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="555.5" x2="705.5" y1="541.2041" y2="541.2041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="560.5" y="556.963">AU_TEMPS</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="140" x="560.5" y="571.9449">VALIDATION_FIN_MANCHE</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="555.5" x2="705.5" y1="579.1679" y2="579.1679"/><!--MD5=[58a8c4a6385f5aa52bbf1b8b1ff89400]
+class StatutQuestion--><rect fill="#FAF5F5" height="103.6339" id="StatutQuestion" style="stroke: #6E1423; stroke-width: 1.5;" width="89" x="1026" y="906.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="1029.5" y="924.3439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="83" x="1029" y="940.6881">StatutQuestion</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1027" x2="1114" y1="949.2041" y2="949.2041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="1032" y="964.963">EN_ATTENTE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="1032" y="979.9449">VALIDÉE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="1032" y="994.9268">REFUSÉE</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1027" x2="1114" y1="1002.1497" y2="1002.1497"/><!--MD5=[c5783cdbdac36dba4ab69ca180e152b4]
+class TypePack--><rect fill="#FAF5F5" height="88.652" id="TypePack" style="stroke: #6E1423; stroke-width: 1.5;" width="109" x="994" y="717.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="1007.5" y="734.8439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="53" x="1022" y="751.1881">TypePack</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="995" x2="1102" y1="759.7041" y2="759.7041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="48" x="1000" y="775.463">OFFICIEL</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="97" x="1000" y="790.4449">COMMUNAUTAIRE</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="995" x2="1102" y1="797.6679" y2="797.6679"/><!--MD5=[102df861049474603b7122f4bd5f12c0]
+class ÉtatPartie--><rect fill="#FAF5F5" height="103.6339" id="ÉtatPartie" style="stroke: #6E1423; stroke-width: 1.5;" width="84" x="85.5" y="709.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="86.5" y="727.3439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="55" x="100" y="743.6881">ÉtatPartie</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="86.5" x2="168.5" y1="752.2041" y2="752.2041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="91.5" y="767.963">EN_ATTENTE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="91.5" y="782.9449">EN_COURS</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="53" x="91.5" y="797.9268">TERMINÉE</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="86.5" x2="168.5" y1="805.1497" y2="805.1497"/><!--MD5=[22d50b6b33d552260f46b439f51cd63f]
+class TypeMédia--><rect fill="#FAF5F5" height="88.652" id="TypeMédia" style="stroke: #6E1423; stroke-width: 1.5;" width="84" x="1288.5" y="1071.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="1289.5" y="1089.3439">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="1299.5" y="1105.6881">TypeMédia</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1289.5" x2="1371.5" y1="1114.2041" y2="1114.2041"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="35" x="1294.5" y="1129.963">IMAGE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23" x="1294.5" y="1144.9449">SON</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1289.5" x2="1371.5" y1="1152.1679" y2="1152.1679"/><!--MD5=[f35b8d93951ba498799a84be5600c0ca]
+class Joueur--><rect fill="#FAF5F5" height="87.2898" id="Joueur" style="stroke: #6E1423; stroke-width: 1.5;" width="182" x="886.5" y="32.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="960" y="50.3439">Joueur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="887.5" x2="1067.5" y1="58.86" y2="58.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="87" x="892.5" y="74.6189">#pseudo : String</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="887.5" x2="1067.5" y1="81.8418" y2="81.8418"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="133" x="892.5" y="97.6008">+rejoindreSalon(s : Salon)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="170" x="892.5" y="112.5826">+soumettreRéponse(r : Réponse)</text><!--MD5=[cd9a5b294059b2a9d502ba7778463eef]
+class Invité--><rect fill="#FAF5F5" height="42.3441" id="Invité" style="stroke: #6E1423; stroke-width: 1.5;" width="37" x="1509" y="273.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="1512" y="291.3439">Invité</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1510" x2="1545" y1="299.86" y2="299.86"/><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1510" x2="1545" y1="307.86" y2="307.86"/><!--MD5=[18cc4c69606d473731604386bcf93e26]
+class Membre--><rect fill="#FAF5F5" height="192.163" id="Membre" style="stroke: #6E1423; stroke-width: 1.5;" width="264" x="845.5" y="198.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="953.5" y="216.3439">Membre</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="846.5" x2="1108.5" y1="224.86" y2="224.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="72" x="851.5" y="240.6189">-login : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="851.5" y="255.6008">-email : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109" x="851.5" y="270.5826">-motDePasse : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="851.5" y="285.5645">-dateInscription : Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="851.5" y="300.5464">+partiesJouées : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="151" x="851.5" y="315.5283">+tauxBonnesRéponses : float</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="152" x="851.5" y="330.5102">+tempsRéponseMoyen : float</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="846.5" x2="1108.5" y1="337.7332" y2="337.7332"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="252" x="851.5" y="353.4921">+sAuthentifier(login : String, mdp : String) : bool</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="178" x="851.5" y="368.474">+soumettreQuestion(q : Question)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="851.5" y="383.4559">+souscrire() : Abonnement</text><!--MD5=[ff641bcbd232b5539ed472630fe3952a]
+class Abonnement--><rect fill="#FAF5F5" height="87.2898" id="Abonnement" style="stroke: #6E1423; stroke-width: 1.5;" width="104" x="1139.5" y="499.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1155.5" y="517.3439">Abonnement</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1140.5" x2="1242.5" y1="525.86" y2="525.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="1145.5" y="541.6189">-dateDébut : Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76" x="1145.5" y="556.6008">-dateFin : Date</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1140.5" x2="1242.5" y1="563.8237" y2="563.8237"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="83" x="1145.5" y="579.5826">+estActif() : bool</text><!--MD5=[3040b5170f178f65c28ea3699dede2f3]
+class Salon--><rect fill="#FAF5F5" height="192.163" id="Salon" style="stroke: #6E1423; stroke-width: 1.5;" width="144" x="558.5" y="198.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="615" y="216.3439">Salon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="559.5" x2="701.5" y1="224.86" y2="224.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="70" x="564.5" y="240.6189">-code : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="100" x="564.5" y="255.6008">-visibilité : Visibilité</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="91" x="564.5" y="270.5826">-capacitéMax : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="65" x="564.5" y="285.5645">-état : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89" x="564.5" y="300.5464">-mode : ModeJeu</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="564.5" y="315.5283">-cotation : TypeCotation</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="564.5" y="330.5102">-conditionVictoire : int</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="559.5" x2="701.5" y1="337.7332" y2="337.7332"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="132" x="564.5" y="353.4921">+ajouterJoueur(j : Joueur)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="132" x="564.5" y="368.474">+exclureJoueur(j : Joueur)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="48" x="564.5" y="383.4559">+fermer()</text><!--MD5=[a13b29b436488db240599346aff8582a]
+class Partie--><rect fill="#FAF5F5" height="147.2173" id="Partie" style="stroke: #6E1423; stroke-width: 1.5;" width="243" x="6" y="469.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="33" x="111" y="487.3439">Partie</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="248" y1="495.86" y2="495.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="12" y="511.6189">-dateDébut : Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76" x="12" y="526.6008">-dateFin : Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="12" y="541.5826">-état : ÉtatPartie</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="248" y1="548.8056" y2="548.8056"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="12" y="564.5645">+démarrer()</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="160" x="12" y="579.5464">+questionSuivante() : Question</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="231" x="12" y="594.5283">+évaluerRéponse(j : Joueur, r : Réponse) : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="122" x="12" y="609.5102">+clôturer() : Classement</text><!--MD5=[23bb12025fb3ea604555f955dd7f38e8]
+class Participation--><rect fill="#FAF5F5" height="87.2898" id="Participation" style="stroke: #6E1423; stroke-width: 1.5;" width="76" x="319.5" y="251.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="322.5" y="268.8439">Participation</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="320.5" x2="394.5" y1="277.36" y2="277.36"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="325.5" y="293.1189">+score : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="54" x="325.5" y="308.1008">+rang : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="325.5" y="323.0826">+vies : int</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="320.5" x2="394.5" y1="330.3056" y2="330.3056"/><!--MD5=[ed59bb8f54e2c8af7c561b182d70ca56]
+class Pack--><rect fill="#FAF5F5" height="87.2898" id="Pack" style="stroke: #6E1423; stroke-width: 1.5;" width="111" x="993" y="499.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="26" x="1035.5" y="517.3439">Pack</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="994" x2="1103" y1="525.86" y2="525.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="67" x="999" y="541.6189">-titre : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="85" x="999" y="556.6008">-type : TypePack</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="994" x2="1103" y1="563.8237" y2="563.8237"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="999" y="579.5826">+estJouable() : bool</text><!--MD5=[fc7123defb831ecdd44b2d9bcef6cceb]
+class Question--><rect fill="#FAF5F5" height="132.2354" id="Question" style="stroke: #6E1423; stroke-width: 1.5;" width="142" x="1182.5" y="695.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="1228.5" y="713.3439">Question</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1183.5" x2="1323.5" y1="721.86" y2="721.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="83" x="1188.5" y="737.6189">-énoncé : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="122" x="1188.5" y="752.6008">-statut : StatutQuestion</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="1188.5" y="767.5826">-votesPositifs : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="98" x="1188.5" y="782.5645">-votesNégatifs : int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="1188.5" y="797.5464">/ score : int</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1183.5" x2="1323.5" y1="804.7694" y2="804.7694"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="130" x="1188.5" y="820.5283">+ajouterVote(valeur : int)</text><!--MD5=[469d1750fb933a295bbfde77cd87fe73]
+class Réponse--><rect fill="#FAF5F5" height="72.3079" id="Réponse" style="stroke: #6E1423; stroke-width: 1.5;" width="92" x="1150.5" y="922.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="1172.5" y="940.3439">Réponse</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1151.5" x2="1241.5" y1="948.86" y2="948.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71" x="1156.5" y="964.6189">-texte : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="80" x="1156.5" y="979.6008">-correcte : bool</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1151.5" x2="1241.5" y1="986.8237" y2="986.8237"/><!--MD5=[b24c6582dab2ac8bc651f47ef3d9e689]
+class Média--><rect fill="#FAF5F5" height="72.3079" id="Média" style="stroke: #6E1423; stroke-width: 1.5;" width="105" x="1278" y="922.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="1313" y="940.3439">Média</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1279" x2="1382" y1="948.86" y2="948.86"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="60" x="1284" y="964.6189">-url : String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="1284" y="979.6008">-type : TypeMédia</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1279" x2="1382" y1="986.8237" y2="986.8237"/><!--MD5=[39d6d2ea03de602dbf4d534e70c872a9]
+class Tag--><rect fill="#FAF5F5" height="57.326" id="Tag" style="stroke: #6E1423; stroke-width: 1.5;" width="81" x="1418" y="930.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="21" x="1448" y="947.8439">Tag</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1419" x2="1498" y1="956.36" y2="956.36"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="69" x="1424" y="972.1189">-nom : String</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1419" x2="1498" y1="979.3418" y2="979.3418"/><!--MD5=[6987bc66bd8845192e2addfb47d98466]
+class Vote--><rect fill="#FAF5F5" height="57.326" id="Vote" style="stroke: #6E1423; stroke-width: 1.5;" width="74" x="1183.5" y="266.0158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="25" x="1208" y="283.8439">Vote</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1184.5" x2="1256.5" y1="292.36" y2="292.36"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="1189.5" y="308.1189">+valeur : int</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1184.5" x2="1256.5" y1="315.3418" y2="315.3418"/><ellipse cx="282.5" cy="294.5158" fill="#000000" rx="2" ry="2" style="stroke: none; stroke-width: 1.0;"/><ellipse cx="1146.5" cy="294.5158" fill="#000000" rx="2" ry="2" style="stroke: none; stroke-width: 1.0;"/><path d="M1293,272.0158 L1293,317.4279 A0,0 0 0 0 1293,317.4279 L1362.46,317.4279 L1224.73,499.3458 L1370.46,317.4279 L1474,317.4279 A0,0 0 0 0 1474,317.4279 L1474,282.0158 L1464,272.0158 L1293,272.0158 A0,0 0 0 0 1293,272.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1464,272.0158 L1464,282.0158 L1474,282.0158 L1464,272.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="114" x="1299" y="290.9129">{ context Membre :</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="154" x="1305" y="308.6189">abonnement-&gt;size() &lt;= 1 }</text><path d="M1360,712.0158 L1360,757.5158 L1324.79,761.5158 L1360,765.5158 L1360,810.5459 A0,0 0 0 0 1360,810.5459 L1609,810.5459 A0,0 0 0 0 1609,810.5459 L1609,722.0158 L1599,712.0158 L1360,712.0158 A0,0 0 0 0 1360,712.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1599,712.0158 L1599,722.0158 L1609,722.0158 L1599,712.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="118" x="1366" y="730.9129">{ context Question :</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="222" x="1372" y="748.6189">score = votesPositifs - votesNégatifs }</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="1366" y="766.3249">{ context Partie :</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="123" x="1372" y="784.0309">questions-&gt;forAll(q |</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="1378" y="801.7369">q.statut = VALIDÉE) }</text><path d="M741.5,520.5158 L741.5,565.9279 A0,0 0 0 0 741.5,565.9279 L957.5,565.9279 A0,0 0 0 0 957.5,565.9279 L957.5,530.5158 L947.5,520.5158 L834.19,520.5158 L702.51,376.5658 L826.19,520.5158 L741.5,520.5158 A0,0 0 0 0 741.5,520.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M947.5,520.5158 L947.5,530.5158 L957.5,530.5158 L947.5,520.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="96" x="747.5" y="539.4129">{ context Salon :</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="189" x="753.5" y="557.1189">joueurs-&gt;size() &lt;= capacitéMax }</text><path d="M1462.5,520.5158 L1462.5,565.9279 A0,0 0 0 0 1462.5,565.9279 L1592.5,565.9279 A0,0 0 0 0 1592.5,565.9279 L1592.5,530.5158 L1582.5,520.5158 L1531.5,520.5158 L1527.5,315.6858 L1523.5,520.5158 L1462.5,520.5158 A0,0 0 0 0 1462.5,520.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1582.5,520.5158 L1582.5,530.5158 L1592.5,530.5158 L1582.5,520.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="1468.5" y="539.4129">{ context Invité :</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="103" x="1474.5" y="557.1189">pack-&gt;isEmpty() }</text><!--MD5=[c450f2a52f809f0eddbf3f3d3e48f8ce]
+reverse link Joueur to Invité--><path d="M1088.48,92.6858 C1216.75,111.8758 1417.1,148.1358 1474.5,198.5158 C1496.37,217.7158 1505.01,251.6258 1512.93,273.3158 " fill="none" id="Joueur&lt;-Invité" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="none" points="1087.32,99.5958,1068.55,89.7558,1089.35,85.7458,1087.32,99.5958" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[c450f2a52f809f0eddbf3f3d3e48f8ce]
+reverse link Joueur to Invité--><path d="M1088.81,89.2958 C1226.19,107.4058 1448.52,144.9958 1509.5,198.5158 C1531.37,217.7158 1540.01,251.6258 1538.56,273.3158 " fill="none" id="Joueur&lt;-Invité-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="none" points="1087.71,96.2158,1068.77,86.7158,1089.5,82.3258,1087.71,96.2158" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[19af8cbe2b197cb82214c8996812ea12]
+reverse link Joueur to Membre--><path d="M965.82,139.5358 C964.91,157.8758 964.58,178.3558 964.83,198.2358 " fill="none" id="Joueur&lt;-Membre" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="none" points="958.84,139.0358,967.13,119.5358,972.81,139.9458,958.84,139.0358" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[19af8cbe2b197cb82214c8996812ea12]
+reverse link Joueur to Membre--><path d="M989.87,139.5358 C990.83,157.8758 991.18,178.3558 990.91,198.2358 " fill="none" id="Joueur&lt;-Membre-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="none" points="982.88,139.9658,988.48,119.5358,996.85,139.0058,982.88,139.9658" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[07ee2c2c2135b8022add4cf3733ca7fa]
+link Membre to Abonnement--><path d="M1060.24,390.8158 C1092.82,428.3458 1128.57,469.5258 1154.52,499.4158 " fill="none" id="Membre-Abonnement" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="1097.5" y="435.4129">souscrit</text><polygon fill="#000000" points="1116.5,445.2219,1119.5,451.2219,1122.5,445.2219,1116.5,445.2219" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1059.0592" y="412.429">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="1126.7389" y="487.7183">0..1</text><!--MD5=[e963dcc8169cc9f9298bfd7d663b6f6e]
+link Membre to Pack--><path d="M1004.95,390.8158 C1015.76,428.3458 1027.62,469.5258 1036.23,499.4158 " fill="none" id="Membre-Pack" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="25" x="1017.5" y="435.4129">crée</text><polygon fill="#000000" points="1025.5,445.2219,1028.5,451.2219,1031.5,445.2219,1025.5,445.2219" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="999.7088" y="412.429">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1026.6181" y="487.7183">*</text><!--MD5=[26b512325dcbe598dfea542d2c3d95ca]
+link Joueur to Salon--><path d="M909.36,119.5358 C849.75,156.7258 763.44,210.5658 702.67,248.4858 " fill="none" id="Joueur-Salon" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#000000" points="862.5,157.8689,856.5,160.8689,862.5,163.8689,862.5,157.8689" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="25" x="868.5" y="164.4129">crée</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="912.5849" y="141.6406">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="28" x="902.0849" y="159.3467">hôte</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="710.4735" y="239.7875">*</text><!--MD5=[ccc48448974a1d2d5831791db60fa874]
+link Salon to Pack--><path d="M702.7,330.4258 C796.59,376.0558 951.49,452.2058 975.5,469.5158 C987.53,478.1858 999.43,488.8558 1010.02,499.3158 " fill="none" id="Salon-Pack" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="919.5" y="435.4129">utilise</text><polygon fill="#000000" points="957.5,428.8689,963.5,431.8689,957.5,434.8689,957.5,428.8689" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="710.5066" y="330.1775">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="996.0671" y="487.6017">1</text><!--MD5=[176a7d2195428adbc30361672d1b1022]
+reverse link Salon to Partie--><path d="M546.41,330.9958 C490.38,355.1358 415.4,388.4058 350.5,420.5158 C317.3,436.9358 281.88,455.6658 249.27,473.4158 " fill="none" id="Salon&lt;-Partie" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="558.42,325.8358,551.3272,324.5351,547.3985,330.582,554.4913,331.8828,558.42,325.8358" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#000000" points="358.5,428.8689,352.5,431.8689,358.5,434.8689,358.5,428.8689" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="50" x="364.5" y="435.4129">héberge</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="543.6258" y="325.1142">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="256.888" y="465.8118">0..1</text><!--MD5=[18b2ccefe97c70d27f7211a9274c21c7]
+link Joueur to apoint32--><path d="M886.23,81.0258 C721.29,90.2058 383.07,118.5258 301.5,198.5158 C273.16,226.3058 280.92,283.5958 282.31,292.3758 " fill="none" id="Joueur-apoint32" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#000000" points="393.5,157.8689,387.5,160.8689,393.5,163.8689,393.5,157.8689" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="399.5" y="164.4129">participe à</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="858.4765" y="77.6716">1..*</text><!--MD5=[7e9265aac4c7ab84b671eed4c18028ee]
+link apoint32 to Partie--><path d="M281.39,296.6658 C272.84,305.5458 216.78,364.5958 182.5,420.5158 C173.12,435.8158 164.38,452.9858 156.75,469.4958 " fill="none" id="apoint32-Partie" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="152.4055" y="457.9597">*</text><!--MD5=[22a1a7ad8f0bb5ed036cca34bc6038df]
+link apoint32 to Participation--><path d="M284.55,294.5158 C296.14,294.5158 307.73,294.5158 319.32,294.5158 " fill="none" id="apoint32-Participation" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[62ecf79b15e81cdde895498c3ad8122a]
+reverse link Pack to Question--><path d="M1098.03,596.3258 C1126.27,626.1458 1161.9,663.7858 1191.93,695.4958 " fill="none" id="Pack&lt;-Question" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1088.76,586.5358,1089.9758,593.6437,1097.0045,595.2552,1095.7887,588.1474,1088.76,586.5358" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="50" x="1163.5" y="661.4129">contient</text><polygon fill="#000000" points="1184,671.2219,1187,677.2219,1190,671.2219,1184,671.2219" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1087.6186" y="608.7567">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="1163.6547" y="683.8037">1..*</text><!--MD5=[e1a97310200a5f3b2830fc9ac800f04c]
+reverse link Question to Réponse--><path d="M1219.07,840.3058 C1217.04,846.0758 1215.15,851.8558 1213.5,857.5158 C1207.34,878.6458 1203.15,902.9858 1200.46,922.3558 " fill="none" id="Question&lt;-Réponse" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1223.74,827.7258,1217.9004,831.9566,1219.5598,838.9742,1225.3993,834.7434,1223.74,827.7258" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1214.5" y="872.4129">admet</text><polygon fill="#000000" points="1229.5,882.2219,1232.5,888.2219,1235.5,882.2219,1229.5,882.2219" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1213.1022" y="849.82">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="1179.3086" y="910.7775">1..*</text><!--MD5=[e364ec1b4a907f31c807582f3e1e1d62]
+reverse link Question to Média--><path d="M1284.17,840.1858 C1295.43,868.6958 1307.62,899.5658 1316.67,922.4858 " fill="none" id="Question&lt;-Média" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1279.25,827.7158,1277.74,834.7671,1283.668,838.873,1285.178,831.8217,1279.25,827.7158" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="40" x="1297.5" y="872.4129">illustre</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1274.6836" y="849.8089">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="1291.9785" y="910.6552">0..*</text><!--MD5=[e54c705208b6e33fdf6605af36c39147]
+link Question to Tag--><path d="M1322.05,827.7158 C1358.6,862.4858 1401.64,903.4258 1429.46,929.8958 " fill="none" id="Question-Tag" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="1368.5" y="872.4129">catégorisé</text><polygon fill="#000000" points="1433.5,865.8689,1439.5,868.8689,1433.5,871.8689,1433.5,865.8689" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1322.1648" y="849.8089">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1414.9351" y="918.2528">*</text><!--MD5=[4af9761b17481f1cd493d919dbdd5678]
+link Joueur to apoint42--><path d="M1049.61,119.7158 C1078.05,140.0958 1108.43,166.9658 1127.5,198.5158 C1148.03,232.4858 1146.86,284.5558 1146.55,292.4858 " fill="none" id="Joueur-apoint42" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="28" x="1102.5" y="164.4129">note</text><polygon fill="#000000" points="1112,174.2219,1115,180.2219,1118,174.2219,1112,174.2219" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1053.1159" y="141.6379">*</text><!--MD5=[ae6be7ff34b95bf5d24095da5fd8a111]
+link apoint42 to Question--><path d="M1146.47,296.5458 C1146.3,304.4558 1145.97,356.4458 1166.5,390.5158 C1194.84,437.5458 1238.18,419.7958 1261.5,469.5158 C1295.09,541.1258 1284.62,633.9358 1271.41,695.2658 " fill="none" id="apoint42-Question" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="7" x="1266.0762" y="683.5471">*</text><!--MD5=[ba9e57486127603df8f50ed5ef6ecd49]
+link apoint42 to Vote--><path d="M1148.52,294.5158 C1160.14,294.5158 1171.77,294.5158 1183.39,294.5158 " fill="none" id="apoint42-Vote" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[94413b360184077742b9dc78ff9f87d1]
+link Salon to Visibilité--><path d="M558.45,339.7558 C507.8,372.5058 439.82,419.8958 386.5,469.5158 C378.48,476.9758 370.55,485.5058 363.21,494.0158 " fill="none" id="Salon-&gt;Visibilité" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="359.65,498.1958,368.5271,493.93,362.8887,494.3865,362.4321,488.7481,359.65,498.1958" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[0edd6f5a5f5ef3a3a71e7f5c9faa2f5c]
+link Salon to ModeJeu--><path d="M565.16,390.8158 C543.03,423.0958 519.05,458.0758 499.73,486.2458 " fill="none" id="Salon-&gt;ModeJeu" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="496.67,490.7158,505.0649,485.5656,499.5026,486.5956,498.4726,481.0334,496.67,490.7158" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[fcb0044eb4026684a3df345642dddc95]
+link Salon to TypeCotation--><path d="M630.5,390.8158 C630.5,425.7658 630.5,463.8758 630.5,493.0958 " fill="none" id="Salon-&gt;TypeCotation" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="630.5,498.4458,634.5,489.4458,630.5,493.4458,626.5,489.4458,630.5,498.4458" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[fd73fd765139abaf40840470038ff9b7]
+link Question to StatutQuestion--><path d="M1192.31,827.7158 C1168.34,853.2558 1141.25,882.1258 1118.71,906.1458 " fill="none" id="Question-&gt;StatutQuestion" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="1115.13,909.9558,1124.2031,906.1246,1118.5492,906.3077,1118.3661,900.6538,1115.13,909.9558" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[958dd6983418abc56daf05d8ca63f3ca]
+link Pack to TypePack--><path d="M1048.5,586.5358 C1048.5,622.4458 1048.5,673.9058 1048.5,711.5358 " fill="none" id="Pack-&gt;TypePack" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="1048.5,716.9858,1052.5,707.9858,1048.5,711.9858,1044.5,707.9858,1048.5,716.9858" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[206c9e20919c88c7ecbab8d87a2e6f36]
+link Partie to ÉtatPartie--><path d="M127.5,616.7058 C127.5,645.1558 127.5,677.2858 127.5,703.9458 " fill="none" id="Partie-&gt;ÉtatPartie" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="127.5,709.2058,131.5,700.2058,127.5,704.2058,123.5,700.2058,127.5,709.2058" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[0468ec2a0122ef08663728680bdfbd05]
+link Média to TypeMédia--><path d="M1330.5,994.8058 C1330.5,1015.8758 1330.5,1042.9558 1330.5,1066.0858 " fill="none" id="Média-&gt;TypeMédia" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="1330.5,1071.2558,1334.5,1062.2558,1330.5,1066.2558,1326.5,1062.2558,1330.5,1071.2558" style="stroke: #6E1423; stroke-width: 1.0;"/><!--MD5=[36cdc6e9a2ed45e3be57833c0154ffb5]
+@startuml
+title Diagramme de classes — Projet Cultissime (entités métier)
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+  ArrowColor #6e1423
+}
+hide circle
+
+class Visibilité <<enumeration>> {
+  PUBLIC
+  PRIVÉ
+}
+class ModeJeu <<enumeration>> {
+  COURSE_AU_SCORE
+  ÉLIMINATION
+  ÉQUIPES
+}
+class TypeCotation <<enumeration>> {
+  AU_TEMPS
+  VALIDATION_FIN_MANCHE
+}
+class StatutQuestion <<enumeration>> {
+  EN_ATTENTE
+  VALIDÉE
+  REFUSÉE
+}
+class TypePack <<enumeration>> {
+  OFFICIEL
+  COMMUNAUTAIRE
+}
+class ÉtatPartie <<enumeration>> {
+  EN_ATTENTE
+  EN_COURS
+  TERMINÉE
+}
+class TypeMédia <<enumeration>> {
+  IMAGE
+  SON
+}
+
+abstract class Joueur {
+  # pseudo : String
+  + rejoindreSalon(s : Salon)
+  + soumettreRéponse(r : Réponse)
+}
+
+class Invité extends Joueur
+
+class Membre extends Joueur {
+  - login : String
+  - email : String
+  - motDePasse : String
+  - dateInscription : Date
+  + partiesJouées : int
+  + tauxBonnesRéponses : float
+  + tempsRéponseMoyen : float
+  + sAuthentifier(login : String, mdp : String) : bool
+  + soumettreQuestion(q : Question)
+  + souscrire() : Abonnement
+}
+
+class Abonnement {
+  - dateDébut : Date
+  - dateFin : Date
+  + estActif() : bool
+}
+
+class Salon {
+  - code : String
+  - visibilité : Visibilité
+  - capacitéMax : int
+  - état : String
+  - mode : ModeJeu
+  - cotation : TypeCotation
+  - conditionVictoire : int
+  + ajouterJoueur(j : Joueur)
+  + exclureJoueur(j : Joueur)
+  + fermer()
+}
+
+class Partie {
+  - dateDébut : Date
+  - dateFin : Date
+  - état : ÉtatPartie
+  + démarrer()
+  + questionSuivante() : Question
+  + évaluerRéponse(j : Joueur, r : Réponse) : int
+  + clôturer() : Classement
+}
+
+class Participation {
+  + score : int
+  + rang : int
+  + vies : int
+}
+
+class Pack {
+  - titre : String
+  - type : TypePack
+  + estJouable() : bool
+}
+
+class Question {
+  - énoncé : String
+  - statut : StatutQuestion
+  - votesPositifs : int
+  - votesNégatifs : int
+  / score : int
+  + ajouterVote(valeur : int)
+}
+
+class Réponse {
+  - texte : String
+  - correcte : bool
+}
+
+class Média {
+  - url : String
+  - type : TypeMédia
+}
+
+class Tag {
+  - nom : String
+}
+
+class Vote {
+  + valeur : int
+}
+
+Joueur <|- - Invité
+Joueur <|- - Membre
+
+Membre "1" - - "0..1" Abonnement : souscrit >
+Membre "1" - - "*" Pack : crée >
+
+Joueur "1\nhôte" - - "*" Salon : crée >
+Salon "*" - - "1" Pack : utilise >
+Salon "1" *- - "0..1" Partie : héberge >
+
+Joueur "1..*" - - "*" Partie : participe à >
+(Joueur, Partie) .. Participation
+
+Pack "1" *- - "1..*" Question : contient >
+Question "1" *- - "1..*" Réponse : admet >
+Question "1" *- - "0..*" Média : illustre 
+Question "*" - - "*" Tag : catégorisé >
+
+Joueur "*" - - "*" Question : note >
+(Joueur, Question) .. Vote
+
+Salon ..> Visibilité
+Salon ..> ModeJeu
+Salon ..> TypeCotation
+Question ..> StatutQuestion
+Pack ..> TypePack
+Partie ..> ÉtatPartie
+Média ..> TypeMédia
+
+note top of Abonnement
+  { context Membre :
+    abonnement->size() <= 1 }
+end note
+
+note right of Question
+  { context Question :
+    score = votesPositifs - votesNégatifs }
+  { context Partie :
+    questions->forAll(q |
+      q.statut = VALIDÉE) }
+end note
+
+note bottom of Salon
+  { context Salon :
+    joueurs->size() <= capacitéMax }
+end note
+
+note bottom of Invité
+  { context Invité :
+    pack->isEmpty() }
+end note
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.11+10-1-24.04.2-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: fr
+Country: BE
+--></g></svg>

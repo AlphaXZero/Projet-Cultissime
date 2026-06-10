@@ -1,0 +1,32 @@
+@startuml
+title Créer un salon — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+boundary ":IHMSalon" as IHM
+control ":CtrlSalon" as C
+entity "salon:Salon" as S
+database ":BaseDeDonnées" as BD
+
+J -> IHM : créerSalon()
+activate IHM
+IHM --> J : afficherOptionsConfiguration()
+
+J -> IHM : configurerPartie(pack, mode, cotation, visibilité, conditionVictoire)
+note right of IHM : inclut « Configurer la partie »
+IHM -> C : créerSalon(configuration, idHôte)
+activate C
+create S
+C -> S : <<create>> créer(configuration, idHôte)
+C -> BD : enregistrerSalon(salon)
+C --> IHM : salonOuvert(lienPartage)
+deactivate C
+IHM --> J : afficherSalon(lienPartage)
+deactivate IHM
+@enduml

@@ -1,0 +1,193 @@
+@startuml
+title Diagramme de classes — Projet Cultissime (entités métier)
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+  ArrowColor #6e1423
+}
+hide circle
+
+' ===================== ÉNUMÉRATIONS =====================
+class Visibilité <<enumeration>> {
+  PUBLIC
+  PRIVÉ
+}
+class ModeJeu <<enumeration>> {
+  COURSE_AU_SCORE
+  ÉLIMINATION
+  ÉQUIPES
+}
+class TypeCotation <<enumeration>> {
+  AU_TEMPS
+  VALIDATION_FIN_MANCHE
+}
+class StatutQuestion <<enumeration>> {
+  EN_ATTENTE
+  VALIDÉE
+  REFUSÉE
+}
+class TypePack <<enumeration>> {
+  OFFICIEL
+  COMMUNAUTAIRE
+}
+class ÉtatPartie <<enumeration>> {
+  EN_ATTENTE
+  EN_COURS
+  TERMINÉE
+}
+class TypeMédia <<enumeration>> {
+  IMAGE
+  SON
+}
+
+' ===================== CLASSES =====================
+abstract class Joueur {
+  # pseudo : String
+  + rejoindreSalon(s : Salon)
+  + soumettreRéponse(r : Réponse)
+}
+
+class Invité extends Joueur
+
+class Membre extends Joueur {
+  - login : String
+  - email : String
+  - motDePasse : String
+  - dateInscription : Date
+  + partiesJouées : int
+  + tauxBonnesRéponses : float
+  + tempsRéponseMoyen : float
+  + sAuthentifier(login : String, mdp : String) : bool
+  + soumettreQuestion(q : Question)
+  + souscrire() : Abonnement
+}
+
+class Abonnement {
+  - dateDébut : Date
+  - dateFin : Date
+  + estActif() : bool
+}
+
+class Salon {
+  - code : String
+  - visibilité : Visibilité
+  - capacitéMax : int
+  - état : String
+  - mode : ModeJeu
+  - cotation : TypeCotation
+  - conditionVictoire : int
+  + ajouterJoueur(j : Joueur)
+  + exclureJoueur(j : Joueur)
+  + fermer()
+}
+
+class Partie {
+  - dateDébut : Date
+  - dateFin : Date
+  - état : ÉtatPartie
+  + démarrer()
+  + questionSuivante() : Question
+  + évaluerRéponse(j : Joueur, r : Réponse) : int
+  + clôturer() : Classement
+}
+
+class Participation {
+  + score : int
+  + rang : int
+  + vies : int
+}
+
+class Pack {
+  - titre : String
+  - type : TypePack
+  + estJouable() : bool
+}
+
+class Question {
+  - énoncé : String
+  - statut : StatutQuestion
+  - votesPositifs : int
+  - votesNégatifs : int
+  / score : int
+  + ajouterVote(valeur : int)
+}
+
+class Réponse {
+  - texte : String
+  - correcte : bool
+}
+
+class Média {
+  - url : String
+  - type : TypeMédia
+}
+
+class Tag {
+  - nom : String
+}
+
+class Vote {
+  + valeur : int
+}
+
+' ===================== HÉRITAGE =====================
+Joueur <|-- Invité
+Joueur <|-- Membre
+
+' ===================== ASSOCIATIONS =====================
+Membre "1" -- "0..1" Abonnement : souscrit >
+Membre "1" -- "*" Pack : crée >
+
+Joueur "1\nhôte" -- "*" Salon : crée >
+Salon "*" -- "1" Pack : utilise >
+Salon "1" *-- "0..1" Partie : héberge >
+
+Joueur "1..*" -- "*" Partie : participe à >
+(Joueur, Partie) .. Participation
+
+Pack "1" *-- "1..*" Question : contient >
+Question "1" *-- "1..*" Réponse : admet >
+Question "1" *-- "0..*" Média : illustre 
+Question "*" -- "*" Tag : catégorisé >
+
+Joueur "*" -- "*" Question : note >
+(Joueur, Question) .. Vote
+
+' ===================== DÉPENDANCES VERS ENUMS =====================
+Salon ..> Visibilité
+Salon ..> ModeJeu
+Salon ..> TypeCotation
+Question ..> StatutQuestion
+Pack ..> TypePack
+Partie ..> ÉtatPartie
+Média ..> TypeMédia
+
+' ===================== CONTRAINTES (UML 1.4, entre accolades) =====================
+note top of Abonnement
+  { context Membre :
+    abonnement->size() <= 1 }
+end note
+
+note right of Question
+  { context Question :
+    score = votesPositifs - votesNégatifs }
+  { context Partie :
+    questions->forAll(q |
+      q.statut = VALIDÉE) }
+end note
+
+note bottom of Salon
+  { context Salon :
+    joueurs->size() <= capacitéMax }
+end note
+
+note bottom of Invité
+  { context Invité :
+    pack->isEmpty() }
+end note
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+title Souscrire un abonnement — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+boundary ":IHMAbonnement" as IHM
+control ":CtrlAbonnement" as C
+entity "abonnement:Abonnement" as A
+participant "Prestataire\nde paiement" as P
+database ":BaseDeDonnées" as BD
+
+U -> IHM : sélectionnerAbonnement()
+activate IHM
+IHM --> U : afficherRécapitulatif(offre, prix)
+
+U -> IHM : confirmerPaiement(infosPaiement)
+IHM -> C : souscrire(idJoueur, infosPaiement)
+activate C
+C -> P : demanderPaiement(montant, infosPaiement)
+activate P
+P --> C : paiementConfirmé()
+deactivate P
+create A
+C -> A : <<create>> créer(idJoueur, dateDébut)
+C -> BD : enregistrerAbonnement(abonnement)
+C --> IHM : abonnementActivé()
+deactivate C
+IHM --> U : afficherConfirmation()
+deactivate IHM
+@enduml

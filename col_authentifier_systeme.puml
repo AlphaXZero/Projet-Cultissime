@@ -1,0 +1,12 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+object "Utilisateur" as U
+object ":Système" as S
+U --> S : 1: demanderConnexion()
+S --> U : 2: afficherFormulaire()
+U --> S : 3: soumettreIdentifiants(login, mdp)
+S --> U : 4: sessionOuverte(espaceUtilisateur)
+@enduml

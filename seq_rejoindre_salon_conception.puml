@@ -1,0 +1,41 @@
+@startuml
+title Rejoindre un salon — séquence de conception (nominal)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+boundary ":IHMSalon" as IHM
+control ":CtrlSalon" as C
+entity "salon:Salon" as S
+database ":BaseDeDonnées" as BD
+
+J -> IHM : consulterSalonsPublics()
+activate IHM
+IHM -> C : listerSalons()
+activate C
+C -> BD : chargerSalonsOuverts()
+activate BD
+BD --> C : listeSalons
+deactivate BD
+C --> IHM : listeSalons
+deactivate C
+IHM --> J : afficherListe(listeSalons)
+
+J -> IHM : rejoindreSalon(idSalon)
+IHM -> C : rejoindreSalon(idSalon, idJoueur)
+activate C
+C -> S : vérifierDisponibilité()
+activate S
+S --> C : placeDisponible
+deactivate S
+C -> S : ajouterJoueur(idJoueur)
+C --> IHM : salonRejoint(étatSalon)
+deactivate C
+IHM --> J : afficherSalon(étatSalon)
+deactivate IHM
+@enduml
