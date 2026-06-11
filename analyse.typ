@@ -133,6 +133,10 @@
     text(size: 15pt, weight: "regular", fill: accent)[#spaced[Table des matières]]
     v(0.8em)
     outline(title: none, indent: auto, depth: 2)
+    v(1.2em)
+    text(size: 15pt, weight: "regular", fill: accent)[#spaced[Table des figures]]
+    v(0.8em)
+    outline(title: none, target: figure.where(kind: image))
   }
   pagebreak()
 
@@ -161,6 +165,42 @@ Le présent document constitue l'analyse et la conception d'une application web 
 L'application vise à proposer un jeu de quiz rapide en temps réel, où des joueurs réunis dans un même salon répondent simultanément à des questions, dans l'esprit de jeux existants comme PopSauce, mais en corrigeant plusieurs de leurs limites. Le projet met l'accent sur l'accès immédiat au jeu, la richesse et la qualité du contenu, et une expérience soignée.
 
 Le document s'ouvre sur le _cahier des charges_, qui recense les besoins et délimite le périmètre du système. Il se poursuit par le _diagramme de cas d'utilisation_, qui en formalise la vision fonctionnelle, accompagné de la couverture des exigences et du découpage du développement en incréments. Les diagrammes dynamiques et statiques, ainsi que le glossaire, complètent l'analyse. Conformément aux consignes, le cahier des charges pourra faire l'objet d'amendements au fil de l'analyse.
+
+= Conventions de notation
+
+Afin de garantir la cohérence et la lisibilité de l'analyse, les diagrammes de ce document suivent un ensemble de conventions explicitées ici.
+
+== Version d'UML retenue
+
+L'analyse est menée en notation #smallcaps[uml] 1.4.1, conformément à la version de référence du cours. Certaines constructions n'existent toutefois que dans des versions ultérieures de la norme ; lorsqu'une telle construction est employée, elle est signalée par le stéréotype « UML 2.0 », afin que le lecteur identifie clairement l'emprunt. C'est notamment le cas des fragments combinés (boucle, alternative) des diagrammes de séquence. Les diagrammes de classes, d'états-transitions, de packages et d'activité présentés ici n'emploient aucune construction de ce type et relèvent donc intégralement d'UML 1.4.1.
+
+== Stéréotypes employés
+
+Les stéréotypes, notés entre guillemets français « … », précisent la nature d'un élément. Le tableau suivant récapitule ceux utilisés dans le document.
+
+#table(
+  columns: (auto, auto, 1fr),
+  inset: 7pt,
+  align: (left + horizon, left + horizon, left),
+  table.header([*Stéréotype*], [*Diagramme(s)*], [*Signification*]),
+  [« include »], [Cas d'utilisation], [Le cas de base intègre systématiquement le comportement du cas inclus.],
+  [« extend »], [Cas d'utilisation], [Le cas d'extension complète le cas de base de façon optionnelle, sous condition.],
+  [« boundary »],
+  [Séquence (conception)],
+  [Objet d'interface (frontière) de Jacobson : point de contact entre un acteur et le système.],
+
+  [« control »],
+  [Séquence (conception)],
+  [Objet de contrôle de Jacobson : orchestre la logique applicative d'un cas d'utilisation.],
+
+  [« entity »], [Séquence (conception)], [Objet entité de Jacobson : donnée métier persistante.],
+  [« create »], [Séquence, collaboration], [Message de création d'un objet.],
+  [« destroy »], [Séquence, collaboration], [Message de destruction d'un objet.],
+  [« minuté »], [Séquence, collaboration], [Message soumis à une contrainte de temps (décompte du chronomètre).],
+  [« enumeration »], [Classes], [Classificateur dont les instances sont un ensemble fini de valeurs nommées.],
+  [« use »], [Packages], [Dépendance d'utilisation : un paquet dépend des éléments d'un autre.],
+  [« UML 2.0 »], [Tous], [Marque une construction empruntée à UML 2.0 dans une analyse menée en UML 1.4.1.],
+)
 
 = Cahier des charges
 
@@ -947,4 +987,31 @@ L'extrait ci-dessous traduit les entités les plus représentatives : la hiérar
 
   [Incrément],
   [Ensemble cohérent de fonctionnalités livré au cours d'une étape du développement itératif et incrémental.],
+
+  [Temps réel],
+  [Mode de fonctionnement où les informations sont échangées et affichées quasi instantanément, sans rafraîchissement manuel, condition essentielle d'une partie multijoueur synchrone.],
+
+  [WebSocket],
+  [Technologie de communication établissant une connexion persistante et bidirectionnelle entre le navigateur et le serveur, permettant à ce dernier d'envoyer des données au client sans attendre de requête.],
+
+  [Latence],
+  [Délai entre l'émission d'une information et sa réception ; une latence faible est déterminante pour l'équité du jeu.],
+
+  [SGBDR],
+  [Système de gestion de base de données relationnelle : logiciel organisant les données en tables reliées par des clés, adapté à des données structurées (par exemple PostgreSQL).],
+
+  [Redis],
+  [Magasin de données en mémoire, utilisé ici pour l'état éphémère des parties et comme mécanisme de publication-souscription entre instances du serveur.],
+
+  [Table de jointure],
+  [Table intermédiaire qui matérialise, au niveau relationnel, une association plusieurs-à-plusieurs entre deux entités (par exemple entre question et tag).],
+
+  [Objet de Jacobson],
+  [Catégorisation des objets d'analyse en trois rôles : interface (_boundary_), contrôle (_control_) et entité (_entity_).],
+
+  [OCL],
+  [_Object Constraint Language_ : langage de la norme UML servant à exprimer des contraintes formelles sur un modèle. Les contraintes du présent document sont notées entre accolades, à la manière d'UML 1.4.],
+
+  [RGPD],
+  [Règlement général sur la protection des données : cadre légal européen encadrant le traitement des données personnelles.],
 )
