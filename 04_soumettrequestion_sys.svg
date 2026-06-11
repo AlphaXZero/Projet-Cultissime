@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="379px" preserveAspectRatio="none" style="width:542px;height:379px;" version="1.1" viewBox="0 0 542 379" width="542px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="437" x="56" y="16.708">Soumettre une question — collaboration système</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="150" x="6" y="168.0831"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="13" y="181.2218">Utilisateur authentifié</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="155" y1="186.0519" y2="186.0519"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="71" x="460" y="168.0831"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="467" y="181.2218">:Système</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="461" x2="530" y1="186.0519" y2="186.0519"/><!--link A to S--><path d="M92.83,167.6731 C109.37,142.9431 143.54,98.6631 186,81.0831 C286.19,39.5831 335.24,28.3431 430,81.0831 C461.33,98.5131 479.38,138.1531 488.05,163.1431 " fill="none" id="A-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="489.66,167.9431,490.5909,158.1384,488.0703,163.2026,483.0061,160.6819,489.66,167.9431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="187" x="214.5" y="42.15">1: ouvrirFormulaireQuestion()</text><!--link S to A--><path d="M465.97,202.1831 C455.11,207.7731 442.36,213.2631 430,216.0831 C324.27,240.1731 293.31,231.7331 186,216.0831 C168.68,213.5531 150.24,208.7831 133.77,203.7231 " fill="none" id="S-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="128.72,202.1431,136.1061,208.6581,133.4899,203.6426,138.5053,201.0264,128.72,202.1431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="141" x="237.5" y="212.15">2: afficherFormulaire()</text><!--link A to S--><path d="M110.88,167.9931 C131.14,157.0431 159.27,143.8431 186,138.0831 C292.01,115.2331 326.89,104.4931 430,138.0831 C446.22,143.3631 461.75,154.4231 473.51,164.4931 " fill="none" id="A-S-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="477.35,167.8631,473.2276,158.9185,473.5933,164.5635,467.9483,164.9292,477.35,167.8631" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="242" x="187" y="113.15">3: remplirQuestion(énoncé, réponses)</text><!--link S to A--><path d="M485.04,202.2631 C474.3,219.7831 454.98,245.9231 430,257.0831 C330.99,301.3131 289.51,289.4131 186,257.0831 C153.77,247.0131 122.74,223.0631 103.1,205.5431 " fill="none" id="S-A-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="99.32,202.1331,103.3338,211.127,103.0365,205.4779,108.6855,205.1806,99.32,202.1331" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="211" x="202.5" y="253.15">4: afficherCatégoriesSuggérées()</text><!--link A to S--><path d="M156.22,185.0831 C243.71,185.0831 385.88,185.0831 454.68,185.0831 " fill="none" id="A-S-2" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="459.91,185.0831,450.91,181.0831,454.91,185.0831,450.91,189.0831,459.91,185.0831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="233" y="181.15">5: soumettreQuestion()</text><!--link S to A--><path d="M491.51,202.3831 C485.55,230.9231 469.21,287.1031 430,311.0831 C337.48,367.6531 284.1,357.3031 186,311.0831 C140.21,289.5031 107.72,236.7831 92.24,206.8231 " fill="none" id="S-A-2" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="89.91,202.2131,90.4075,212.0494,92.1689,206.6738,97.5446,208.4351,89.91,202.2131" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="180" x="218" y="307.15">6: confirmationSoumission()</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam databaseBorderColor #6e1423
+skinparam databaseBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+
+title Soumettre une question — collaboration système
+
+object "Utilisateur authentifié" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: ouvrirFormulaireQuestion()
+S -[#6e1423]-> A : 2: afficherFormulaire()
+A -[#6e1423]-> S : 3: remplirQuestion(énoncé, réponses)
+S -[#6e1423]-> A : 4: afficherCatégoriesSuggérées()
+A -[#6e1423]-> S : 5: soumettreQuestion()
+S -[#6e1423]-> A : 6: confirmationSoumission()
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

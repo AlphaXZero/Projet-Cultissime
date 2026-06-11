@@ -728,6 +728,71 @@ Le diagramme de classes décrit la vue statique du système : les entités méti
 
 *Expression des contraintes.* Les règles non exprimables par la seule notation graphique sont indiquées entre accolades `{…}`, conformément à la notation des contraintes d'UML 1.4. Le langage OCL, normalisé plus tardivement avec UML 2.0, n'est pas employé tel quel afin de rester cohérent avec la version de référence.
 
+= Diagrammes de collaboration
+
+Les diagrammes de collaboration présentent la même information que les diagrammes de séquence, organisée spatialement autour des objets : chaque message est numéroté selon son ordre chronologique. Sont présentés, pour chaque cas, le niveau système (boîte noire) puis le niveau de conception (boîte blanche).
+
+== Niveau système (boîte noire)
+
+#figure(
+  image("collab_puml/00_authentifier_sys.svg", width: 75%),
+  caption: [Collaboration système — « S'authentifier ».],
+)
+
+#figure(
+  image("collab_puml/01_rejoindresalon_sys.svg", width: 75%),
+  caption: [Collaboration système — « Rejoindre un salon ».],
+)
+
+#figure(image("collab_puml/02_creersalon_sys.svg", width: 75%), caption: [Collaboration système — « Créer un salon ».])
+
+#figure(
+  image("collab_puml/03_jouerpartie_sys.svg", width: 80%),
+  caption: [Collaboration système — « Jouer une partie ».],
+)
+
+#figure(
+  image("collab_puml/04_soumettrequestion_sys.svg", width: 80%),
+  caption: [Collaboration système — « Soumettre une question ».],
+)
+
+#figure(
+  image("collab_puml/05_souscrireabonnement_sys.svg", width: 95%),
+  caption: [Collaboration système — « Souscrire un abonnement ».],
+)
+
+== Niveau de conception (boîte blanche)
+
+#figure(
+  image("collab_puml/06_authentifier_conc.svg", width: 95%),
+  caption: [Collaboration de conception — « S'authentifier ».],
+)
+
+#figure(
+  image("collab_puml/07_rejoindresalon_conc.svg", width: 95%),
+  caption: [Collaboration de conception — « Rejoindre un salon ».],
+)
+
+#figure(
+  image("collab_puml/08_creersalon_conc.svg", width: 90%),
+  caption: [Collaboration de conception — « Créer un salon ».],
+)
+
+#figure(
+  image("collab_puml/09_jouerpartie_conc.svg", width: 100%),
+  caption: [Collaboration de conception — « Jouer une partie ».],
+)
+
+#figure(
+  image("collab_puml/10_soumettrequestion_conc.svg", width: 95%),
+  caption: [Collaboration de conception — « Soumettre une question ».],
+)
+
+#figure(
+  image("collab_puml/11_souscrireabonnement_conc.svg", width: 100%),
+  caption: [Collaboration de conception — « Souscrire un abonnement ».],
+)
+
 = Étude technologique
 
 Le choix des technologies n'est pas figé à ce stade. Cette section recense les solutions envisagées et les met en regard de la contrainte directrice du projet, afin d'éclairer une décision ultérieure.
@@ -807,6 +872,36 @@ Le diagramme d'activité décrit la logique du déroulement d'une partie sous fo
 On distingue notamment le #emph[parallélisme] introduit par les barres de synchronisation : tous les joueurs d'un salon répondent simultanément à une même question. La condition de fin de partie structure la boucle principale, qui se répète jusqu'à ce que le seuil de points ou le nombre de questions soit atteint.
 
 Les deux modes de cotation diffèrent par la place de l'évaluation. En cotation au temps, les réponses sont évaluées et le classement actualisé à chaque question, à l'intérieur de la boucle. En validation en fin de partie, les réponses sont seulement collectées pendant la boucle, sans évaluation ni classement intermédiaire ; elles ne sont vérifiées et créditées qu'une fois la partie terminée, en un seul traitement. Cette distinction justifie la présence d'un second point de décision, situé après la boucle.
+
+= Diagramme d'états-transitions
+
+Le diagramme d'états-transitions décrit le cycle de vie d'un objet en représentant les états par lesquels il passe et les transitions qui les relient. Le choix s'est porté sur la classe `Question`, dont le cycle de vie illustre à la fois le processus de modération et son interaction avec le système de votes.
+
+#figure(
+  image("etats-transition.svg", width: 70%),
+  caption: [Diagramme d'états-transitions du cycle de vie d'une question.],
+)
+
+À sa soumission, une question entre dans l'état #emph[En attente], où elle est présentée au modérateur. Celui-ci peut la valider — elle devient alors #emph[Validée] et jouable, présentée en partie selon son score de votes — ou la refuser. Une question refusée peut être corrigée et resoumise. Le lien entre les votes et la modération apparaît dans la transition gardée qui ramène une question validée à l'état #emph[En attente] lorsque son taux de votes négatifs dépasse un seuil : elle est alors automatiquement renvoyée en modération. Les activités internes aux états (#emph[entry], #emph[do]) précisent les traitements associés.
+
+= Diagramme de packages
+
+Le diagramme de packages organise les classes du système en paquets cohérents et met en évidence leurs dépendances. Le découpage retenu est thématique : il regroupe les entités par domaine fonctionnel, ce qui reflète les grands volets de l'application et facilite une réalisation incrémentale, chaque paquet pouvant être développé et testé de façon relativement autonome.
+
+#figure(
+  image("package.svg", width: 85%),
+  caption: [Diagramme de packages du système « Projet Cultissime ».],
+)
+
+Trois paquets sont identifiés : #emph[Comptes] regroupe les acteurs et leur abonnement (Joueur, Invité, Membre, Abonnement) ; #emph[Jeu] rassemble la mécanique de partie (Salon, Partie, Participation) ; #emph[Contenu] contient le matériel de jeu et son évaluation (Pack, Question, Réponse, Média, Tag, Vote). Les dépendances sont orientées sans cycle : le paquet #emph[Jeu] dépend de #emph[Comptes] et de #emph[Contenu], et le paquet #emph[Contenu] dépend de #emph[Comptes].
+
+= Traduction des classes en code
+
+Conformément aux consignes, les classes d'analyse des fonctionnalités majeures sont traduites en code afin de valider le passage du modèle de conception à l'implémentation. Le langage retenu pour cette traduction est C\#, dans la perspective — non définitive à ce stade — d'une réalisation avec ASP.NET et Blazor (voir l'étude technologique). Ce choix reste susceptible d'évoluer ; le diagramme de classes demeure toutefois directement transposable dans un autre langage orienté objet.
+
+L'extrait ci-dessous traduit les entités les plus représentatives : la hiérarchie d'héritage (#raw("Joueur"), #raw("Invité"), #raw("Membre")), une énumération, l'attribut dérivé #raw("Score") de la classe #raw("Question"), ainsi que les deux classes d'association #raw("Participation") et #raw("Vote").
+
+#raw(read("Cultissime.cs"), lang: "csharp", block: true)
 
 = Glossaire
 

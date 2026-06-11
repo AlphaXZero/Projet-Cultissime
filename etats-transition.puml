@@ -1,0 +1,29 @@
+@startuml
+title Diagramme d'états-transitions — Cycle de vie d'une Question
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam state {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+  ArrowColor #6e1423
+}
+
+[*] --> EnAttente : soumettre()
+
+EnAttente : do / présenter au modérateur
+
+EnAttente --> Validée : valider()
+EnAttente --> Refusée : refuser()
+
+Validée : entry / rendre jouable
+Validée : do / présentée en partie selon son score
+
+Validée --> EnAttente : tauxVotesNégatifs élevé\n[seuil dépassé] / renvoyer en modération
+
+Refusée --> EnAttente : corriger et resoumettre()
+
+Validée --> Archivée : retirer()
+Refusée --> [*] : supprimer()
+Archivée --> [*]
+@enduml

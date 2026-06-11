@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Jouer une partie — collaboration de conception
+
+object "Joueur" as A
+object ":IHMJeu" as IHM
+object ":CtrlPartie" as C
+object "partie:Partie" as E
+object ":BaseDeDonnées" as BD
+
+A -[#6e1423]-> IHM : 1: lancerPartie()
+IHM -[#6e1423]-> C : 2: démarrerPartie(idSalon)
+C -[#6e1423]-> E : 3: créer(config)
+C -[#6e1423]-> BD : 4: chargerQuestions(pack)
+C -[#6e1423]-> E : 5: questionSuivante()
+C -[#6e1423]-> IHM : 6: afficherQuestion(q, temps)
+IHM -[#6e1423]-> A : 7: afficherQuestion(q)
+A -[#6e1423]-> IHM : 8: soumettreRéponse(rép)
+IHM -[#6e1423]-> C : 9: enregistrerRéponse(idJoueur, rép)
+C -[#6e1423]-> E : 10: évaluerRéponse(idJoueur, rép)
+C -[#6e1423]-> IHM : 11: afficherClassement()
+C -[#6e1423]-> E : 12: clôturer()
+C -[#6e1423]-> BD : 13: enregistrerRésultats()
+C -[#6e1423]-> IHM : 14: afficherClassementFinal()
+@enduml

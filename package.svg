@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="432px" preserveAspectRatio="none" style="width:813px;height:432px;" version="1.1" viewBox="0 0 813 432" width="813px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="384" x="224.5" y="19.2419">Diagramme de packages — Projet Cultissime</text><!--MD5=[222ef5adf2a3e54c29a3b166096af124]
+cluster Comptes--><polygon fill="#FAF5F5" points="30,74.5158,98,74.5158,105,99.5838,253,99.5838,253,315.5158,30,315.5158,30,74.5158" style="stroke: #6E1423; stroke-width: 1.5;"/><line style="stroke: #6E1423; stroke-width: 1.5;" x1="30" x2="105" y1="99.5838" y2="99.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="34" y="91.4818">Comptes</text><!--MD5=[76e909564636371a7c0f414e088aa301]
+cluster Jeu--><polygon fill="#FAF5F5" points="612,74.5158,640,74.5158,647,99.5838,791,99.5838,791,315.5158,612,315.5158,612,74.5158" style="stroke: #6E1423; stroke-width: 1.5;"/><line style="stroke: #6E1423; stroke-width: 1.5;" x1="612" x2="647" y1="99.5838" y2="99.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="22" x="616" y="91.4818">Jeu</text><!--MD5=[5991520761a80f84b64106aa1cd39b22]
+cluster Contenu--><polygon fill="#FAF5F5" points="293,219.5158,358,219.5158,365,244.5838,572,244.5838,572,420.5158,293,420.5158,293,219.5158" style="stroke: #6E1423; stroke-width: 1.5;"/><line style="stroke: #6E1423; stroke-width: 1.5;" x1="293" x2="365" y1="244.5838" y2="244.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="59" x="297" y="236.4818">Contenu</text><!--MD5=[f35b8d93951ba498799a84be5600c0ca]
+class Joueur--><rect fill="#FFFFFF" height="26.3441" id="Joueur" style="stroke: #6E1423; stroke-width: 1.5;" width="42" x="86" y="120.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="36" x="89" y="138.3439">Joueur</text><!--MD5=[cd9a5b294059b2a9d502ba7778463eef]
+class Invité--><rect fill="#FFFFFF" height="26.3441" id="Invité" style="stroke: #6E1423; stroke-width: 1.5;" width="37" x="172.5" y="120.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="175.5" y="138.3439">Invité</text><!--MD5=[18cc4c69606d473731604386bcf93e26]
+class Membre--><rect fill="#FFFFFF" height="26.3441" id="Membre" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="54" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="57" y="283.3439">Membre</text><!--MD5=[ff641bcbd232b5539ed472630fe3952a]
+class Abonnement--><rect fill="#FFFFFF" height="26.3441" id="Abonnement" style="stroke: #6E1423; stroke-width: 1.5;" width="78" x="143" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="146" y="283.3439">Abonnement</text><!--MD5=[3040b5170f178f65c28ea3699dede2f3]
+class Salon--><rect fill="#FFFFFF" height="26.3441" id="Salon" style="stroke: #6E1423; stroke-width: 1.5;" width="37" x="655.5" y="120.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="658.5" y="138.3439">Salon</text><!--MD5=[a13b29b436488db240599346aff8582a]
+class Partie--><rect fill="#FFFFFF" height="26.3441" id="Partie" style="stroke: #6E1423; stroke-width: 1.5;" width="39" x="727.5" y="120.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="33" x="730.5" y="138.3439">Partie</text><!--MD5=[23bb12025fb3ea604555f955dd7f38e8]
+class Participation--><rect fill="#FFFFFF" height="26.3441" id="Participation" style="stroke: #6E1423; stroke-width: 1.5;" width="76" x="655" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="658" y="283.3439">Participation</text><!--MD5=[ed59bb8f54e2c8af7c561b182d70ca56]
+class Pack--><rect fill="#FFFFFF" height="26.3441" id="Pack" style="stroke: #6E1423; stroke-width: 1.5;" width="32" x="336" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="26" x="339" y="283.3439">Pack</text><!--MD5=[fc7123defb831ecdd44b2d9bcef6cceb]
+class Question--><rect fill="#FFFFFF" height="26.3441" id="Question" style="stroke: #6E1423; stroke-width: 1.5;" width="56" x="403" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="406" y="283.3439">Question</text><!--MD5=[469d1750fb933a295bbfde77cd87fe73]
+class Réponse--><rect fill="#FFFFFF" height="26.3441" id="Réponse" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="494" y="265.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="497" y="283.3439">Réponse</text><!--MD5=[b24c6582dab2ac8bc651f47ef3d9e689]
+class Média--><rect fill="#FFFFFF" height="26.3441" id="Média" style="stroke: #6E1423; stroke-width: 1.5;" width="41" x="336.5" y="370.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="339.5" y="388.3439">Média</text><!--MD5=[39d6d2ea03de602dbf4d534e70c872a9]
+class Tag--><rect fill="#FFFFFF" height="26.3441" id="Tag" style="stroke: #6E1423; stroke-width: 1.5;" width="27" x="412.5" y="370.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="21" x="415.5" y="388.3439">Tag</text><!--MD5=[6987bc66bd8845192e2addfb47d98466]
+class Vote--><rect fill="#FFFFFF" height="26.3441" id="Vote" style="stroke: #6E1423; stroke-width: 1.5;" width="31" x="474.5" y="370.5158"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="25" x="477.5" y="388.3439">Vote</text><!--MD5=[93ff4dde45e82cd877969d0ac9693cc6]
+link Jeu to Comptes--><path d="M611.4443,133.5158 C610.9869,133.5158 610.5124,133.5158 610.0212,133.5158 C609.0387,133.5158 607.9892,133.5158 606.8751,133.5158 C604.6469,133.5158 602.1604,133.5158 599.4355,133.5158 C588.5361,133.5158 573.8221,133.5158 556.5642,133.5158 C522.0484,133.5158 477.3569,133.5158 432.6537,133.5158 C387.9506,133.5158 343.2359,133.5158 308.6739,133.5158 C291.3929,133.5158 276.65,133.5158 265.7159,133.5158 C262.9823,133.5158 260.4868,133.5158 258.2492,133.5158 C257.1304,133.5158 256.0761,133.5158 255.0887,133.5158 C254.5951,133.5158 254.1181,133.5158 253.6582,133.5158 C253.5432,133.5158 253.4293,133.5158 253.3165,133.5158 " fill="none" id="Jeu-&gt;Comptes" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="253.3165,133.5158,262.3165,137.5158,258.3165,133.5158,262.3165,129.5158,253.3165,133.5158" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="415" y="126.4129">«use»</text><!--MD5=[b57ecda2d8bc58bdf6bec1fd506a2d95]
+link Jeu to Contenu--><path d="M611.6984,135.2704 C611.3173,135.3066 610.924,135.3442 610.5189,135.3831 C609.7086,135.4608 608.8506,135.5438 607.9466,135.6321 C600.715,136.3384 590.5409,137.3822 578.2887,138.7735 C553.7844,141.5562 520.9675,145.729 486.7525,151.3721 C418.3225,162.6583 344.3,179.8258 320,203.5158 C317.0563,206.3858 314.5469,209.6458 312.4098,213.1593 C311.3413,214.916 310.3659,216.7361 309.4758,218.6025 C309.3645,218.8358 309.2546,219.0698 309.146,219.3045 " fill="none" id="Jeu-&gt;Contenu" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="309.146,219.3045,316.5558,212.8165,311.2458,214.7668,309.2954,209.4568,309.146,219.3045" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="371" y="191.4129">«use»</text><!--MD5=[f34efc71e53b9bd2f6f0a7a62a4bc48c]
+link Contenu to Comptes--><path d="M292.9517,256.9612 C292.8747,256.7644 292.7972,256.5667 292.7193,256.3678 C292.4079,255.5724 292.0898,254.7601 291.7655,253.9319 C286.5766,240.6812 279.7944,223.3627 273.0113,206.0421 C266.2281,188.7215 259.4441,171.3987 254.2514,158.1391 C253.9269,157.3104 253.6085,156.4976 253.2968,155.7016 C253.2189,155.5026 253.1414,155.3046 253.0643,155.1078 " fill="none" id="Contenu-&gt;Comptes" style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#6E1423" points="253.0643,155.1078,252.6215,164.9467,254.8875,159.7635,260.0707,162.0295,253.0643,155.1078" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="269" y="191.4129">«use»</text><!--MD5=[99261a2ffba9456087a051798d94f4d3]
+link Joueur to Invité--><!--MD5=[37992ccef06aa8b630e16ddea92854a5]
+link Joueur to Membre--><!--MD5=[07ee2c2c2135b8022add4cf3733ca7fa]
+link Membre to Abonnement--><!--MD5=[6a3ac34398c2b356df7a023d6bdcf8d0]
+link Salon to Partie--><!--MD5=[564eba21bd65fcba429e0e67c485b059]
+link Salon to Participation--><!--MD5=[7fcd5126f3726ea0351e9e3c85b88328]
+link Pack to Question--><!--MD5=[7ecfcb72da4037083733362f9bbe60b6]
+link Question to Réponse--><!--MD5=[9f47c89a3c60e03c99c9aa0f60a828cc]
+link Pack to Média--><!--MD5=[66f6ec74d62fa85c92054efd26ef1ca9]
+link Média to Tag--><!--MD5=[18e0a710215b218934a42fabccd4aa0a]
+link Tag to Vote--><!--MD5=[e175114b5791fbb2b0566d610cb7d442]
+link Invité to Salon--><!--MD5=[e963dcc8169cc9f9298bfd7d663b6f6e]
+link Membre to Pack--><!--MD5=[0a07dcb5931f47a2f46fdbc0b072f053]
+@startuml
+title Diagramme de packages — Projet Cultissime
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam package {
+  BackgroundColor #faf5f5
+  BorderColor #6e1423
+}
+skinparam class {
+  BackgroundColor #ffffff
+  BorderColor #6e1423
+}
+skinparam ArrowColor #6e1423
+hide circle
+hide members
+
+package "Comptes" {
+  class Joueur
+  class Invité
+  class Membre
+  class Abonnement
+}
+
+package "Jeu" {
+  class Salon
+  class Partie
+  class Participation
+}
+
+package "Contenu" {
+  class Pack
+  class Question
+  class Réponse
+  class Média
+  class Tag
+  class Vote
+}
+
+Jeu ..> Comptes : <<use>>
+Jeu ..> Contenu : <<use>>
+Contenu ..> Comptes : <<use>>
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 11:22:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.11+10-1-24.04.2-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: fr
+Country: BE
+--></g></svg>

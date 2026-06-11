@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="242px" preserveAspectRatio="none" style="width:458px;height:242px;" version="1.1" viewBox="0 0 458 242" width="458px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="341" x="62" y="16.708">S'authentifier — collaboration système</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="78" x="6" y="98.5931"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="13" y="111.7318">Utilisateur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="83" y1="116.5619" y2="116.5619"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="71" x="376" y="98.5931"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="383" y="111.7318">:Système</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="377" x2="446" y1="116.5619" y2="116.5619"/><!--link A to S--><path d="M64.25,98.3631 C77.08,87.4931 95.23,74.4531 114,68.5931 C212.43,37.8831 247.96,36.6631 346,68.5931 C362.22,73.8731 377.75,84.9431 389.51,95.0131 " fill="none" id="A-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="393.35,98.3831,389.2276,89.4385,389.5933,95.0835,383.9483,95.4492,393.35,98.3831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="159" x="150.5" y="41.66">1: demanderConnexion()</text><!--link S to A--><path d="M381.97,132.6931 C371.11,138.2831 358.36,143.7831 346,146.5931 C245.47,169.5031 214.76,168.4831 114,146.5931 C102.79,144.1631 91.2,139.7031 80.84,134.9231 " fill="none" id="S-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="76.18,132.7031,82.5952,140.1761,80.6969,134.8472,86.0258,132.949,76.18,132.7031" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="141" x="159.5" y="142.66">2: afficherFormulaire()</text><!--link A to S--><path d="M84.32,115.5931 C153.79,115.5931 299.88,115.5931 370.54,115.5931 " fill="none" id="A-S-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="375.91,115.5931,366.91,111.5931,370.91,115.5931,366.91,119.5931,375.91,115.5931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="230" x="115" y="111.66">3: soumettreIdentifiants(login, mdp)</text><!--link S to A--><path d="M401.29,132.6831 C390.64,150.4431 371.28,177.1931 346,188.5931 C252,230.9731 208.55,229.7331 114,188.5931 C89.99,178.1431 70.62,154.5731 58.79,137.0331 " fill="none" id="S-A-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="55.94,132.7131,57.5656,142.4269,58.697,136.8843,64.2396,138.0157,55.94,132.7131" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="171" x="144.5" y="184.66">4: sessionOuverte(espace)</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam databaseBorderColor #6e1423
+skinparam databaseBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+
+title S'authentifier — collaboration système
+
+object "Utilisateur" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: demanderConnexion()
+S -[#6e1423]-> A : 2: afficherFormulaire()
+A -[#6e1423]-> S : 3: soumettreIdentifiants(login, mdp)
+S -[#6e1423]-> A : 4: sessionOuverte(espace)
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
