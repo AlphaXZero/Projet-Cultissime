@@ -396,10 +396,10 @@ Les données du système sont fortement structurées et reliées entre elles, co
 En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs connectés, scores instantanés, file de diffusion) gagne à être géré par un magasin de données en mémoire tel que *Redis*, qui sert également de mécanisme de publication-souscription pour synchroniser plusieurs instances du serveur temps réel. Une base orientée document (par exemple MongoDB) a été écartée : la structure des données étant nettement relationnelle, elle n'apporterait pas d'avantage déterminant ici.
 
 En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
-
+#pagebreak()
 = Diagramme de cas d'utilisation
 
-Le diagramme de cas d'utilisation formalise la vision fonctionnelle du système : il délimite la frontière de l'application, identifie les acteurs qui interagissent avec elle et recense les services qu'elle leur rend. La notation employée est conforme à UML 1.4.1.
+Ce diagramme de cas d'utilisation formalise la vision fonctionnelle du système : il délimite la frontière de l'application, identifie les acteurs qui interagissent avec elle et recense les services qu'elle leur rend.
 
 #figure(
   image("usecase.svg", width: 92%),
@@ -412,7 +412,7 @@ La frontière du système est représentée par le rectangle englobant l'ensembl
 
 Une relation de _généralisation_ relie l'*Utilisateur authentifié* au *Visiteur* : l'utilisateur authentifié est un visiteur particulier. Il hérite donc de tous les cas d'utilisation du visiteur (s'authentifier, rejoindre un salon, créer un salon, jouer une partie) auxquels s'ajoutent ses propres cas (consulter son profil, soumettre une question, souscrire un abonnement). Cet héritage évite de redessiner les associations communes.
 
-À ce stade de l'analyse, le système est volontairement considéré comme une _boîte noire_ : seuls les services rendus aux acteurs sont décrits, sans préjuger de la structure interne qui les réalisera. Le diagramme ne comporte donc aucun acteur secondaire, aucun acteur de type matériel externe, ni aucun autre système considéré comme acteur. Les services externes que la plateforme sollicitera par la suite — un prestataire de paiement pour les abonnements, un service d'intelligence artificielle pour la catégorisation et l'aide à la modération — sont, à ce niveau d'abstraction, traités comme des mécanismes internes et n'apparaissent pas comme acteurs ; ils pourront être explicités lors de la phase de conception. Enfin, conformément aux consignes du cours, la notation graphique retenue est celle d'#smallcaps[uml] 1.4.1.
+À ce stade de l'analyse, le système est volontairement considéré comme une _boîte noire_ : seuls les services rendus aux acteurs sont décrits, sans préjuger de la structure interne qui les réalisera. Le diagramme ne comporte donc aucun acteur secondaire, aucun acteur de type matériel externe, ni aucun autre système considéré comme acteur. Les services externes que la plateforme sollicitera par la suite — un prestataire de paiement pour les abonnements, un service d'intelligence artificielle pour la catégorisation et l'aide à la modération — sont, à ce niveau d'abstraction, traités comme des mécanismes internes et n'apparaissent pas comme acteurs ; ils pourront être explicités lors de la phase de conception.
 
 == Cas d'utilisation et relations
 
@@ -429,7 +429,7 @@ La relation _#raw("<<include>>")_ traduit une dépendance obligatoire : le cas d
 La relation _#raw("<<extend>>")_ traduit un comportement optionnel : le cas d'extension ajoute, sous condition, un comportement au cas de base. Ici, _noter une question (up/down)_ étend _jouer une partie_ : à l'issue de chaque question, le joueur peut — sans y être obligé — attribuer un vote positif ou négatif. Ce vote alimente le tri automatique du contenu décrit dans le cahier des charges. La flèche pointe du cas d'extension vers le cas de base.
 
 L'acte de répondre à une question n'apparaît pas comme un cas distinct : il constitue le déroulement même de _jouer une partie_ et sera détaillé dans le scénario nominal correspondant, avec ses enchaînements alternatifs (bonne réponse, mauvaise réponse, temps écoulé).
-
+#pagebreak()
 == Couverture des exigences fonctionnelles
 
 Afin de vérifier que les besoins fonctionnels sont bien pris en charge, le tableau suivant croise les principaux scénarios des cas d'utilisation avec quatre exigences fonctionnelles clés. Une marque indique qu'un scénario contribue à la satisfaction de l'exigence concernée. On retient :
@@ -515,7 +515,7 @@ Un *incrément préliminaire* (incrément 0) constitue le socle sur lequel tout 
 
 = Scénarios des cas d'utilisation
 
-Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches. Chaque fiche comporte un sommaire d'identification, les préconditions, le scénario nominal (déroulement standard), les scénarios alternatifs (variantes valides), les scénarios d'erreur (situations d'échec) et les postconditions. Ces descriptions servent de fondement aux diagrammes de séquence présentés ultérieurement.
+Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches. Chaque fiche comporte un sommaire d'identification, les pré- et postconditions, puis le déroulement présenté en deux colonnes — l'action de l'acteur à gauche, la réponse du système à droite. Les points où un scénario alternatif ou d'erreur peut survenir sont signalés en regard de l'étape concernée, et les variantes correspondantes sont décrites à la suite. Ces descriptions servent de fondement aux diagrammes de séquence présentés ultérieurement.
 
 == S'authentifier
 
@@ -528,32 +528,32 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Permettre à un utilisateur possédant un compte de s'identifier afin d'accéder aux fonctionnalités persistantes.],
 
   [Acteur principal], [Visiteur (devenant Utilisateur authentifié).],
-  [Acteurs secondaires], [Aucun.],
   [Déclencheur], [L'utilisateur choisit de se connecter.],
   [Type], [Primaire, important.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.0],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* L'utilisateur dispose d'un compte et n'est pas déjà connecté.
-
-*Scénario nominal.*
-+ L'utilisateur demande à se connecter.
-+ Le système affiche le formulaire d'authentification.
-+ L'utilisateur saisit son identifiant (ou son adresse e-mail) et son mot de passe.
-+ Le système vérifie les informations fournies.
-+ Le système ouvre la session et affiche l'espace de l'utilisateur authentifié.
-
-*Scénarios alternatifs.*
-- _A1 — session invité en cours_ : si l'utilisateur jouait déjà en tant qu'invité, le système rattache cette session au compte lors de la connexion.
-
-*Scénarios d'erreur.*
-- _E1 — identifiants incorrects_ : le système signale l'échec et invite à réessayer ; après plusieurs tentatives infructueuses, il propose la récupération du mot de passe.
-- _E2 — compte inexistant_ : le système propose la création d'un compte.
-- _E3 — service d'authentification indisponible_ : le système affiche un message et invite à réessayer ultérieurement.
-
+*Préconditions.* L'utilisateur dispose d'un compte et n'est pas déjà connecté. \
 *Postconditions.* L'utilisateur est authentifié et sa session est ouverte.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [Demande à se connecter.], [],
+  [2], [], [Affiche le formulaire d'authentification.],
+  [3], [Saisit son identifiant (ou e-mail) et son mot de passe.], [],
+  [4], [], [Vérifie les informations fournies. #text(fill: rgb("#6e1423"))[_(E1, E2, E3)_]],
+  [5], [], [Ouvre la session et affiche l'espace authentifié. #text(fill: rgb("#6e1423"))[_(A1)_]],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — session invité en cours_ (étape 5) : si l'utilisateur jouait déjà en tant qu'invité, le système rattache cette session au compte lors de la connexion.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — identifiants incorrects_ (étape 4) : le système signale l'échec et invite à réessayer ; après plusieurs tentatives infructueuses, il propose la récupération du mot de passe.
+- _E2 — compte inexistant_ (étape 4) : le système propose la création d'un compte.
+- _E3 — service d'authentification indisponible_ (étape 4) : le système affiche un message et invite à réessayer ultérieurement.
 
 == Rejoindre un salon
 
@@ -564,34 +564,34 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   table.header([*Rubrique*], [*Description*]),
   [But], [Permettre à un joueur de rejoindre une partie existante, publique ou privée.],
   [Acteur principal], [Visiteur.],
-  [Acteurs secondaires], [Aucun.],
   [Déclencheur], [Le joueur choisit de rejoindre un salon.],
   [Type], [Primaire, essentiel.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.0],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* Au moins un salon ouvert existe ; pour un salon privé, le joueur dispose du code ou du lien d'accès.
-
-*Scénario nominal.*
-+ Le joueur demande à rejoindre un salon, en le sélectionnant dans la liste des salons publics.
-+ Le système vérifie que le salon existe et est ouvert.
-+ Le système vérifie que le salon n'a pas atteint sa capacité maximale.
-+ Le système ajoute le joueur au salon.
-+ Le système affiche l'état du salon (joueurs présents, configuration, attente du lancement).
-
-*Scénarios alternatifs.*
-- _A1 — salon privé_ : le joueur saisit un code d'accès ; le système valide ce code avant de l'ajouter au salon.
-- _A2 — partie déjà en cours_ : selon la configuration, le joueur est placé en spectateur jusqu'à la question suivante.
-
-*Scénarios d'erreur.*
-- _E1 — salon plein_ : le système refuse l'accès et propose d'autres salons.
-- _E2 — salon inexistant ou fermé_ : le système affiche un message et renvoie à la liste des salons.
-- _E3 — code d'accès invalide_ : le système signale l'erreur et invite à ressaisir le code.
-- _E4 — joueur précédemment exclu_ : si l'hôte l'avait exclu, l'accès lui est refusé.
-
+*Préconditions.* Au moins un salon ouvert existe ; pour un salon privé, le joueur dispose du code ou du lien d'accès. \
 *Postconditions.* Le joueur fait partie du salon et attend le lancement de la partie (ou y participe comme spectateur).
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [Sélectionne un salon dans la liste des salons publics. #text(fill: rgb("#6e1423"))[_(A1)_]], [],
+  [2], [], [Vérifie que le salon existe et est ouvert. #text(fill: rgb("#6e1423"))[_(E2)_]],
+  [3], [], [Vérifie que le salon n'a pas atteint sa capacité maximale. #text(fill: rgb("#6e1423"))[_(E1, E4)_]],
+  [4], [], [Ajoute le joueur au salon. #text(fill: rgb("#6e1423"))[_(A2)_]],
+  [5], [], [Affiche l'état du salon (joueurs présents, configuration, attente du lancement).],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — salon privé_ (étape 1) : le joueur saisit un code d'accès ; le système valide ce code avant de l'ajouter au salon. _(E3 si le code est invalide.)_
+- _A2 — partie déjà en cours_ (étape 4) : selon la configuration, le joueur est placé en spectateur jusqu'à la question suivante.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — salon plein_ (étape 3) : le système refuse l'accès et propose d'autres salons.
+- _E2 — salon inexistant ou fermé_ (étape 2) : le système affiche un message et renvoie à la liste des salons.
+- _E3 — code d'accès invalide_ (étape 1, via A1) : le système signale l'erreur et invite à ressaisir le code.
+- _E4 — joueur précédemment exclu_ (étape 3) : si l'hôte l'avait exclu, l'accès lui est refusé.
 
 == Créer un salon
 
@@ -602,33 +602,36 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   table.header([*Rubrique*], [*Description*]),
   [But], [Permettre à un joueur de créer un salon et d'en définir les paramètres de jeu.],
   [Acteur principal], [Visiteur (devenant hôte du salon).],
-  [Acteurs secondaires], [Aucun.],
   [Déclencheur], [Le joueur choisit de créer un salon.],
   [Relation], [Inclut le cas « Configurer la partie ».],
   [Type], [Primaire, essentiel.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.0],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* Aucune ; le mode invité est autorisé, avec les limitations propres au visiteur.
-
-*Scénario nominal.*
-+ Le joueur demande la création d'un salon.
-+ Le système crée le salon et désigne le joueur comme hôte.
-+ Le système présente les options de configuration (cas inclus « Configurer la partie ») : choix du pack ou de la catégorie de questions, mode de jeu, type de cotation (au temps ou par validation en fin de partie), caractère public ou privé, condition de victoire (seuil de points ou nombre de questions).
-+ Le joueur valide la configuration.
-+ Le système ouvre le salon et fournit un lien ou un code de partage.
-
-*Scénarios alternatifs.*
-- _A1 — hôte non authentifié_ : les packs officiels réservés à l'abonnement ne sont pas proposés, et la configuration n'est pas sauvegardée entre deux sessions.
-- _A2 — salon privé_ : le système génère un code ou un lien d'accès restreint.
-
-*Scénarios d'erreur.*
-- _E1 — aucun pack disponible_ : le système empêche la création et invite à sélectionner un pack.
-- _E2 — configuration incohérente_ : le système signale les paramètres en conflit et bloque la validation.
-
+*Préconditions.* Aucune ; le mode invité est autorisé, avec les limitations propres au visiteur. \
 *Postconditions.* Un salon configuré et ouvert existe ; l'hôte peut y inviter d'autres joueurs.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [Demande la création d'un salon.], [],
+  [2], [], [Crée le salon et désigne le joueur comme hôte.],
+  [3],
+  [],
+  [Présente les options de configuration — cas inclus « Configurer la partie » : pack ou catégorie, mode de jeu, type de cotation, visibilité, condition de victoire. #text(fill: rgb("#6e1423"))[_(A1, E1)_]],
+
+  [4], [Valide la configuration. #text(fill: rgb("#6e1423"))[_(A2, E2)_]], [],
+  [5], [], [Ouvre le salon et fournit un lien ou un code de partage.],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — hôte non authentifié_ (étape 3) : les packs officiels réservés à l'abonnement ne sont pas proposés, et la configuration n'est pas sauvegardée entre deux sessions.
+- _A2 — salon privé_ (étape 4) : le système génère un code ou un lien d'accès restreint.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — aucun pack disponible_ (étape 3) : le système empêche la création et invite à sélectionner un pack.
+- _E2 — configuration incohérente_ (étape 4) : le système signale les paramètres en conflit et bloque la validation.
 
 == Jouer une partie
 
@@ -639,38 +642,44 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   table.header([*Rubrique*], [*Description*]),
   [But], [Dérouler une partie de quiz dans un salon, de la première question au classement final.],
   [Acteur principal], [Visiteur (plusieurs joueurs participent simultanément).],
-  [Acteurs secondaires], [Aucun.],
   [Déclencheur], [L'hôte lance la partie.],
   [Relation], [Étendu par le cas « Noter une question ».],
   [Type], [Primaire, essentiel.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.1],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* Un salon configuré existe et le nombre minimal de joueurs requis est présent.
-
-*Scénario nominal.*
-+ L'hôte lance la partie.
-+ Le système sélectionne une question (selon le pack et le tri par votes) et l'affiche simultanément à tous les joueurs, en démarrant le décompte du temps.
-+ Chaque joueur saisit sa réponse.
-+ Le système évalue les réponses selon le mode de cotation au temps : le joueur le plus rapide à répondre correctement marque le plus de points.
-+ Le système met à jour et affiche le classement en direct.
-+ Le système répète les étapes 2 à 5 pour chaque question, jusqu'à ce que la condition de fin soit atteinte (seuil de points ou nombre de questions épuisé).
-+ Le système affiche le classement final.
-
-*Scénarios alternatifs.*
-- _A1 — cotation par validation en fin de partie_ : les réponses sont collectées puis jugées à la fin de la partie, avec une tolérance orthographique accrue.
-- _A2 — noter une question_ : à l'issue d'une question, un joueur attribue un vote positif ou négatif (cas en extension).
-- _A3 — mode élimination_ : un joueur ayant épuisé ses vies est éliminé et bascule en spectateur.
-
-*Scénarios d'erreur.*
-- _E1 — déconnexion d'un joueur_ : le système le retire de la question en cours ; il peut se reconnecter et reprendre tant que la partie n'est pas terminée.
-- _E2 — déconnexion de l'hôte_ : le système transfère le rôle d'hôte à un autre joueur ou met la partie en pause.
-- _E3 — temps écoulé sans réponse_ : la question est comptabilisée comme non répondue (aucun point) pour le joueur concerné.
-- _E4 — plus aucun joueur connecté_ : la partie est interrompue et le salon fermé.
-
+*Préconditions.* Un salon configuré existe et le nombre minimal de joueurs requis est présent. \
 *Postconditions.* La partie est terminée et un classement final est établi ; les résultats des joueurs authentifiés sont enregistrés dans leurs statistiques.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [L'hôte lance la partie.], [],
+  [2],
+  [],
+  [Sélectionne une question et l'affiche à tous les joueurs en démarrant le décompte du temps. #text(fill: rgb("#6e1423"))[_(E2, E4)_]],
+
+  [3], [Chaque joueur saisit sa réponse. #text(fill: rgb("#6e1423"))[_(E1, E3)_]], [],
+  [4],
+  [],
+  [Évalue les réponses (cotation au temps) : le plus rapide à répondre correctement marque le plus de points. #text(fill: rgb("#6e1423"))[_(A1)_]],
+
+  [5], [], [Met à jour et affiche le classement en direct. #text(fill: rgb("#6e1423"))[_(A2, A3)_]],
+  [6], [], [Répète les étapes 2 à 5 jusqu'à la condition de fin (seuil de points ou nombre de questions épuisé).],
+  [7], [], [Affiche le classement final.],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — cotation par validation en fin de partie_ (étape 4) : les réponses sont seulement collectées pendant la boucle, puis jugées toutes ensemble à la fin de la partie, avec une tolérance orthographique accrue.
+- _A2 — noter une question_ (étape 5) : à l'issue d'une question, un joueur attribue un vote positif ou négatif (cas en extension).
+- _A3 — mode élimination_ (étape 5) : un joueur ayant épuisé ses vies est éliminé et bascule en spectateur.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — déconnexion d'un joueur_ (étape 3) : le système le retire de la question en cours ; il peut se reconnecter tant que la partie n'est pas terminée.
+- _E2 — déconnexion de l'hôte_ (étape 2) : le système transfère le rôle d'hôte à un autre joueur ou met la partie en pause.
+- _E3 — temps écoulé sans réponse_ (étape 3) : la question est comptabilisée comme non répondue (aucun point) pour le joueur concerné.
+- _E4 — plus aucun joueur connecté_ (étape 2) : la partie est interrompue et le salon fermé.
 
 == Soumettre une question
 
@@ -686,31 +695,35 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 
   [Déclencheur], [L'utilisateur choisit de soumettre une question.],
   [Type], [Primaire, important.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.0],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* L'utilisateur est authentifié.
-
-*Scénario nominal.*
-+ L'utilisateur ouvre le formulaire de création de question.
-+ Il saisit l'énoncé, la ou les réponses acceptées et, éventuellement, un média associé.
-+ Le système propose des tags de catégorie (assistance par intelligence artificielle) ; l'utilisateur les ajuste si besoin.
-+ L'utilisateur soumet la question.
-+ Le système enregistre la question avec le statut « en attente de modération ».
-+ Le système confirme la soumission à l'utilisateur.
-
-*Scénarios alternatifs.*
-- _A1 — ajout à un pack existant_ : l'utilisateur rattache la question à l'un de ses packs déjà créés.
-- _A2 — soumission groupée_ : l'utilisateur soumet un pack entier en une fois.
-
-*Scénarios d'erreur.*
-- _E1 — champ obligatoire manquant_ : le système refuse la soumission et indique les champs à compléter.
-- _E2 — média non conforme_ : le système rejette un média au format ou à la taille non autorisés.
-- _E3 — doublon détecté_ : le système avertit que la question existe déjà et propose de l'éditer ou d'annuler.
-
+*Préconditions.* L'utilisateur est authentifié. \
 *Postconditions.* La question est enregistrée en file de modération ; elle n'est pas encore jouable.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [Ouvre le formulaire de création de question.], [],
+  [2],
+  [Saisit l'énoncé, la ou les réponses acceptées et, éventuellement, un média. #text(fill: rgb("#6e1423"))[_(E2)_]],
+  [],
+
+  [3], [], [Propose des tags de catégorie (assistance par IA) ; l'utilisateur les ajuste si besoin.],
+  [4], [Soumet la question. #text(fill: rgb("#6e1423"))[_(A1, A2, E1, E3)_]], [],
+  [5], [], [Enregistre la question avec le statut « en attente de modération ».],
+  [6], [], [Confirme la soumission à l'utilisateur.],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — ajout à un pack existant_ (étape 4) : l'utilisateur rattache la question à l'un de ses packs déjà créés.
+- _A2 — soumission groupée_ (étape 4) : l'utilisateur soumet un pack entier en une fois.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — champ obligatoire manquant_ (étape 4) : le système refuse la soumission et indique les champs à compléter.
+- _E2 — média non conforme_ (étape 2) : le système rejette un média au format ou à la taille non autorisés.
+- _E3 — doublon détecté_ (étape 4) : le système avertit que la question existe déjà et propose de l'éditer ou d'annuler.
 
 == Souscrire un abonnement
 
@@ -726,31 +739,32 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteurs secondaires], [Prestataire de paiement, traité comme service externe à ce stade de l'analyse.],
   [Déclencheur], [L'utilisateur choisit de souscrire un abonnement.],
   [Type], [Primaire, secondaire.],
-  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
-  [Version], [1.0],
-  [Responsable], [van der Veen Georgé],
 )
 
-*Préconditions.* L'utilisateur est authentifié et ne dispose pas déjà d'un abonnement actif.
-
-*Scénario nominal.*
-+ L'utilisateur sélectionne l'offre d'abonnement.
-+ Le système présente le récapitulatif (contenu, prix, conditions).
-+ L'utilisateur confirme et fournit ses informations de paiement.
-+ Le système transmet la demande au prestataire de paiement.
-+ Le prestataire confirme le paiement.
-+ Le système active l'abonnement et débloque le catalogue officiel complet ainsi que les cosmétiques.
-+ Le système confirme l'activation à l'utilisateur.
-
-*Scénarios alternatifs.*
-- _A1 — code promotionnel_ : l'utilisateur saisit un code ; le système ajuste le montant en conséquence.
-
-*Scénarios d'erreur.*
-- _E1 — paiement refusé_ : le système signale l'échec ; l'abonnement n'est pas activé et l'utilisateur peut réessayer.
-- _E2 — prestataire indisponible_ : le système diffère l'opération et invite à réessayer ultérieurement.
-- _E3 — abonnement déjà actif_ : le système informe l'utilisateur et n'effectue aucun nouveau paiement.
-
+*Préconditions.* L'utilisateur est authentifié et ne dispose pas déjà d'un abonnement actif. \
 *Postconditions.* L'abonnement est actif et l'utilisateur accède au contenu réservé.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 6pt,
+  align: (center + horizon, left, left),
+  table.header([*\#*], [*Action de l'acteur*], [*Réponse du système*]),
+  [1], [Sélectionne l'offre d'abonnement. #text(fill: rgb("#6e1423"))[_(E3)_]], [],
+  [2], [], [Présente le récapitulatif (contenu, prix, conditions).],
+  [3], [Confirme et fournit ses informations de paiement. #text(fill: rgb("#6e1423"))[_(A1)_]], [],
+  [4], [], [Transmet la demande au prestataire de paiement. #text(fill: rgb("#6e1423"))[_(E1, E2)_]],
+  [5], [], [Le prestataire confirme le paiement.],
+  [6], [], [Active l'abonnement et débloque le catalogue officiel et les cosmétiques.],
+  [7], [], [Confirme l'activation à l'utilisateur.],
+)
+
+#text(fill: rgb("#6e1423"))[*Scénarios alternatifs.*]
+- _A1 — code promotionnel_ (étape 3) : l'utilisateur saisit un code ; le système ajuste le montant en conséquence.
+
+#text(fill: rgb("#6e1423"))[*Scénarios d'erreur.*]
+- _E1 — paiement refusé_ (étape 4) : le système signale l'échec ; l'abonnement n'est pas activé et l'utilisateur peut réessayer.
+- _E2 — prestataire indisponible_ (étape 4) : le système diffère l'opération et invite à réessayer ultérieurement.
+- _E3 — abonnement déjà actif_ (étape 1) : le système informe l'utilisateur et n'effectue aucun nouveau paiement.
 = Diagrammes de séquence système (boîte noire)
 
 Cette section présente les diagrammes de séquence au niveau _système_ (boîte noire) : le système est vu comme un participant unique, et seuls les échanges entre les acteurs et le système sont représentés. Chaque cas est illustré par son scénario nominal, suivi d'un scénario alternatif ou d'erreur représentatif tiré de sa fiche (chapitre précédent). Conformément à la notation UML 1.4.1, ces variantes sont représentées par des diagrammes séparés plutôt que par des fragments combinés. Par convention, l'acteur y est désigné par son rôle dans le cas considéré — « Joueur » ou « Utilisateur » — en correspondance avec les acteurs Visiteur et Utilisateur authentifié des fiches. Le raffinement en diagrammes de conception (boîte blanche), faisant apparaître les objets internes, est présenté ultérieurement.
@@ -923,11 +937,9 @@ Afin d'en faciliter la lecture, une version agrandie en pleine page, au format p
 
 *Classe `Média`.* L'indice d'une question pouvant être une image ou un son, le média est représenté par une classe dédiée (de type `IMAGE` ou `SON`) reliée à `Question`, plutôt que par un attribut, afin de permettre plusieurs médias et de porter leurs métadonnées.
 
-*Fusion de `Configuration` et de `Statistiques`.* Les paramètres de partie (mode, cotation, condition de victoire) sont des attributs simples sans comportement propre : ils sont intégrés à `Salon`. De même, les statistiques d'un membre, en relation un-à-un obligatoire avec celui-ci, sont intégrées directement à la classe `Membre`, une relation 1–1 systématique justifiant rarement une classe séparée.
-
 *Classes d'association et associations plusieurs-à-plusieurs.* Lorsqu'une association plusieurs-à-plusieurs porte des données propres au lien, elle est modélisée par une classe d'association : `Participation` (score, rang, vies) sur le lien `Joueur`–`Partie`, et `Vote` (valeur) sur le lien `Joueur`–`Question`. En revanche, l'association `Question`–`Tag` ne porte aucune donnée : elle reste une association plusieurs-à-plusieurs simple. La table de jointure correspondante n'apparaîtra qu'au niveau de l'implémentation relationnelle, et non dans le modèle conceptuel.
 
-*Expression des contraintes.* Les règles non exprimables par la seule notation graphique sont indiquées entre accolades `{…}`, conformément à la notation des contraintes d'UML 1.4. Le langage OCL, normalisé plus tardivement avec UML 2.0, n'est pas employé tel quel afin de rester cohérent avec la version de référence.
+*Expression des contraintes.* Les règles non exprimables par la seule notation graphique sont indiquées entre accolades `{…}`, conformément à la notation des contraintes d'UML 1.4.
 
 = Diagrammes de collaboration
 
@@ -1160,9 +1172,6 @@ L'extrait ci-dessous traduit les entités les plus représentatives : la hiérar
 
   [Objet de Jacobson],
   [Catégorisation des objets d'analyse en trois rôles : interface (_boundary_), contrôle (_control_) et entité (_entity_).],
-
-  [OCL],
-  [_Object Constraint Language_ : langage de la norme UML servant à exprimer des contraintes formelles sur un modèle. Les contraintes du présent document sont notées entre accolades, à la manière d'UML 1.4.],
 
   [RGPD],
   [Règlement général sur la protection des données : cadre légal européen encadrant le traitement des données personnelles.],
