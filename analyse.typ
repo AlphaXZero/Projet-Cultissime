@@ -278,6 +278,73 @@ Le système doit répondre aux besoins fonctionnels suivants.
 
 Sur le plan des contraintes techniques, le caractère temps réel du jeu oriente vers une architecture client web communiquant avec un serveur au moyen d'une connexion persistante (par exemple via des WebSockets), adossé à une base de données pour les questions, les comptes et les statistiques. Le choix définitif des technologies n'est pas figé à ce stade de l'analyse.
 
+= Étude technologique
+
+Le choix des technologies n'est pas figé à ce stade. Cette section recense les solutions envisagées et les met en regard de la contrainte directrice du projet, afin d'éclairer une décision ultérieure.
+
+== Contrainte directrice : le temps réel
+
+La fonctionnalité déterminante de l'application est la partie multijoueur synchrone : une même question est diffusée simultanément à tous les joueurs d'un salon, un chronomètre est partagé et un classement se met à jour en direct. Cela impose une communication bidirectionnelle persistante entre le serveur et les clients, typiquement au moyen de #emph[WebSockets], là où une application web classique se contente de requêtes-réponses. Les autres fonctionnalités (comptes, packs, modération, abonnements) relèvent en revanche d'un développement web classique que toutes les solutions étudiées prennent en charge sans difficulté. C'est donc la qualité du support temps réel qui distingue principalement les options.
+
+== Solutions back-end envisagées
+
+*ASP.NET Core avec SignalR (C\#).* SignalR est une bibliothèque de communication temps réel qui abstrait la gestion des WebSockets (reconnexion automatique, repli sur d'autres transports, diffusion groupée). Sa notion de #emph[groupes] correspond directement à celle de salon : ajouter ou retirer un joueur d'un groupe, puis diffuser un message à l'ensemble du groupe, se fait nativement. C'est l'une des solutions les plus matures du marché pour ce besoin précis. Le diagramme de classes de conception se traduit par ailleurs naturellement en C\#.
+
+*Python avec FastAPI.* FastAPI est un cadriciel web asynchrone moderne, doté d'un support natif des WebSockets et reconnu pour sa rapidité de développement. La gestion des salons et de la diffusion doit être implémentée explicitement, et la montée en charge sur plusieurs processus s'appuie généralement sur un mécanisme de publication-souscription externe (par exemple Redis). Le langage est d'un abord aisé et favorise une mise au point rapide de la logique de jeu.
+
+*Rust avec Axum ou Actix-web.* Rust offre des performances et une maîtrise de la latence et de la concurrence particulièrement adaptées à un serveur temps réel, au prix d'une courbe d'apprentissage sensiblement plus élevée (gestion de la propriété, programmation asynchrone). C'est la solution la plus exigeante, mais aussi la plus formatrice et la plus performante.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 7pt,
+  align: (left + horizon, left, left),
+  table.header([*Critère*], [*Atouts*], [*Limites*]),
+  [ASP.NET + SignalR],
+  [Temps réel le plus abouti (groupes = salons) ; intégration front/back forte ; écosystème mûr.],
+  [Langage et environnement à reprendre en main ; pile propriétaire à l'origine.],
+
+  [Python (FastAPI)],
+  [Développement rapide ; asynchrone ; langage maîtrisé ; large écosystème.],
+  [Gestion des salons et de la diffusion à câbler ; montée en charge à outiller.],
+
+  [Rust (Axum/Actix)],
+  [Performances et latence excellentes ; sûreté mémoire ; valeur d'apprentissage.],
+  [Courbe d'apprentissage forte ; productivité initiale réduite ; risque sur les délais.],
+)
+
+== Solutions front-end envisagées
+
+*Blazor.* Cadriciel d'interface en C\#, il s'intègre étroitement à un back-end ASP.NET et repose lui-même sur SignalR pour son mode serveur, ce qui en fait un complément cohérent de la solution .NET. Il évite d'écrire du JavaScript.
+
+*Vue.* Cadriciel JavaScript réputé pour sa douceur de prise en main et sa clarté. Il convient bien à une interface réactive (chronomètre, classement en direct) et s'associe à n'importe quel back-end via WebSockets.
+
+*React.* Cadriciel JavaScript très répandu, doté d'un vaste écosystème. Plus verbeux que Vue, il offre en contrepartie une grande richesse de bibliothèques et une forte demande sur le marché.
+
+#table(
+  columns: (auto, 1fr, 1fr),
+  inset: 7pt,
+  align: (left + horizon, left, left),
+  table.header([*Front-end*], [*Atouts*], [*Limites*]),
+  [Blazor],
+  [Intégration native avec .NET ; pas de JavaScript ; même langage que le back-end C\#.],
+  [Couplage fort à l'écosystème .NET ; moins pertinent hors back-end .NET.],
+
+  [Vue], [Prise en main aisée ; réactivité ; indépendant du back-end.], [Écosystème plus restreint que React.],
+  [React], [Écosystème très riche ; largement répandu.], [Plus verbeux ; davantage de configuration.],
+)
+
+On notera la cohérence particulière du couple ASP.NET + Blazor (même langage de part et d'autre), tandis que Vue et React s'associent indifféremment à un back-end Python, Rust ou .NET.
+
+== Base de données
+
+Les données du système sont fortement structurées et reliées entre elles, comme le montre le diagramme de classes : un joueur participe à des parties, un pack contient des questions, une question admet des réponses, etc. Cette nature relationnelle oriente naturellement vers un #emph[système de gestion de base de données relationnelle] (SGBDR), où chaque entité devient une table et où les associations se traduisent par des clés étrangères — l'association plusieurs-à-plusieurs entre question et tag donnant lieu, à ce niveau, à une table de jointure.
+
+*PostgreSQL* constitue un choix de référence : libre, robuste, riche en fonctionnalités et compatible avec les trois back-ends envisagés (via Entity Framework pour .NET, SQLAlchemy pour Python, Diesel ou SeaORM pour Rust). *MySQL* ou *MariaDB* représentent des alternatives équivalentes pour ce projet. *SQL Server* s'intègre naturellement à l'écosystème .NET mais reste propriétaire.
+
+En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs connectés, scores instantanés, file de diffusion) gagne à être géré par un magasin de données en mémoire tel que *Redis*, qui sert également de mécanisme de publication-souscription pour synchroniser plusieurs instances du serveur temps réel. Une base orientée document (par exemple MongoDB) a été écartée : la structure des données étant nettement relationnelle, elle n'apporterait pas d'avantage déterminant ici.
+
+En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
+
 == Bénéfices attendus
 
 Les bénéfices visés sont les suivants :
@@ -325,6 +392,7 @@ Au-delà du périmètre retenu, plusieurs fonctionnalités ont été identifiée
 - *page de découverte* mettant en avant les packs communautaires les mieux notés ;
 - *classements globaux* (ligues, saisons) et fonctionnalités sociales (système d'amis), volontairement exclus à ce stade en raison de leur complexité ;
 - *portage mobile ou application de bureau*, anticipé par l'architecture mais non réalisé.
+
 
 = Diagramme de cas d'utilisation
 
@@ -870,72 +938,7 @@ Le diagramme de packages organise les classes du système en paquets cohérents 
 
 Trois paquets sont identifiés : #emph[Comptes] regroupe les acteurs et leur abonnement (Joueur, Invité, Membre, Abonnement) ; #emph[Jeu] rassemble la mécanique de partie (Salon, Partie, Participation) ; #emph[Contenu] contient le matériel de jeu et son évaluation (Pack, Question, Réponse, Média, Tag, Vote). Les dépendances sont orientées sans cycle : le paquet #emph[Jeu] dépend de #emph[Comptes] et de #emph[Contenu], et le paquet #emph[Contenu] dépend de #emph[Comptes].
 
-= Étude technologique
 
-Le choix des technologies n'est pas figé à ce stade. Cette section recense les solutions envisagées et les met en regard de la contrainte directrice du projet, afin d'éclairer une décision ultérieure.
-
-== Contrainte directrice : le temps réel
-
-La fonctionnalité déterminante de l'application est la partie multijoueur synchrone : une même question est diffusée simultanément à tous les joueurs d'un salon, un chronomètre est partagé et un classement se met à jour en direct. Cela impose une communication bidirectionnelle persistante entre le serveur et les clients, typiquement au moyen de #emph[WebSockets], là où une application web classique se contente de requêtes-réponses. Les autres fonctionnalités (comptes, packs, modération, abonnements) relèvent en revanche d'un développement web classique que toutes les solutions étudiées prennent en charge sans difficulté. C'est donc la qualité du support temps réel qui distingue principalement les options.
-
-== Solutions back-end envisagées
-
-*ASP.NET Core avec SignalR (C\#).* SignalR est une bibliothèque de communication temps réel qui abstrait la gestion des WebSockets (reconnexion automatique, repli sur d'autres transports, diffusion groupée). Sa notion de #emph[groupes] correspond directement à celle de salon : ajouter ou retirer un joueur d'un groupe, puis diffuser un message à l'ensemble du groupe, se fait nativement. C'est l'une des solutions les plus matures du marché pour ce besoin précis. Le diagramme de classes de conception se traduit par ailleurs naturellement en C\#.
-
-*Python avec FastAPI.* FastAPI est un cadriciel web asynchrone moderne, doté d'un support natif des WebSockets et reconnu pour sa rapidité de développement. La gestion des salons et de la diffusion doit être implémentée explicitement, et la montée en charge sur plusieurs processus s'appuie généralement sur un mécanisme de publication-souscription externe (par exemple Redis). Le langage est d'un abord aisé et favorise une mise au point rapide de la logique de jeu.
-
-*Rust avec Axum ou Actix-web.* Rust offre des performances et une maîtrise de la latence et de la concurrence particulièrement adaptées à un serveur temps réel, au prix d'une courbe d'apprentissage sensiblement plus élevée (gestion de la propriété, programmation asynchrone). C'est la solution la plus exigeante, mais aussi la plus formatrice et la plus performante.
-
-#table(
-  columns: (auto, 1fr, 1fr),
-  inset: 7pt,
-  align: (left + horizon, left, left),
-  table.header([*Critère*], [*Atouts*], [*Limites*]),
-  [ASP.NET + SignalR],
-  [Temps réel le plus abouti (groupes = salons) ; intégration front/back forte ; écosystème mûr.],
-  [Langage et environnement à reprendre en main ; pile propriétaire à l'origine.],
-
-  [Python (FastAPI)],
-  [Développement rapide ; asynchrone ; langage maîtrisé ; large écosystème.],
-  [Gestion des salons et de la diffusion à câbler ; montée en charge à outiller.],
-
-  [Rust (Axum/Actix)],
-  [Performances et latence excellentes ; sûreté mémoire ; valeur d'apprentissage.],
-  [Courbe d'apprentissage forte ; productivité initiale réduite ; risque sur les délais.],
-)
-
-== Solutions front-end envisagées
-
-*Blazor.* Cadriciel d'interface en C\#, il s'intègre étroitement à un back-end ASP.NET et repose lui-même sur SignalR pour son mode serveur, ce qui en fait un complément cohérent de la solution .NET. Il évite d'écrire du JavaScript.
-
-*Vue.* Cadriciel JavaScript réputé pour sa douceur de prise en main et sa clarté. Il convient bien à une interface réactive (chronomètre, classement en direct) et s'associe à n'importe quel back-end via WebSockets.
-
-*React.* Cadriciel JavaScript très répandu, doté d'un vaste écosystème. Plus verbeux que Vue, il offre en contrepartie une grande richesse de bibliothèques et une forte demande sur le marché.
-
-#table(
-  columns: (auto, 1fr, 1fr),
-  inset: 7pt,
-  align: (left + horizon, left, left),
-  table.header([*Front-end*], [*Atouts*], [*Limites*]),
-  [Blazor],
-  [Intégration native avec .NET ; pas de JavaScript ; même langage que le back-end C\#.],
-  [Couplage fort à l'écosystème .NET ; moins pertinent hors back-end .NET.],
-
-  [Vue], [Prise en main aisée ; réactivité ; indépendant du back-end.], [Écosystème plus restreint que React.],
-  [React], [Écosystème très riche ; largement répandu.], [Plus verbeux ; davantage de configuration.],
-)
-
-On notera la cohérence particulière du couple ASP.NET + Blazor (même langage de part et d'autre), tandis que Vue et React s'associent indifféremment à un back-end Python, Rust ou .NET.
-
-== Base de données
-
-Les données du système sont fortement structurées et reliées entre elles, comme le montre le diagramme de classes : un joueur participe à des parties, un pack contient des questions, une question admet des réponses, etc. Cette nature relationnelle oriente naturellement vers un #emph[système de gestion de base de données relationnelle] (SGBDR), où chaque entité devient une table et où les associations se traduisent par des clés étrangères — l'association plusieurs-à-plusieurs entre question et tag donnant lieu, à ce niveau, à une table de jointure.
-
-*PostgreSQL* constitue un choix de référence : libre, robuste, riche en fonctionnalités et compatible avec les trois back-ends envisagés (via Entity Framework pour .NET, SQLAlchemy pour Python, Diesel ou SeaORM pour Rust). *MySQL* ou *MariaDB* représentent des alternatives équivalentes pour ce projet. *SQL Server* s'intègre naturellement à l'écosystème .NET mais reste propriétaire.
-
-En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs connectés, scores instantanés, file de diffusion) gagne à être géré par un magasin de données en mémoire tel que *Redis*, qui sert également de mécanisme de publication-souscription pour synchroniser plusieurs instances du serveur temps réel. Une base orientée document (par exemple MongoDB) a été écartée : la structure des données étant nettement relationnelle, elle n'apporterait pas d'avantage déterminant ici.
-
-En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
 
 = Traduction des classes en code
 
