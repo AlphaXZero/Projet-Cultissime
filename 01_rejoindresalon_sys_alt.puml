@@ -1,0 +1,18 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Rejoindre un salon — collaboration système (A1 : salon privé)
+
+
+object "Joueur" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: rejoindreSalonPrivé(code)
+S -[#6e1423]-> S : 2: validerCode(code)
+S -[#6e1423]-> S : 3: vérifierDisponibilité()
+S -[#6e1423]-> A : 4: salonRejoint(état)
+@enduml

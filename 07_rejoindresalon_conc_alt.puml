@@ -1,0 +1,24 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Rejoindre un salon — collaboration de conception (A1 : salon privé)
+
+
+object "Joueur" as A
+object ":IHMSalon" as IHM
+object ":CtrlSalon" as C
+object "salon:Salon" as S
+object ":BaseDeDonnées" as BD
+
+A -[#6e1423]-> IHM : 1: saisirCodeAccès(code)
+IHM -[#6e1423]-> C : 2: rejoindreSalonPrivé(code, idJoueur)
+C -[#6e1423]-> BD : 3: trouverSalonParCode(code)
+C -[#6e1423]-> S : 4: vérifierDisponibilité()
+C -[#6e1423]-> S : 5: ajouterJoueur(idJoueur)
+C -[#6e1423]-> IHM : 6: salonRejoint(état)
+IHM -[#6e1423]-> A : 7: afficherSalon(état)
+@enduml

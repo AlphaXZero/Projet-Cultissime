@@ -1,0 +1,31 @@
+@startuml
+title S'authentifier — séquence de conception (E1 : identifiants incorrects)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur" as U
+boundary ":IHMConnexion" as IHM
+control ":CtrlAuthentification" as C
+database ":BaseDeDonnées" as BD
+
+U -> IHM : soumettreIdentifiants(login, motDePasse)
+activate IHM
+IHM -> C : authentifier(login, motDePasse)
+activate C
+C -> BD : trouverParLogin(login)
+activate BD
+BD --> C : donnéesJoueur
+deactivate BD
+C -> C : vérifierMotDePasse(mdp)
+note right of C : mot de passe invalide :\naucun objet Joueur n'est créé
+C --> IHM : échecAuthentification(message)
+deactivate C
+IHM --> U : afficherErreurEtRécupération()
+deactivate IHM
+
+@enduml

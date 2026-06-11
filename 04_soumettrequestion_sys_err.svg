@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="255px" preserveAspectRatio="none" style="width:663px;height:255px;" version="1.1" viewBox="0 0 663 255" width="663px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="649" x="2" y="16.708">Soumettre une question — collaboration système (E1 : champ manquant)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="150" x="22" y="100.3931"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="29" y="113.5318">Utilisateur authentifié</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="23" x2="171" y1="118.3619" y2="118.3619"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="71" x="517" y="100.3931"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="524" y="113.5318">:Système</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="518" x2="587" y1="118.3619" y2="118.3619"/><!--link A to S--><path d="M126.88,100.3131 C147.14,89.3631 175.27,76.1531 202,70.3931 C325.82,43.7131 366.56,31.1731 487,70.3931 C503.22,75.6731 518.75,86.7431 530.51,96.8131 " fill="none" id="A-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="534.35,100.1831,530.2108,91.2463,530.5871,96.8906,524.9428,97.2669,534.35,100.1831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="283" x="203" y="42.46">1: soumettreQuestion(donnéesIncomplètes)</text><!--link S to A--><path d="M522.97,134.4931 C512.11,140.0831 499.36,145.5831 487,148.3931 C363.5,176.5331 327.34,166.6731 202,148.3931 C184.68,145.8731 166.24,141.0931 149.77,136.0331 " fill="none" id="S-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="144.72,134.4631,152.1061,140.9781,149.4899,135.9626,154.5053,133.3464,144.72,134.4631" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="174" x="257.5" y="144.46">3: champsManquants(liste)</text><!--link A to S--><path d="M172.13,117.3931 C269.12,117.3931 435.66,117.3931 511.63,117.3931 " fill="none" id="A-S-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="516.94,117.3931,507.94,113.3931,511.94,117.3931,507.94,121.3931,516.94,117.3931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="282" x="203.5" y="113.46">4: soumettreQuestion(donnéesComplétées)</text><!--link S to A--><path d="M542.35,134.7131 C531.76,152.7031 512.44,179.8231 487,191.3931 C371.7,243.8431 322.66,229.9431 202,191.3931 C169.35,180.9631 138.18,156.1231 118.63,138.0931 " fill="none" id="S-A-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="114.88,134.5831,118.729,143.6487,118.5348,137.9952,124.1883,137.8011,114.88,134.5831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="180" x="254.5" y="187.46">5: confirmationSoumission()</text><!--link S to S--><path d="M521.51,100.3531 C504.39,83.6931 514.72,65.3931 552.5,65.3931 C587.33,65.3931 598.83,80.9431 587,96.4231 " fill="none" id="S-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="583.49,100.3531,592.4762,96.3222,586.8277,96.6303,586.5196,90.9818,583.49,100.3531" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="121" x="492" y="56.46">2: validerChamps()</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Soumettre une question — collaboration système (E1 : champ manquant)
+
+
+object "Utilisateur authentifié" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: soumettreQuestion(donnéesIncomplètes)
+S -[#6e1423]-> S : 2: validerChamps()
+S -[#6e1423]-> A : 3: champsManquants(liste)
+A -[#6e1423]-> S : 4: soumettreQuestion(donnéesComplétées)
+S -[#6e1423]-> A : 5: confirmationSoumission()
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

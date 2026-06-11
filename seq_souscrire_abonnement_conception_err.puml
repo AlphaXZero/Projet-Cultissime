@@ -1,0 +1,30 @@
+@startuml
+title Souscrire un abonnement — séquence de conception (E1 : paiement refusé)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+boundary ":IHMAbonnement" as IHM
+control ":CtrlAbonnement" as C
+participant "Prestataire\nde paiement" as P
+
+U -> IHM : confirmerPaiement(infosPaiement)
+activate IHM
+IHM -> C : souscrire(idJoueur, infosPaiement)
+activate C
+C -> P : demanderPaiement(montant, infosPaiement)
+activate P
+P --> C : paiementRefusé(motif)
+deactivate P
+note right of C : aucun objet Abonnement créé,\nrien n'est enregistré
+C --> IHM : échecPaiement(motif)
+deactivate C
+IHM --> U : afficherÉchec(motif)
+deactivate IHM
+
+@enduml

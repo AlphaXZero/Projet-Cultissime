@@ -1,0 +1,22 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Souscrire un abonnement — collaboration de conception (E1 : paiement refusé)
+
+
+object "Utilisateur authentifié" as A
+object ":IHMAbonnement" as IHM
+object ":CtrlAbonnement" as C
+object "Prestataire de paiement" as P
+
+A -[#6e1423]-> IHM : 1: confirmerPaiement(infos)
+IHM -[#6e1423]-> C : 2: souscrire(idJoueur, infos)
+C -[#6e1423]-> P : 3: demanderPaiement(montant)
+P -[#6e1423]-> C : 4: paiementRefusé(motif)
+C -[#6e1423]-> IHM : 5: échecPaiement(motif)
+IHM -[#6e1423]-> A : 6: afficherÉchec(motif)
+@enduml

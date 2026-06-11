@@ -1,0 +1,25 @@
+@startuml
+title Souscrire un abonnement — séquence système (E1 : paiement refusé)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+participant "Système" as S
+participant "Prestataire\nde paiement" as P
+
+U -> S : confirmerPaiement(infosPaiement)
+activate S
+S -> P : demanderPaiement(montant, infosPaiement)
+activate P
+P --> S : paiementRefusé(motif)
+deactivate P
+S --> U : échecPaiement(motif)
+deactivate S
+note right of U : l'abonnement n'est pas activé ;\nl'utilisateur peut réessayer
+
+@enduml

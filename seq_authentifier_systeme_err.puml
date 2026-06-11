@@ -1,0 +1,25 @@
+@startuml
+title S'authentifier — séquence système (E1 : identifiants incorrects)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur" as U
+participant "Système" as S
+
+U -> S : soumettreIdentifiants(login, motDePasse)
+activate S
+S -> S : vérifierIdentifiants()
+S --> U : échecAuthentification(message)
+deactivate S
+note right of U : après plusieurs tentatives\ninfructueuses :
+U -> S : nouvelleTentative(login, motDePasse)
+activate S
+S --> U : proposerRécupérationMotDePasse()
+deactivate S
+
+@enduml

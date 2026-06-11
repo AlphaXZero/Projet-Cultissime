@@ -1,0 +1,21 @@
+@startuml
+title Rejoindre un salon — séquence système (A1 : salon privé)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+J -> S : rejoindreSalonPrivé(code)
+activate S
+S -> S : validerCode(code)
+S -> S : vérifierDisponibilité()
+S --> J : salonRejoint(étatSalon)
+deactivate S
+
+@enduml

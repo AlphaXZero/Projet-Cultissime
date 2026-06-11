@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="164px" preserveAspectRatio="none" style="width:1010px;height:164px;" version="1.1" viewBox="0 0 1010 164" width="1010px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="700" x="161" y="16.708">Soumettre une question — collaboration de conception (E1 : champ manquant)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="150" x="6" y="90.6331"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="13" y="103.7718">Utilisateur authentifié</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="155" y1="108.6019" y2="108.6019"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="96" x="501" y="90.6331"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="82" x="508" y="103.7718">:IHMQuestion</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="502" x2="596" y1="108.6019" y2="108.6019"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="92" x="864" y="90.6331"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="78" x="871" y="103.7718">:CtrlContenu</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="865" x2="955" y1="108.6019" y2="108.6019"/><!--link A to IHM--><path d="M156.1,107.6331 C250.83,107.6331 412.5,107.6331 495.47,107.6331 " fill="none" id="A-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="500.82,107.6331,491.82,103.6331,495.82,107.6331,491.82,111.6331,500.82,107.6331" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="283" x="187" y="103.7">1: soumettreQuestion(donnéesIncomplètes)</text><!--link IHM to A--><path d="M503.39,124.7231 C492.91,128.0031 481.69,130.9431 471,132.6331 C345.89,152.4331 311.79,147.5431 186,132.6331 C173.38,131.1331 160.08,128.6531 147.36,125.8231 " fill="none" id="IHM-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="142.33,124.6731,150.2115,130.5792,147.2041,125.788,151.9953,122.7807,142.33,124.6731" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="232" x="212.5" y="128.7">5: indiquerChampsÀCompléter(liste)</text><!--link IHM to C--><path d="M597.3,107.6331 C665.03,107.6331 789.11,107.6331 858.55,107.6331 " fill="none" id="IHM-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="863.86,107.6331,854.86,103.6331,858.86,107.6331,854.86,111.6331,863.86,107.6331" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="205" x="628" y="103.7">2: soumettreQuestion(données)</text><!--link C to IHM--><path d="M865.57,124.7231 C855.37,128.0031 844.43,130.9431 834,132.6331 C743.19,147.3731 717.87,147.0131 627,132.6331 C617.98,131.2031 608.58,128.8931 599.57,126.2331 " fill="none" id="C-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="594.61,124.7231,602.0547,131.1712,599.3932,126.1795,604.3849,123.518,594.61,124.7231" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="174" x="643.5" y="128.7">4: champsManquants(liste)</text><!--link C to C--><path d="M883.48,90.5931 C868.83,73.9331 877.67,55.6331 910,55.6331 C939.55,55.6331 949.48,70.9231 939.78,86.2731 " fill="none" id="C-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="936.52,90.5931,945.1391,85.8276,939.536,86.6052,938.7584,81.002,936.52,90.5931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="822" y="46.7">3: validerChamps(données)</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Soumettre une question — collaboration de conception (E1 : champ manquant)
+
+
+object "Utilisateur authentifié" as A
+object ":IHMQuestion" as IHM
+object ":CtrlContenu" as C
+
+A -[#6e1423]-> IHM : 1: soumettreQuestion(donnéesIncomplètes)
+IHM -[#6e1423]-> C : 2: soumettreQuestion(données)
+C -[#6e1423]-> C : 3: validerChamps(données)
+C -[#6e1423]-> IHM : 4: champsManquants(liste)
+IHM -[#6e1423]-> A : 5: indiquerChampsÀCompléter(liste)
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

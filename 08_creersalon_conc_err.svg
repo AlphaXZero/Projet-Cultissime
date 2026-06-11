@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="163px" preserveAspectRatio="none" style="width:797px;height:163px;" version="1.1" viewBox="0 0 797 163" width="797px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="692" x="58.5" y="16.708">Créer un salon — collaboration de conception (E2 : configuration incohérente)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="6" y="90.6231"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="13" y="103.7618">Joueur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="59" y1="108.5919" y2="108.5919"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="75" x="324" y="90.6231"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="61" x="331" y="103.7618">:IHMSalon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="325" x2="398" y1="108.5919" y2="108.5919"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="74" x="660" y="90.6231"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="667" y="103.7618">:CtrlSalon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="661" x2="733" y1="108.5919" y2="108.5919"/><!--link A to IHM--><path d="M60.17,107.6231 C116.65,107.6231 250.41,107.6231 318.74,107.6231 " fill="none" id="A-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="323.95,107.6231,314.95,103.6231,318.95,107.6231,314.95,111.6231,323.95,107.6231" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="202" x="91" y="103.69">1: configurerPartie(paramètres)</text><!--link IHM to A--><path d="M323.89,124.0631 C314.35,127.5931 303.95,130.8131 294,132.6231 C204.79,148.8331 178.68,151.5131 90,132.6231 C81.55,130.8231 72.83,127.6431 64.86,124.1531 " fill="none" id="IHM-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="60,121.9531,66.5381,129.3188,64.5518,124.0221,69.8485,122.0359,60,121.9531" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="158" x="113" y="128.69">5: signalerConflit(détails)</text><!--link IHM to C--><path d="M399.14,107.6231 C461.81,107.6231 589.14,107.6231 654.8,107.6231 " fill="none" id="IHM-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="659.8,107.6231,650.8,103.6231,654.8,107.6231,650.8,111.6231,659.8,107.6231" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="183" x="438" y="103.69">2: créerSalon(config, idHôte)</text><!--link C to IHM--><path d="M659.67,124.0631 C650.21,127.5931 639.88,130.8131 630,132.6231 C542.13,148.7031 516.89,148.5931 429,132.6231 C420.76,131.1231 412.21,128.6631 404.1,125.8531 " fill="none" id="C-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="399.11,124.0631,406.2312,130.8667,403.8164,125.7511,408.932,123.3364,399.11,124.0631" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="199" x="430" y="128.69">4: paramètresEnConflit(détails)</text><!--link C to C--><path d="M672.27,90.5731 C658.6,73.9231 666.85,55.6231 697,55.6231 C724.56,55.6231 733.82,70.9131 724.77,86.2631 " fill="none" id="C-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="721.73,90.5731,730.1776,85.5097,724.605,86.4823,723.6324,80.9097,721.73,90.5731" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="609" y="46.69">3: vérifierCohérence(config)</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Créer un salon — collaboration de conception (E2 : configuration incohérente)
+
+
+object "Joueur" as A
+object ":IHMSalon" as IHM
+object ":CtrlSalon" as C
+
+A -[#6e1423]-> IHM : 1: configurerPartie(paramètres)
+IHM -[#6e1423]-> C : 2: créerSalon(config, idHôte)
+C -[#6e1423]-> C : 3: vérifierCohérence(config)
+C -[#6e1423]-> IHM : 4: paramètresEnConflit(détails)
+IHM -[#6e1423]-> A : 5: signalerConflit(détails)
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

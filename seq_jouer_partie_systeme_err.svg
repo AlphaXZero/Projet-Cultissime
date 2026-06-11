@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="443px" preserveAspectRatio="none" style="width:610px;height:443px;" version="1.1" viewBox="0 0 610 443" width="610px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="573" x="16.5" y="22.9951">Jouer une partie — séquence système (E3 : temps écoulé sans réponse)</text><rect fill="#FFFFFF" height="194.9297" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="408" y="143.7266"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="33" x2="33" y1="112.5938" y2="356.6563"/><line style="stroke: #6E1423; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="413" x2="413" y1="112.5938" y2="356.6563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="8" y="109.292">Joueur</text><ellipse cx="33" cy="43.2969" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M33,51.2969 L33,78.2969 M20,59.2969 L46,59.2969 M33,78.2969 L20,93.2969 M33,78.2969 L46,93.2969 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="8" y="368.6514">Joueur</text><ellipse cx="33" cy="381.9531" fill="#FEFECE" rx="8" ry="8" style="stroke: #333333; stroke-width: 2.0;"/><path d="M33,389.9531 L33,416.9531 M20,397.9531 L46,397.9531 M33,416.9531 L20,431.9531 M33,416.9531 L46,431.9531 " fill="none" style="stroke: #333333; stroke-width: 2.0;"/><rect fill="#FAF5F5" height="30.2969" style="stroke: #6E1423; stroke-width: 1.5;" width="74" x="376" y="81.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="383" y="101.292">Système</text><rect fill="#FAF5F5" height="30.2969" style="stroke: #6E1423; stroke-width: 1.5;" width="74" x="376" y="355.6563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="383" y="375.6514">Système</text><rect fill="#FFFFFF" height="194.9297" style="stroke: #6E1423; stroke-width: 1.0;" width="10" x="408" y="143.7266"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="143.7266" y2="139.7266"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="143.7266" y2="147.7266"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="407" y1="143.7266" y2="143.7266"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="356" x="50" y="138.6606">&lt;&lt;minuté&gt;&gt; afficherQuestion(question, tempsImparti)</text><line style="stroke: #6E1423; stroke-width: 1.0;" x1="418" x2="460" y1="172.8594" y2="172.8594"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="460" x2="460" y1="172.8594" y2="185.8594"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="419" x2="460" y1="185.8594" y2="185.8594"/><polygon fill="#6E1423" points="429,181.8594,419,185.8594,429,189.8594,425,185.8594" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="157" x="425" y="167.7935">échéanceChronomètre()</text><line style="stroke: #6E1423; stroke-width: 2.0;" x1="390" x2="400" y1="209.9922" y2="219.9922"/><line style="stroke: #6E1423; stroke-width: 2.0;" x1="390" x2="400" y1="219.9922" y2="209.9922"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="395" y1="214.9922" y2="214.9922"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="290" x="40" y="209.9263">&lt;&lt;dérobant&gt;&gt; soumettreRéponse(réponse)</text><path d="M423,227.9922 L423,282.9922 L598,282.9922 L598,237.9922 L588,227.9922 L423,227.9922 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M588,227.9922 L588,237.9922 L598,237.9922 L588,227.9922 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="147" x="429" y="245.0591">la réponse arrive après</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="154" x="429" y="260.1919">l'échéance : le message</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="96" x="429" y="275.3247">est abandonné</text><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="309.5234" y2="305.5234"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="309.5234" y2="313.5234"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="407" y1="309.5234" y2="309.5234"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="199" x="50" y="304.4575">questionNonRépondue(0 point)</text><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="338.6563" y2="334.6563"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="43" y1="338.6563" y2="342.6563"/><line style="stroke: #6E1423; stroke-width: 1.0;" x1="33" x2="412" y1="338.6563" y2="338.6563"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="207" x="50" y="333.5903">afficherClassement(classement)</text><!--
+@startuml
+title Jouer une partie — séquence système (E3 : temps écoulé sans réponse)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+S ->> J : <<minuté>> afficherQuestion(question, tempsImparti)
+activate S
+S -> S : échéanceChronomètre()
+J ->x S : <<dérobant>> soumettreRéponse(réponse)
+note right of S : la réponse arrive après\nl'échéance : le message\nest abandonné
+S ->> J : questionNonRépondue(0 point)
+S ->> J : afficherClassement(classement)
+deactivate S
+
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="164px" preserveAspectRatio="none" style="width:1121px;height:164px;" version="1.1" viewBox="0 0 1121 164" width="1121px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="597" x="265.5" y="16.708">Rejoindre un salon — collaboration de conception (A1 : salon privé)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="6" y="62.9531"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="13" y="76.0918">Joueur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="59" y1="80.9219" y2="80.9219"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="75" x="283" y="62.9531"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="61" x="290" y="76.0918">:IHMSalon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="284" x2="357" y1="80.9219" y2="80.9219"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="74" x="659" y="62.9531"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="666" y="76.0918">:CtrlSalon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="660" x2="732" y1="80.9219" y2="80.9219"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="87" x="1005.5" y="28.9531"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="73" x="1012.5" y="42.0918">salon:Salon</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1006.5" x2="1091.5" y1="46.9219" y2="46.9219"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="122" x="988" y="119.9531"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="995" y="133.0918">:BaseDeDonnées</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="989" x2="1109" y1="137.9219" y2="137.9219"/><!--link A to IHM--><path d="M60.09,79.9531 C109.67,79.9531 217.84,79.9531 277.65,79.9531 " fill="none" id="A-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="282.93,79.9531,273.93,75.9531,277.93,79.9531,273.93,83.9531,282.93,79.9531" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="161" x="91" y="76.02">1: saisirCodeAccès(code)</text><!--link IHM to A--><path d="M282.89,96.3931 C273.35,99.9331 262.95,103.1431 253,104.9531 C181.72,117.9131 160.85,120.0531 90,104.9531 C81.55,103.1531 72.83,99.9831 64.86,96.4931 " fill="none" id="IHM-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="60,94.2831,66.5381,101.6488,64.5518,96.3521,69.8485,94.3659,60,94.2831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="135" x="104" y="101.02">7: afficherSalon(état)</text><!--link IHM to C--><path d="M358.33,79.9531 C428.43,79.9531 580.53,79.9531 653.85,79.9531 " fill="none" id="IHM-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="658.99,79.9531,649.99,75.9531,653.99,79.9531,649.99,83.9531,658.99,79.9531" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="239" x="389" y="76.02">2: rejoindreSalonPrivé(code, idJoueur)</text><!--link C to IHM--><path d="M658.67,96.3931 C649.21,99.9331 638.88,103.1431 629,104.9531 C523.64,124.2431 493.38,124.1031 388,104.9531 C379.76,103.4531 371.21,100.9931 363.1,98.1831 " fill="none" id="C-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="358.11,96.3931,365.2377,103.1899,362.8181,98.0766,367.9313,95.657,358.11,96.3931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="129" x="444" y="101.02">6: salonRejoint(état)</text><!--link C to BD--><path d="M717.58,96.9831 C729.94,106.1531 746.44,116.6531 763,121.9531 C835.49,145.1431 923.6,145.9031 982.49,142.8031 " fill="none" id="C-BD" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="987.74,142.5131,978.5359,139.0083,982.7474,142.7849,978.9708,146.9965,987.74,142.5131" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="193" x="764" y="118.02">3: trouverSalonParCode(code)</text><!--link C to S--><path d="M733.01,68.6631 C742.66,66.0431 753.15,63.5531 763,61.9531 C845.62,48.5231 943.28,45.8531 1000.17,45.5831 " fill="none" id="C-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1005.21,45.5631,996.1986,41.5889,1000.21,45.5774,996.2215,49.5888,1005.21,45.5631" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="146" x="787.5" y="43.02">4: vérifierDisponibilité()</text><!--link C to S--><path d="M733.39,86.3331 C784.3,94.0531 879.37,104.0231 958,86.9531 C977.63,82.6931 998.12,73.7631 1014.58,65.3231 " fill="none" id="C-S-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1019.11,62.9531,1009.2786,63.5385,1014.6697,65.2518,1012.9564,70.643,1019.11,62.9531" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="162" x="779.5" y="83.02">5: ajouterJoueur(idJoueur)</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Rejoindre un salon — collaboration de conception (A1 : salon privé)
+
+
+object "Joueur" as A
+object ":IHMSalon" as IHM
+object ":CtrlSalon" as C
+object "salon:Salon" as S
+object ":BaseDeDonnées" as BD
+
+A -[#6e1423]-> IHM : 1: saisirCodeAccès(code)
+IHM -[#6e1423]-> C : 2: rejoindreSalonPrivé(code, idJoueur)
+C -[#6e1423]-> BD : 3: trouverSalonParCode(code)
+C -[#6e1423]-> S : 4: vérifierDisponibilité()
+C -[#6e1423]-> S : 5: ajouterJoueur(idJoueur)
+C -[#6e1423]-> IHM : 6: salonRejoint(état)
+IHM -[#6e1423]-> A : 7: afficherSalon(état)
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

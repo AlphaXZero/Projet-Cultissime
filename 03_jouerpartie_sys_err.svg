@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="235px" preserveAspectRatio="none" style="width:559px;height:235px;" version="1.1" viewBox="0 0 559 235" width="559px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="545" x="2" y="16.708">Jouer une partie — collaboration système (E3 : temps écoulé)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="20.5" y="91.3431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="27.5" y="104.4818">Joueur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="21.5" x2="73.5" y1="109.3119" y2="109.3119"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="71" x="388.5" y="91.3431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="395.5" y="104.4818">:Système</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="389.5" x2="458.5" y1="109.3119" y2="109.3119"/><!--link S to A--><path d="M388.41,108.3431 C315.95,108.3431 149.22,108.3431 79.76,108.3431 " fill="none" id="S-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="74.54,108.3431,83.54,112.3431,79.54,108.3431,83.54,104.3431,74.54,108.3431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="252" x="105.5" y="104.41">1: «minuté» afficherQuestion(q, temps)</text><!--link A to S--><path d="M74.5,94.0131 C83.7,89.6931 94.29,85.5131 104.5,83.3431 C214.91,59.8131 247.54,62.5931 358.5,83.3431 C366.71,84.8731 375.22,87.4231 383.27,90.3231 " fill="none" id="A-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="388.21,92.1631,381.1691,85.2765,383.5237,90.42,378.3801,92.7746,388.21,92.1631" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="247" x="108" y="63.41">3: «dérobant» soumettreRéponse(rép)</text><!--link S to A--><path d="M388.21,124.5231 C378.77,128.1531 368.42,131.4831 358.5,133.3431 C247.54,154.0931 214.91,156.8631 104.5,133.3431 C96.05,131.5431 87.33,128.3731 79.36,124.8731 " fill="none" id="S-A-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="74.5,122.6731,81.0381,130.0388,79.0518,124.7421,84.3485,122.7559,74.5,122.6731" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="215" x="124" y="129.41">4: questionNonRépondue(0 point)</text><!--link S to A--><path d="M412.41,125.5831 C401.28,141.8831 382.12,165.2931 358.5,175.3431 C254.62,219.5331 206.77,223.1531 104.5,175.3431 C84.54,166.0131 69.19,145.6831 59.66,129.8431 " fill="none" id="S-A-2" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="57.12,125.5131,58.2199,135.3004,59.6482,129.8268,65.1218,131.2552,57.12,125.5131" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="149" x="157" y="171.41">5: afficherClassement()</text><!--link S to S--><path d="M395.39,91.2931 C379.59,74.6431 389.12,56.3431 424,56.3431 C456.15,56.3431 466.77,71.8931 455.85,87.3731 " fill="none" id="S-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="452.61,91.2931,461.4254,86.9012,455.794,87.438,455.2572,81.8067,452.61,91.2931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="173" x="337.5" y="47.41">2: échéanceChronomètre()</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Jouer une partie — collaboration système (E3 : temps écoulé)
+
+
+object "Joueur" as A
+object ":Système" as S
+
+S -[#6e1423]-> A : 1: «minuté» afficherQuestion(q, temps)
+S -[#6e1423]-> S : 2: échéanceChronomètre()
+A -[#6e1423]-> S : 3: «dérobant» soumettreRéponse(rép)
+S -[#6e1423]-> A : 4: questionNonRépondue(0 point)
+S -[#6e1423]-> A : 5: afficherClassement()
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

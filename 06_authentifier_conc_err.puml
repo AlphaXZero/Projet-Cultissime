@@ -1,0 +1,22 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title S'authentifier — collaboration de conception (E1 : identifiants incorrects)
+
+
+object "Utilisateur" as A
+object ":IHMConnexion" as IHM
+object ":CtrlAuthentification" as C
+object ":BaseDeDonnées" as BD
+
+A -[#6e1423]-> IHM : 1: soumettreIdentifiants(login, mdp)
+IHM -[#6e1423]-> C : 2: authentifier(login, mdp)
+C -[#6e1423]-> BD : 3: trouverParLogin(login)
+C -[#6e1423]-> C : 4: vérifierMotDePasse(mdp)
+C -[#6e1423]-> IHM : 5: échecAuthentification(message)
+IHM -[#6e1423]-> A : 6: afficherErreurEtRécupération()
+@enduml

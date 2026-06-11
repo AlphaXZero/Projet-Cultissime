@@ -127,7 +127,7 @@ class Média {
 }
 
 class Tag {
-  - nom : String
+  - nom : String {unique}
 }
 
 class Vote {
@@ -139,20 +139,20 @@ Joueur <|-- Invité
 Joueur <|-- Membre
 
 ' ===================== ASSOCIATIONS =====================
-Membre "1" -- "0..1" Abonnement : souscrit >
+Membre "1" --> "0..1" Abonnement : souscrit >
 Membre "1" -- "*" Pack : crée >
 
 Joueur "1\nhôte" -- "*" Salon : crée >
-Salon "*" -- "1" Pack : utilise >
+Salon "*" --> "1" Pack : utilise >
 Salon "1" *-- "0..1" Partie : héberge >
 
 Joueur "1..*" -- "*" Partie : participe à >
 (Joueur, Partie) .. Participation
 
-Pack "1" *-- "1..*" Question : contient >
+Pack "1" *-- "1..*\n{ordered}" Question : contient >
 Question "1" *-- "1..*" Réponse : admet >
 Question "1" *-- "0..*" Média : illustre 
-Question "*" -- "*" Tag : catégorisé >
+Question "*" --> "*" Tag : catégorisé >
 
 Joueur "*" -- "*" Question : note >
 (Joueur, Question) .. Vote

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="246px" preserveAspectRatio="none" style="width:1238px;height:246px;" version="1.1" viewBox="0 0 1238 246" width="1238px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="596" x="324.5" y="16.708">Jouer une partie — collaboration de conception (E3 : temps écoulé)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="54" x="6" y="90.8431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="13" y="103.9818">Joueur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="7" x2="59" y1="108.8119" y2="108.8119"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="59" x="291" y="90.8431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="298" y="103.9818">:IHMJeu</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="292" x2="349" y1="108.8119" y2="108.8119"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="76" x="721" y="90.8431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="728" y="103.9818">:CtrlPartie</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="722" x2="796" y1="108.8119" y2="108.8119"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="92" x="1135" y="90.8431"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="78" x="1142" y="103.9818">partie:Partie</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="1136" x2="1226" y1="108.8119" y2="108.8119"/><!--link C to IHM--><path d="M720.81,107.8431 C637.21,107.8431 435.49,107.8431 355.25,107.8431 " fill="none" id="C-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="350.14,107.8431,359.14,111.8431,355.14,107.8431,359.14,103.8431,350.14,107.8431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="252" x="409.5" y="103.91">1: «minuté» afficherQuestion(q, temps)</text><!--link IHM to C--><path d="M350.21,92.8531 C359.47,88.7731 369.94,84.9031 380,82.8431 C515.41,55.1231 554.98,58.2931 691,82.8431 C699.2,84.3231 707.7,86.7431 715.78,89.5131 " fill="none" id="IHM-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="720.75,91.2731,713.604,84.4956,716.0374,89.6023,710.9307,92.0357,720.75,91.2731" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="309" x="381" y="59.91">5: «dérobant» enregistrerRéponse(idJoueur, rép)</text><!--link C to IHM--><path d="M720.75,124.4131 C711.24,127.9031 700.9,131.0631 691,132.8431 C554.98,157.3931 515.41,160.5731 380,132.8431 C371.67,131.1431 363.05,128.2031 355.08,124.9231 " fill="none" id="C-IHM-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="350.21,122.8431,356.9256,130.0474,354.8109,124.8006,360.0576,122.686,350.21,122.8431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="257" x="407" y="128.91">7: afficherRésultat(nonRépondu, 0 point)</text><!--link C to IHM--><path d="M747.4,124.9731 C735.88,141.7831 715.76,166.3731 691,176.8431 C563.69,230.6831 505.42,234.9431 380,176.8431 C359.03,167.1331 342.84,145.7831 332.86,129.3931 " fill="none" id="C-IHM-2" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="330.21,124.9131,331.3481,134.696,332.7551,129.2169,338.2342,130.6239,330.21,124.9131" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="149" x="461" y="172.91">8: afficherClassement()</text><!--link IHM to A--><path d="M293.81,124.9331 C283.98,130.5231 272.38,136.0231 261,138.8431 C187.24,157.1831 163.58,157.8531 90,138.8431 C80.74,136.4531 71.38,132.1631 63.03,127.5331 " fill="none" id="IHM-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="58.5,124.9231,64.293,132.8881,62.8297,127.4238,68.2941,125.9605,58.5,124.9231" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="106.5" y="134.91">2: afficherQuestion(q)</text><!--link A to IHM--><path d="M60.09,107.8431 C111.94,107.8431 227.88,107.8431 285.56,107.8431 " fill="none" id="A-IHM" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="290.62,107.8431,281.62,103.8431,285.62,107.8431,281.62,111.8431,290.62,107.8431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="169" x="91" y="103.91">4: soumettreRéponse(rép)</text><!--link C to C--><path d="M728.31,90.8031 C711.35,74.1431 721.58,55.8431 759,55.8431 C793.49,55.8431 804.88,71.4031 793.17,86.8831 " fill="none" id="C-C" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="789.69,90.8031,798.6512,86.7169,793.0047,87.0598,792.6618,81.4133,789.69,90.8031" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="173" x="672.5" y="46.91">3: échéanceChronomètre()</text><!--link C to P--><path d="M797.27,107.8431 C872.88,107.8431 1044.34,107.8431 1129.73,107.8431 " fill="none" id="C-P" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="1134.98,107.8431,1125.98,103.8431,1129.98,107.8431,1125.98,111.8431,1134.98,107.8431" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="276" x="828" y="103.91">6: clôturerQuestion(sansRéponse, idJoueur)</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Jouer une partie — collaboration de conception (E3 : temps écoulé)
+
+
+object "Joueur" as A
+object ":IHMJeu" as IHM
+object ":CtrlPartie" as C
+object "partie:Partie" as P
+
+C -[#6e1423]-> IHM : 1: «minuté» afficherQuestion(q, temps)
+IHM -[#6e1423]-> A : 2: afficherQuestion(q)
+C -[#6e1423]-> C : 3: échéanceChronomètre()
+A -[#6e1423]-> IHM : 4: soumettreRéponse(rép)
+IHM -[#6e1423]-> C : 5: «dérobant» enregistrerRéponse(idJoueur, rép)
+C -[#6e1423]-> P : 6: clôturerQuestion(sansRéponse, idJoueur)
+C -[#6e1423]-> IHM : 7: afficherRésultat(nonRépondu, 0 point)
+C -[#6e1423]-> IHM : 8: afficherClassement()
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

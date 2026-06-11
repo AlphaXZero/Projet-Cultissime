@@ -1,0 +1,25 @@
+@startuml
+title Créer un salon — séquence système (E2 : configuration incohérente)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+J -> S : configurerPartie(paramètres)
+activate S
+S -> S : vérifierCohérence(paramètres)
+S --> J : paramètresEnConflit(détails)
+deactivate S
+J -> S : configurerPartie(paramètresCorrigés)
+activate S
+S -> S : vérifierCohérence(paramètresCorrigés)
+S --> J : salonOuvert(lienPartage)
+deactivate S
+
+@enduml

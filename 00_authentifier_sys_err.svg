@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="250px" preserveAspectRatio="none" style="width:605px;height:250px;" version="1.1" viewBox="0 0 605 250" width="605px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="591" x="2" y="16.708">S'authentifier — collaboration système (E1 : identifiants incorrects)</text><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="78" x="62.5" y="100.7831"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="69.5" y="113.9218">Utilisateur</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="63.5" x2="139.5" y1="118.7519" y2="118.7519"/><rect fill="#FAF5F5" height="33.9688" style="stroke: #6E1423; stroke-width: 1.5;" width="71" x="449.5" y="100.7831"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="456.5" y="113.9218">:Système</text><line style="stroke: #6E1423; stroke-width: 1.5;" x1="450.5" x2="519.5" y1="118.7519" y2="118.7519"/><!--link A to S--><path d="M120.75,100.5531 C133.58,89.6931 151.73,76.6431 170.5,70.7831 C276.15,37.8331 314.27,36.5131 419.5,70.7831 C435.72,76.0731 451.25,87.1331 463.01,97.2031 " fill="none" id="A-S" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="466.85,100.5731,462.7276,91.6285,463.0933,97.2735,457.4483,97.6392,466.85,100.5731" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="230" x="180" y="41.85">1: soumettreIdentifiants(login, mdp)</text><!--link S to A--><path d="M455.47,134.8931 C444.61,140.4831 431.86,145.9731 419.5,148.7831 C311.6,173.3731 278.65,172.2731 170.5,148.7831 C159.29,146.3531 147.7,141.9031 137.34,137.1131 " fill="none" id="S-A" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="132.68,134.8931,139.0952,142.3661,137.1969,137.0372,142.5258,135.139,132.68,134.8931" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="223" x="183.5" y="144.85">2: échecAuthentification(message)</text><!--link A to S--><path d="M140.83,117.7831 C213.44,117.7831 370.37,117.7831 444.14,117.7831 " fill="none" id="A-S-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="449.31,117.7831,440.31,113.7831,444.31,117.7831,440.31,121.7831,449.31,117.7831" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="205" x="192.5" y="113.85">3: nouvelleTentative(login, mdp)</text><!--link S to A--><path d="M475.11,135.0031 C464.6,153.2331 445.25,180.9631 419.5,192.7831 C318.92,238.9431 271.68,237.6231 170.5,192.7831 C146.06,181.9531 126.65,157.5131 114.93,139.4631 " fill="none" id="S-A-1" style="stroke: #6E1423; stroke-width: 1.0;"/><polygon fill="#6E1423" points="112.12,135.0231,113.5601,144.7661,114.797,139.2461,120.3169,140.483,112.12,135.0231" style="stroke: #6E1423; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="247" x="171.5" y="188.85">4: proposerRécupérationMotDePasse()</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title S'authentifier — collaboration système (E1 : identifiants incorrects)
+
+
+object "Utilisateur" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: soumettreIdentifiants(login, mdp)
+S -[#6e1423]-> A : 2: échecAuthentification(message)
+A -[#6e1423]-> S : 3: nouvelleTentative(login, mdp)
+S -[#6e1423]-> A : 4: proposerRécupérationMotDePasse()
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.10+7-Ubuntu-124.04
+Operating System: Linux
+OS Version: 6.18.5
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

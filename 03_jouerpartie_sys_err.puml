@@ -1,0 +1,19 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Jouer une partie — collaboration système (E3 : temps écoulé)
+
+
+object "Joueur" as A
+object ":Système" as S
+
+S -[#6e1423]-> A : 1: «minuté» afficherQuestion(q, temps)
+S -[#6e1423]-> S : 2: échéanceChronomètre()
+A -[#6e1423]-> S : 3: «dérobant» soumettreRéponse(rép)
+S -[#6e1423]-> A : 4: questionNonRépondue(0 point)
+S -[#6e1423]-> A : 5: afficherClassement()
+@enduml

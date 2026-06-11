@@ -1,0 +1,18 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Créer un salon — collaboration système (E2 : configuration incohérente)
+
+
+object "Joueur" as A
+object ":Système" as S
+
+A -[#6e1423]-> S : 1: configurerPartie(paramètres)
+S -[#6e1423]-> A : 2: paramètresEnConflit(détails)
+A -[#6e1423]-> S : 3: configurerPartie(paramètresCorrigés)
+S -[#6e1423]-> A : 4: salonOuvert(lien)
+@enduml

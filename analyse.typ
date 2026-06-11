@@ -160,7 +160,7 @@
 
 = Introduction
 
-Le présent document constitue l'analyse et la conception d'une application web de quiz multijoueur, baptisée « Projet Cultissime », réalisée dans le cadre de l'épreuve intégrée. Il a pour objet d'étudier les fonctionnalités attendues du système au travers des différents diagrammes de l'#smallcaps[uml], selon les visions fonctionnelle, dynamique et statique.
+Le présent document constitue l'analyse et la conception d'une application web de quiz multijoueur, baptisée « Projet Cultissime » pour le moment, réalisée dans le cadre de l'épreuve intégrée. Il a pour objet d'étudier les fonctionnalités attendues du système au travers des différents diagrammes de l'#smallcaps[uml], selon les visions fonctionnelle, dynamique et statique.
 
 L'application vise à proposer un jeu de quiz rapide en temps réel, où des joueurs réunis dans un même salon répondent simultanément à des questions, dans l'esprit de jeux existants comme PopSauce, mais en corrigeant plusieurs de leurs limites. Le projet met l'accent sur l'accès immédiat au jeu, la richesse et la qualité du contenu, et une expérience soignée.
 
@@ -172,7 +172,7 @@ Afin de garantir la cohérence et la lisibilité de l'analyse, les diagrammes de
 
 == Version d'UML retenue
 
-L'analyse est menée en notation #smallcaps[uml] 1.4.1, conformément à la version de référence du cours. Certaines constructions n'existent toutefois que dans des versions ultérieures de la norme ; lorsqu'une telle construction est employée, elle est signalée par le stéréotype « UML 2.0 », afin que le lecteur identifie clairement l'emprunt. C'est notamment le cas des fragments combinés (boucle, alternative) des diagrammes de séquence. Les diagrammes de classes, d'états-transitions, de packages et d'activité présentés ici n'emploient aucune construction de ce type et relèvent donc intégralement d'UML 1.4.1.
+L'analyse est menée en notation #smallcaps[uml] 1.4.1. Certaines constructions n'existent toutefois que dans des versions ultérieures de la norme ; lorsqu'une telle construction est employée, elle est signalée par le stéréotype « UML 2.0 », afin que le lecteur identifie clairement l'emprunt. C'est notamment le cas des fragments combinés (boucle, alternative) des diagrammes de séquence. Pour les scénarios alternatifs et d'erreur, la représentation par diagrammes séparés — native en UML 1.4.1 — a été préférée aux fragments combinés. Les diagrammes de classes, d'états-transitions, de packages et d'activité présentés ici n'emploient aucune construction de ce type et relèvent donc intégralement d'UML 1.4.1.
 
 == Stéréotypes employés
 
@@ -197,6 +197,10 @@ Les stéréotypes, notés entre guillemets français « … », précisent la na
   [« create »], [Séquence, collaboration], [Message de création d'un objet.],
   [« destroy »], [Séquence, collaboration], [Message de destruction d'un objet.],
   [« minuté »], [Séquence, collaboration], [Message soumis à une contrainte de temps (décompte du chronomètre).],
+  [« dérobant »],
+  [Séquence, collaboration],
+  [Message qui n'aboutit que si le récepteur est en mesure de le traiter, et est abandonné sinon (ici, une réponse arrivant après l'échéance du chronomètre).],
+
   [« enumeration »], [Classes], [Classificateur dont les instances sont un ensemble fini de valeurs nommées.],
   [« use »], [Packages], [Dépendance d'utilisation : un paquet dépend des éléments d'un autre.],
   [« UML 2.0 »], [Tous], [Marque une construction empruntée à UML 2.0 dans une analyse menée en UML 1.4.1.],
@@ -209,7 +213,7 @@ Les stéréotypes, notés entre guillemets français « … », précisent la na
 Ce projet émane d'un constat personnel : un manque dans l'offre actuelle de jeux de quiz. La demande n'a donc pas d'origine externe ; c'est l'auteur lui-même qui, à partir de sa propre expérience de joueur, est à l'origine de la démarche. Le projet prend pour référence principale le jeu en ligne PopSauce, dont le principe consiste à rejoindre un salon et à répondre le plus rapidement possible à des questions de culture populaire : chaque question rapporte par défaut dix points au joueur le plus rapide, et la victoire est attribuée au premier à franchir le seuil de cent points.
 
 L'objectif n'est pas de reproduire PopSauce à l'identique, mais d'en proposer une version enrichie qui corrige plusieurs limites observées sur les plateformes existantes.
-
+#pagebreak()
 == Destinataires de l'application
 
 L'application est destinée à un large public d'amateurs de jeux de connaissances et de rapidité. On distingue principalement :
@@ -221,7 +225,7 @@ L'application est destinée à un large public d'amateurs de jeux de connaissanc
 
 == Délai attendu
 
-L'application est attendue pour la fin de l'année académique 2025-2026 dans le cadre du travail de fin d'études. Le développement suivra une démarche itérative et incrémentale, permettant de livrer d'abord un noyau jouable (un mode de jeu fonctionnel en multijoueur), puis d'enrichir progressivement la plateforme avec les fonctionnalités secondaires (ajout de questions, modes de jeu additionnels, modèle économique, etc.). Le découpage détaillé en incréments est présenté à la suite du diagramme de cas d'utilisation.
+L'application est attendue pour la fin de l'année académique 2026-2027 dans le cadre du travail de fin d'études. Le développement suivra une démarche itérative et incrémentale, permettant de livrer d'abord un noyau jouable (un mode de jeu fonctionnel en multijoueur), puis d'enrichir progressivement la plateforme avec les fonctionnalités secondaires (ajout de questions, modes de jeu additionnels, modèle économique, etc.). Le découpage détaillé en incréments est présenté à la suite du diagramme de cas d'utilisation.
 
 == Justification de la demande et analyse concurrentielle
 
@@ -242,14 +246,14 @@ La demande est motivée par le constat que les plateformes de quiz rapides exist
 )
 
 Ce panorama fait apparaître des marges d'amélioration claires : l'ergonomie, la richesse et la cohérence du contenu, la souplesse des règles de cotation, et un modèle économique mieux équilibré.
-
+#pagebreak()
 == Besoins fonctionnels
 
 Le système doit répondre aux besoins fonctionnels suivants.
 
 *Jeu multijoueur en temps réel.* Le cœur de l'application est la partie multijoueur synchrone : plusieurs joueurs réunis dans un même salon répondent simultanément à une série de questions, et un classement en direct reflète la rapidité et l'exactitude de leurs réponses. Le système doit gérer la création de salons publics et privés, la synchronisation des questions entre tous les participants et le décompte du temps.
 
-*Modes de jeu variés.* Au-delà de la course au score classique, le système proposera plusieurs modes (par exemple : élimination progressive par système de vies, jeu en équipes, etc.). Chaque salon pourra choisir son mode au lancement de la partie. Le type de cotation sera également configurable : soit au temps, à la manière de PopSauce, soit par validation en fin de manche, à la manière de Kculture, cette seconde option offrant davantage de souplesse sur l'orthographe des réponses.
+*Modes de jeu variés.* Au-delà de la course au score classique, le système proposera plusieurs modes (par exemple : élimination progressive par système de vies, jeu en équipes, etc.). Chaque salon pourra choisir son mode au lancement de la partie. Le type de cotation sera également configurable : soit au temps, à la manière de PopSauce, soit par validation en fin de partie, à la manière de Kculture, cette seconde option offrant davantage de souplesse sur l'orthographe des réponses.
 
 *Gestion du salon par l'hôte.* Le joueur ayant créé un salon en est l'hôte : il peut, au-delà de la configuration, gérer le déroulement de la partie en excluant un joueur perturbateur et en fermant le salon. Cette capacité de modération en cours de partie est importante dans un contexte où des invités anonymes peuvent rejoindre les salons publics.
 
@@ -276,7 +280,55 @@ Le système doit répondre aux besoins fonctionnels suivants.
 - *Sécurité et données personnelles* : les comptes et les statistiques constituant des données personnelles, leur traitement devra respecter la réglementation applicable (RGPD) ; les mots de passe seront stockés de façon sécurisée.
 - *Qualité du contenu* : le contenu communautaire doit être modéré avant publication, puis trié en continu par le vote des joueurs.
 
-Sur le plan des contraintes techniques, le caractère temps réel du jeu oriente vers une architecture client web communiquant avec un serveur au moyen d'une connexion persistante (par exemple via des WebSockets), adossé à une base de données pour les questions, les comptes et les statistiques. Le choix définitif des technologies n'est pas figé à ce stade de l'analyse.
+Sur le plan des contraintes techniques, le caractère temps réel du jeu oriente vers une architecture client web communiquant avec un serveur au moyen d'une connexion persistante (par exemple via des WebSockets), adossé à une base de données pour les questions, les comptes et les statistiques. Le choix définitif des technologies n'est pas figé à ce stade de l'analyse ; les solutions envisagées sont comparées dans l'étude technologique présentée au chapitre suivant.
+
+== Bénéfices attendus
+
+Les bénéfices visés sont les suivants :
+
+- une *expérience de jeu plus riche et rejouable*, grâce à la diversité des modes et au renouvellement permanent du contenu communautaire ;
+- une *barrière d'entrée faible*, l'accès en mode invité permettant de jouer immédiatement ;
+- une *fidélisation des joueurs*, par le suivi de leur progression et la reconnaissance de leurs contributions ;
+- une *plateforme évolutive*, dont le catalogue s'enrichit par la communauté sans intervention manuelle constante de l'administrateur ;
+- un *modèle économique soutenable*, fondé sur l'abonnement et les éléments cosmétiques plutôt que sur la publicité intrusive.
+
+== Périmètre du système
+
+Le périmètre du système, pour cette première version, est le suivant :
+
+- *Plateforme* : application *web* uniquement dans un premier temps. L'architecture sera néanmoins pensée pour permettre un portage ultérieur (mobile ou application de bureau) sans refonte majeure.
+- *Portée fonctionnelle* : le système couvre l'ensemble de la chaîne de jeu (création de salon, déroulement d'une partie, classement), la gestion du contenu (création, catégorisation, modération, vote), la gestion des profils ainsi que la gestion des abonnements.
+- *Hors périmètre* : pour cette première version sont explicitement exclus les applications mobiles et de bureau (le portage est anticipé mais non réalisé), l'intégration d'un paiement réel (le mécanisme d'abonnement pourra être simulé dans le cadre de l'épreuve), ainsi que toute fonctionnalité de réseau social avancé (messagerie privée, fil d'actualité, système d'amis).
+
+Trois acteurs sont identifiés à ce stade :
+
+- le *Visiteur* : utilisateur non authentifié, qui peut rejoindre et jouer une partie en tant qu'invité. Il peut également créer et configurer un salon, mais de façon limitée (par exemple : pas d'accès aux questions officielles réservées à l'abonnement, pas de sauvegarde de la configuration du salon entre deux sessions) ;
+- l'*Utilisateur authentifié* : il dispose de toutes les possibilités du visiteur, sans les limitations de ce dernier, auxquelles s'ajoutent le suivi de son profil et de ses statistiques ainsi que la soumission de questions à la communauté ;
+- l'*Administrateur* : il gère la plateforme et valide (ou refuse) les questions soumises par les utilisateurs avant leur publication.
+
+Ces rôles sont précisés et formalisés dans le diagramme de cas d'utilisation.
+
+== Conditions d'utilisation et critères de réussite
+
+L'objectif sera considéré comme atteint si le système satisfait les conditions suivantes :
+
+- une partie multijoueur peut être lancée et menée à son terme par plusieurs joueurs simultanés sans désynchronisation perceptible ;
+- un utilisateur peut rejoindre et jouer une partie en mode invité, sans inscription préalable ;
+- un utilisateur peut soumettre un pack de questions, ce pack n'étant rendu jouable qu'après validation par la modération ;
+- un joueur authentifié retrouve, d'une session à l'autre, son profil et ses statistiques à jour ;
+- un mode de jeu est pleinement fonctionnel, l'architecture étant conçue pour permettre l'ajout d'autres modes sans refonte ;
+- les deux types de cotation (au temps et par validation en fin de partie) sont opérationnels.
+
+== Évolutions possibles
+
+Au-delà du périmètre retenu, plusieurs fonctionnalités ont été identifiées comme des évolutions envisageables pour une version ultérieure. Elles sont écartées de cette première version afin de concentrer l'effort sur le cœur de l'expérience, mais sont mentionnées ici pour situer les perspectives du projet :
+
+- *fin de partie enrichie* : revanche immédiate dans le même salon, partage du résultat, retour au lobby ;
+- *mini-chat de salon* : messagerie légère limitée à la partie en cours, pour la convivialité ;
+- *édition d'un pack soumis* par son créateur, avec re-modération, afin de corriger une question erronée ;
+- *page de découverte* mettant en avant les packs communautaires les mieux notés ;
+- *classements globaux* (ligues, saisons) et fonctionnalités sociales (système d'amis), volontairement exclus à ce stade en raison de leur complexité ;
+- *portage mobile ou application de bureau*, anticipé par l'architecture mais non réalisé.
 
 = Étude technologique
 
@@ -337,62 +389,13 @@ On notera la cohérence particulière du couple ASP.NET + Blazor (même langage 
 
 == Base de données
 
-Les données du système sont fortement structurées et reliées entre elles, comme le montre le diagramme de classes : un joueur participe à des parties, un pack contient des questions, une question admet des réponses, etc. Cette nature relationnelle oriente naturellement vers un #emph[système de gestion de base de données relationnelle] (SGBDR), où chaque entité devient une table et où les associations se traduisent par des clés étrangères — l'association plusieurs-à-plusieurs entre question et tag donnant lieu, à ce niveau, à une table de jointure.
+Les données du système sont fortement structurées et reliées entre elles, comme le montrera le diagramme de classes : un joueur participe à des parties, un pack contient des questions, une question admet des réponses, etc. Cette nature relationnelle oriente naturellement vers un #emph[système de gestion de base de données relationnelle] (SGBDR), où chaque entité devient une table et où les associations se traduisent par des clés étrangères — l'association plusieurs-à-plusieurs entre question et tag donnant lieu, à ce niveau, à une table de jointure.
 
 *PostgreSQL* constitue un choix de référence : libre, robuste, riche en fonctionnalités et compatible avec les trois back-ends envisagés (via Entity Framework pour .NET, SQLAlchemy pour Python, Diesel ou SeaORM pour Rust). *MySQL* ou *MariaDB* représentent des alternatives équivalentes pour ce projet. *SQL Server* s'intègre naturellement à l'écosystème .NET mais reste propriétaire.
 
 En complément du SGBDR, l'état éphémère d'une partie en cours (joueurs connectés, scores instantanés, file de diffusion) gagne à être géré par un magasin de données en mémoire tel que *Redis*, qui sert également de mécanisme de publication-souscription pour synchroniser plusieurs instances du serveur temps réel. Une base orientée document (par exemple MongoDB) a été écartée : la structure des données étant nettement relationnelle, elle n'apporterait pas d'avantage déterminant ici.
 
 En résumé, la persistance reposerait sur un SGBDR (PostgreSQL par défaut) pour les données durables, éventuellement secondé par Redis pour l'état temps réel — ce schéma restant valable quel que soit le back-end finalement retenu.
-
-== Bénéfices attendus
-
-Les bénéfices visés sont les suivants :
-
-- une *expérience de jeu plus riche et rejouable*, grâce à la diversité des modes et au renouvellement permanent du contenu communautaire ;
-- une *barrière d'entrée faible*, l'accès en mode invité permettant de jouer immédiatement ;
-- une *fidélisation des joueurs*, par le suivi de leur progression et la reconnaissance de leurs contributions ;
-- une *plateforme évolutive*, dont le catalogue s'enrichit par la communauté sans intervention manuelle constante de l'administrateur ;
-- un *modèle économique soutenable*, fondé sur l'abonnement et les éléments cosmétiques plutôt que sur la publicité intrusive.
-
-== Périmètre du système
-
-Le périmètre du système, pour cette première version, est le suivant :
-
-- *Plateforme* : application *web* uniquement dans un premier temps. L'architecture sera néanmoins pensée pour permettre un portage ultérieur (mobile ou application de bureau) sans refonte majeure.
-- *Portée fonctionnelle* : le système couvre l'ensemble de la chaîne de jeu (création de salon, déroulement d'une partie, classement), la gestion du contenu (création, catégorisation, modération, vote), la gestion des profils ainsi que la gestion des abonnements.
-- *Hors périmètre* : pour cette première version sont explicitement exclus les applications mobiles et de bureau (le portage est anticipé mais non réalisé), l'intégration d'un paiement réel (le mécanisme d'abonnement pourra être simulé dans le cadre de l'épreuve), ainsi que toute fonctionnalité de réseau social avancé (messagerie privée, fil d'actualité, système d'amis).
-
-Trois acteurs sont identifiés à ce stade :
-
-- le *Visiteur* : utilisateur non authentifié, qui peut rejoindre et jouer une partie en tant qu'invité. Il peut également créer et configurer un salon, mais de façon limitée (par exemple : pas d'accès aux questions officielles réservées à l'abonnement, pas de sauvegarde de la configuration du salon entre deux sessions) ;
-- l'*Utilisateur authentifié* : il dispose de toutes les possibilités du visiteur, sans les limitations de ce dernier, auxquelles s'ajoutent le suivi de son profil et de ses statistiques ainsi que la soumission de questions à la communauté ;
-- l'*Administrateur* : il gère la plateforme et valide (ou refuse) les questions soumises par les utilisateurs avant leur publication.
-
-Ces rôles sont précisés et formalisés dans le diagramme de cas d'utilisation.
-
-== Conditions d'utilisation et critères de réussite
-
-L'objectif sera considéré comme atteint si le système satisfait les conditions suivantes :
-
-- une partie multijoueur peut être lancée et menée à son terme par plusieurs joueurs simultanés sans désynchronisation perceptible ;
-- un utilisateur peut rejoindre et jouer une partie en mode invité, sans inscription préalable ;
-- un utilisateur peut soumettre un pack de questions, ce pack n'étant rendu jouable qu'après validation par la modération ;
-- un joueur authentifié retrouve, d'une session à l'autre, son profil et ses statistiques à jour ;
-- un mode de jeu est pleinement fonctionnel, l'architecture étant conçue pour permettre l'ajout d'autres modes sans refonte ;
-- les deux types de cotation (au temps et par validation en fin de manche) sont opérationnels.
-
-== Évolutions possibles
-
-Au-delà du périmètre retenu, plusieurs fonctionnalités ont été identifiées comme des évolutions envisageables pour une version ultérieure. Elles sont écartées de cette première version afin de concentrer l'effort sur le cœur de l'expérience, mais sont mentionnées ici pour situer les perspectives du projet :
-
-- *fin de partie enrichie* : revanche immédiate dans le même salon, partage du résultat, retour au lobby ;
-- *mini-chat de salon* : messagerie légère limitée à la partie en cours, pour la convivialité ;
-- *édition d'un pack soumis* par son créateur, avec re-modération, afin de corriger une question erronée ;
-- *page de découverte* mettant en avant les packs communautaires les mieux notés ;
-- *classements globaux* (ligues, saisons) et fonctionnalités sociales (système d'amis), volontairement exclus à ce stade en raison de leur complexité ;
-- *portage mobile ou application de bureau*, anticipé par l'architecture mais non réalisé.
-
 
 = Diagramme de cas d'utilisation
 
@@ -498,7 +501,7 @@ Un *incrément préliminaire* (incrément 0) constitue le socle sur lequel tout 
 
 + *Noyau de jeu.* Moteur de la partie : les joueurs rejoignent une session (au moyen d'un mécanisme minimal à ce stade, par exemple un code de salon), répondent aux questions tirées de la base de données, et un score est calculé puis affiché en fin de partie en fonction des résultats de chacun. La cotation au temps est mise en place ici. C'est l'incrément fondateur, qui valide la mécanique de jeu et la synchronisation. _(Cas : jouer une partie.)_
 
-+ *Interface de salon.* Mise en place de l'interface complète permettant de créer un salon, de lister et de rejoindre les salons publics, et de configurer la partie : choix du pack ou de la catégorie de questions, mode de jeu, type de cotation (au temps ou par validation en fin de manche) et caractère public ou privé du salon. Le second mode de cotation est introduit à ce stade, ainsi que les outils de gestion du salon par l'hôte (exclure un joueur, fermer le salon). _(Cas : rejoindre un salon, créer un salon, configurer la partie, gérer son salon.)_
++ *Interface de salon.* Mise en place de l'interface complète permettant de créer un salon, de lister et de rejoindre les salons publics, et de configurer la partie : choix du pack ou de la catégorie de questions, mode de jeu, type de cotation (au temps ou par validation en fin de partie) et caractère public ou privé du salon. Le second mode de cotation est introduit à ce stade, ainsi que les outils de gestion du salon par l'hôte (exclure un joueur, fermer le salon). _(Cas : rejoindre un salon, créer un salon, configurer la partie, gérer son salon.)_
 
 + *Vote des questions.* Ajout du vote positif/négatif à chaque question, ouvert à tous les joueurs (invités compris) afin de préserver l'accès souple, avec stockage du score en base de données et tri automatique du contenu (les questions les mieux notées sont présentées plus fréquemment). Les questions trop mal notées sont automatiquement renvoyées en file de modération. Des garde-fous contre la manipulation des votes pourront être ajoutés ultérieurement, une fois les comptes en place. _(Cas : noter une question.)_
 
@@ -527,6 +530,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteur principal], [Visiteur (devenant Utilisateur authentifié).],
   [Acteurs secondaires], [Aucun.],
   [Déclencheur], [L'utilisateur choisit de se connecter.],
+  [Type], [Primaire, important.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.0],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* L'utilisateur dispose d'un compte et n'est pas déjà connecté.
@@ -559,6 +566,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteur principal], [Visiteur.],
   [Acteurs secondaires], [Aucun.],
   [Déclencheur], [Le joueur choisit de rejoindre un salon.],
+  [Type], [Primaire, essentiel.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.0],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* Au moins un salon ouvert existe ; pour un salon privé, le joueur dispose du code ou du lien d'accès.
@@ -572,7 +583,7 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 
 *Scénarios alternatifs.*
 - _A1 — salon privé_ : le joueur saisit un code d'accès ; le système valide ce code avant de l'ajouter au salon.
-- _A2 — partie déjà en cours_ : selon la configuration, le joueur est placé en spectateur jusqu'à la manche suivante.
+- _A2 — partie déjà en cours_ : selon la configuration, le joueur est placé en spectateur jusqu'à la question suivante.
 
 *Scénarios d'erreur.*
 - _E1 — salon plein_ : le système refuse l'accès et propose d'autres salons.
@@ -594,6 +605,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteurs secondaires], [Aucun.],
   [Déclencheur], [Le joueur choisit de créer un salon.],
   [Relation], [Inclut le cas « Configurer la partie ».],
+  [Type], [Primaire, essentiel.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.0],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* Aucune ; le mode invité est autorisé, avec les limitations propres au visiteur.
@@ -601,7 +616,7 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 *Scénario nominal.*
 + Le joueur demande la création d'un salon.
 + Le système crée le salon et désigne le joueur comme hôte.
-+ Le système présente les options de configuration (cas inclus « Configurer la partie ») : choix du pack ou de la catégorie de questions, mode de jeu, type de cotation (au temps ou par validation en fin de manche), caractère public ou privé, condition de victoire (seuil de points ou nombre de questions).
++ Le système présente les options de configuration (cas inclus « Configurer la partie ») : choix du pack ou de la catégorie de questions, mode de jeu, type de cotation (au temps ou par validation en fin de partie), caractère public ou privé, condition de victoire (seuil de points ou nombre de questions).
 + Le joueur valide la configuration.
 + Le système ouvre le salon et fournit un lien ou un code de partage.
 
@@ -627,6 +642,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteurs secondaires], [Aucun.],
   [Déclencheur], [L'hôte lance la partie.],
   [Relation], [Étendu par le cas « Noter une question ».],
+  [Type], [Primaire, essentiel.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.1],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* Un salon configuré existe et le nombre minimal de joueurs requis est présent.
@@ -641,12 +660,12 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 + Le système affiche le classement final.
 
 *Scénarios alternatifs.*
-- _A1 — cotation par validation en fin de manche_ : les réponses sont collectées puis jugées à la fin de la manche, avec une tolérance orthographique accrue.
+- _A1 — cotation par validation en fin de partie_ : les réponses sont collectées puis jugées à la fin de la partie, avec une tolérance orthographique accrue.
 - _A2 — noter une question_ : à l'issue d'une question, un joueur attribue un vote positif ou négatif (cas en extension).
 - _A3 — mode élimination_ : un joueur ayant épuisé ses vies est éliminé et bascule en spectateur.
 
 *Scénarios d'erreur.*
-- _E1 — déconnexion d'un joueur_ : le système le retire de la manche en cours ; il peut se reconnecter et reprendre tant que la partie n'est pas terminée.
+- _E1 — déconnexion d'un joueur_ : le système le retire de la question en cours ; il peut se reconnecter et reprendre tant que la partie n'est pas terminée.
 - _E2 — déconnexion de l'hôte_ : le système transfère le rôle d'hôte à un autre joueur ou met la partie en pause.
 - _E3 — temps écoulé sans réponse_ : la question est comptabilisée comme non répondue (aucun point) pour le joueur concerné.
 - _E4 — plus aucun joueur connecté_ : la partie est interrompue et le salon fermé.
@@ -666,6 +685,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Service d'intelligence artificielle (suggestion de catégories), traité comme mécanisme interne à ce stade.],
 
   [Déclencheur], [L'utilisateur choisit de soumettre une question.],
+  [Type], [Primaire, important.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.0],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* L'utilisateur est authentifié.
@@ -702,6 +725,10 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
   [Acteur principal], [Utilisateur authentifié.],
   [Acteurs secondaires], [Prestataire de paiement, traité comme service externe à ce stade de l'analyse.],
   [Déclencheur], [L'utilisateur choisit de souscrire un abonnement.],
+  [Type], [Primaire, secondaire.],
+  [Dates], [Création : 15/03/2026 — dernière modification : 11/06/2026.],
+  [Version], [1.0],
+  [Responsable], [van der Veen Georgé],
 )
 
 *Préconditions.* L'utilisateur est authentifié et ne dispose pas déjà d'un abonnement actif.
@@ -724,15 +751,20 @@ Ce chapitre détaille six cas d'utilisation représentatifs sous forme de fiches
 - _E3 — abonnement déjà actif_ : le système informe l'utilisateur et n'effectue aucun nouveau paiement.
 
 *Postconditions.* L'abonnement est actif et l'utilisateur accède au contenu réservé.
-= Diagrammes de séquence - Boîte noire
+= Diagrammes de séquence système (boîte noire)
 
-Cette section présente les diagrammes de séquence au niveau _système_ (boîte noire) : le système est vu comme un participant unique, et seuls les échanges entre les acteurs et le système sont représentés. Chaque diagramme correspond au scénario nominal d'un cas d'utilisation ; les scénarios alternatifs et d'erreur font l'objet de diagrammes distincts. Le raffinement en diagrammes de conception (boîte blanche), faisant apparaître les objets internes, est présenté ultérieurement.
+Cette section présente les diagrammes de séquence au niveau _système_ (boîte noire) : le système est vu comme un participant unique, et seuls les échanges entre les acteurs et le système sont représentés. Chaque cas est illustré par son scénario nominal, suivi d'un scénario alternatif ou d'erreur représentatif tiré de sa fiche (chapitre précédent). Conformément à la notation UML 1.4.1, ces variantes sont représentées par des diagrammes séparés plutôt que par des fragments combinés. Par convention, l'acteur y est désigné par son rôle dans le cas considéré — « Joueur » ou « Utilisateur » — en correspondance avec les acteurs Visiteur et Utilisateur authentifié des fiches. Le raffinement en diagrammes de conception (boîte blanche), faisant apparaître les objets internes, est présenté ultérieurement.
 
 == S'authentifier
 
 #figure(
   image("seq_authentifier_systeme.svg", width: 70%),
   caption: [Séquence système — « S'authentifier » (scénario nominal).],
+)
+
+#figure(
+  image("seq_authentifier_systeme_err.svg", width: 75%),
+  caption: [Séquence système — « S'authentifier » (scénario d'erreur E1 : identifiants incorrects).],
 )
 
 == Rejoindre un salon
@@ -742,11 +774,21 @@ Cette section présente les diagrammes de séquence au niveau _système_ (boîte
   caption: [Séquence système — « Rejoindre un salon » (scénario nominal).],
 )
 
+#figure(
+  image("seq_rejoindre_salon_systeme_alt.svg", width: 65%),
+  caption: [Séquence système — « Rejoindre un salon » (scénario alternatif A1 : salon privé).],
+)
+
 == Créer un salon
 
 #figure(
   image("seq_creer_salon_systeme.svg", width: 75%),
   caption: [Séquence système — « Créer un salon » (scénario nominal).],
+)
+
+#figure(
+  image("seq_creer_salon_systeme_err.svg", width: 75%),
+  caption: [Séquence système — « Créer un salon » (scénario d'erreur E2 : configuration incohérente).],
 )
 
 == Jouer une partie
@@ -756,11 +798,21 @@ Cette section présente les diagrammes de séquence au niveau _système_ (boîte
   caption: [Séquence système — « Jouer une partie » (scénario nominal).],
 )
 
+#figure(
+  image("seq_jouer_partie_systeme_err.svg", width: 80%),
+  caption: [Séquence système — « Jouer une partie » (scénario d'erreur E3 : temps écoulé sans réponse).],
+)
+
 == Soumettre une question
 
 #figure(
   image("seq_soumettre_question_systeme.svg", width: 75%),
   caption: [Séquence système — « Soumettre une question » (scénario nominal).],
+)
+
+#figure(
+  image("seq_soumettre_question_systeme_err.svg", width: 75%),
+  caption: [Séquence système — « Soumettre une question » (scénario d'erreur E1 : champ obligatoire manquant).],
 )
 
 == Souscrire un abonnement
@@ -769,15 +821,25 @@ Cette section présente les diagrammes de séquence au niveau _système_ (boîte
   image("seq_souscrire_abonnement_systeme.svg", width: 80%),
   caption: [Séquence système — « Souscrire un abonnement » (scénario nominal).],
 )
+
+#figure(
+  image("seq_souscrire_abonnement_systeme_err.svg", width: 85%),
+  caption: [Séquence système — « Souscrire un abonnement » (scénario d'erreur E1 : paiement refusé).],
+)
 = Diagrammes de séquence de conception
 
-Cette section raffine les diagrammes de séquence système en ouvrant la « boîte noire » : le système est décomposé en objets selon le découpage de Jacobson — objets d'interface (_boundary_), objets de contrôle (_control_) et objets entités (_entity_) — l'accès aux données étant assuré par une base de données unique. Apparaissent ici des messages absents au niveau système : la création et la destruction d'objets (stéréotypes « create » et « destroy »), ainsi que les échanges avec la persistance.
+Cette section raffine les diagrammes de séquence système en ouvrant la « boîte noire » : le système est décomposé en objets selon le découpage de Jacobson — objets d'interface (_boundary_), objets de contrôle (_control_) et objets entités (_entity_) — l'accès aux données étant assuré par une base de données unique. Apparaissent ici des messages absents au niveau système : la création et la destruction d'objets (stéréotypes « create » et « destroy »), ainsi que les échanges avec la persistance. Comme au niveau système, chaque scénario nominal est suivi d'un scénario alternatif ou d'erreur ; le message #emph[dérobant] — qui n'aboutit que si le récepteur est en mesure de le traiter, et est abandonné sinon — y apparaît dans le scénario du temps écoulé.
 
 == Jouer une partie
 
 #figure(
   image("seq_jouer_partie_conception.svg", width: 90%),
   caption: [Séquence de conception — « Jouer une partie » (scénario nominal).],
+)
+
+#figure(
+  image("seq_jouer_partie_conception_err.svg", width: 90%),
+  caption: [Séquence de conception — « Jouer une partie » (E3 : temps écoulé, message dérobant).],
 )
 
 == S'authentifier
@@ -787,11 +849,21 @@ Cette section raffine les diagrammes de séquence système en ouvrant la « boî
   caption: [Séquence de conception — « S'authentifier » (scénario nominal).],
 )
 
+#figure(
+  image("seq_authentifier_conception_err.svg", width: 85%),
+  caption: [Séquence de conception — « S'authentifier » (E1 : identifiants incorrects).],
+)
+
 == Rejoindre un salon
 
 #figure(
   image("seq_rejoindre_salon_conception.svg", width: 85%),
   caption: [Séquence de conception — « Rejoindre un salon » (scénario nominal).],
+)
+
+#figure(
+  image("seq_rejoindre_salon_conception_alt.svg", width: 90%),
+  caption: [Séquence de conception — « Rejoindre un salon » (A1 : salon privé).],
 )
 
 == Créer un salon
@@ -801,6 +873,11 @@ Cette section raffine les diagrammes de séquence système en ouvrant la « boî
   caption: [Séquence de conception — « Créer un salon » (scénario nominal).],
 )
 
+#figure(
+  image("seq_creer_salon_conception_err.svg", width: 75%),
+  caption: [Séquence de conception — « Créer un salon » (E2 : configuration incohérente).],
+)
+
 == Soumettre une question
 
 #figure(
@@ -808,11 +885,21 @@ Cette section raffine les diagrammes de séquence système en ouvrant la « boî
   caption: [Séquence de conception — « Soumettre une question » (scénario nominal).],
 )
 
+#figure(
+  image("seq_soumettre_question_conception_err.svg", width: 80%),
+  caption: [Séquence de conception — « Soumettre une question » (E1 : champ obligatoire manquant).],
+)
+
 == Souscrire un abonnement
 
 #figure(
   image("seq_souscrire_abonnement_conception.svg", width: 90%),
   caption: [Séquence de conception — « Souscrire un abonnement » (scénario nominal).],
+)
+
+#figure(
+  image("seq_souscrire_abonnement_conception_err.svg", width: 90%),
+  caption: [Séquence de conception — « Souscrire un abonnement » (E1 : paiement refusé).],
 )
 
 = Diagramme de classes
@@ -824,7 +911,11 @@ Le diagramme de classes décrit la vue statique du système : les entités méti
   caption: [Diagramme de classes de conception du système « Projet Cultissime ».],
 )
 
+Afin d'en faciliter la lecture, une version agrandie en pleine page, au format paysage, est fournie en annexe (@fig-classes-annexe).
+
 == Choix de modélisation
+
+*Correspondance avec les acteurs.* L'acteur _Utilisateur authentifié_ du diagramme de cas d'utilisation correspond à la classe `Membre`, et l'acteur _Visiteur_ à la classe `Invité` ; la classe abstraite `Joueur` factorise leur comportement commun.
 
 *Classe `Réponse`.* Une question peut admettre plusieurs réponses correctes (par exemple « France », « la France » ou « FR » pour une même question). La réponse est donc modélisée comme une classe à part entière, reliée à `Question` par une composition de multiplicité `1..*`, plutôt que comme un simple attribut.
 
@@ -840,7 +931,7 @@ Le diagramme de classes décrit la vue statique du système : les entités méti
 
 = Diagrammes de collaboration
 
-Les diagrammes de collaboration présentent la même information que les diagrammes de séquence, organisée spatialement autour des objets : chaque message est numéroté selon son ordre chronologique. Sont présentés, pour chaque cas, le niveau système (boîte noire) puis le niveau de conception (boîte blanche).
+Les diagrammes de collaboration présentent la même information que les diagrammes de séquence, organisée spatialement autour des objets : chaque message est numéroté selon son ordre chronologique. Par souci de lisibilité, chaque message est porté par sa propre flèche numérotée, plutôt que par un lien unique le long duquel les messages seraient empilés ; cette variante de présentation conserve la sémantique du diagramme de collaboration (objets, liens, numérotation séquentielle). Sont présentés, pour chaque cas, le niveau système (boîte noire) puis le niveau de conception (boîte blanche), chaque scénario nominal étant suivi du scénario alternatif ou d'erreur correspondant.
 
 == Niveau système (boîte noire)
 
@@ -850,8 +941,18 @@ Les diagrammes de collaboration présentent la même information que les diagram
 )
 
 #figure(
+  image("00_authentifier_sys_err.svg", width: 75%),
+  caption: [Collaboration système — « S'authentifier » (E1 : identifiants incorrects).],
+)
+
+#figure(
   image("01_rejoindresalon_sys.svg", width: 75%),
   caption: [Collaboration système — « Rejoindre un salon ».],
+)
+
+#figure(
+  image("01_rejoindresalon_sys_alt.svg", width: 75%),
+  caption: [Collaboration système — « Rejoindre un salon » (A1 : salon privé).],
 )
 
 #figure(image("02_creersalon_sys.svg", width: 75%), caption: [Collaboration système — « Créer un salon ».])
@@ -862,13 +963,33 @@ Les diagrammes de collaboration présentent la même information que les diagram
 )
 
 #figure(
+  image("03_jouerpartie_sys_err.svg", width: 80%),
+  caption: [Collaboration système — « Jouer une partie » (E3 : temps écoulé).],
+)
+
+#figure(
+  image("02_creersalon_sys_err.svg", width: 75%),
+  caption: [Collaboration système — « Créer un salon » (E2 : configuration incohérente).],
+)
+
+#figure(
   image("04_soumettrequestion_sys.svg", width: 80%),
   caption: [Collaboration système — « Soumettre une question ».],
 )
 
 #figure(
+  image("04_soumettrequestion_sys_err.svg", width: 80%),
+  caption: [Collaboration système — « Soumettre une question » (E1 : champ manquant).],
+)
+
+#figure(
   image("05_souscrireabonnement_sys.svg", width: 95%),
   caption: [Collaboration système — « Souscrire un abonnement ».],
+)
+
+#figure(
+  image("05_souscrireabonnement_sys_err.svg", width: 95%),
+  caption: [Collaboration système — « Souscrire un abonnement » (E1 : paiement refusé).],
 )
 
 == Niveau de conception (boîte blanche)
@@ -879,8 +1000,18 @@ Les diagrammes de collaboration présentent la même information que les diagram
 )
 
 #figure(
+  image("06_authentifier_conc_err.svg", width: 95%),
+  caption: [Collaboration de conception — « S'authentifier » (E1 : identifiants incorrects).],
+)
+
+#figure(
   image("07_rejoindresalon_conc.svg", width: 95%),
   caption: [Collaboration de conception — « Rejoindre un salon ».],
+)
+
+#figure(
+  image("07_rejoindresalon_conc_alt.svg", width: 95%),
+  caption: [Collaboration de conception — « Rejoindre un salon » (A1 : salon privé).],
 )
 
 #figure(
@@ -889,8 +1020,18 @@ Les diagrammes de collaboration présentent la même information que les diagram
 )
 
 #figure(
+  image("08_creersalon_conc_err.svg", width: 85%),
+  caption: [Collaboration de conception — « Créer un salon » (E2 : configuration incohérente).],
+)
+
+#figure(
   image("09_jouerpartie_conc.svg", width: 100%),
   caption: [Collaboration de conception — « Jouer une partie ».],
+)
+
+#figure(
+  image("09_jouerpartie_conc_err.svg", width: 100%),
+  caption: [Collaboration de conception — « Jouer une partie » (E3 : temps écoulé, message dérobant).],
 )
 
 #figure(
@@ -899,8 +1040,18 @@ Les diagrammes de collaboration présentent la même information que les diagram
 )
 
 #figure(
+  image("10_soumettrequestion_conc_err.svg", width: 90%),
+  caption: [Collaboration de conception — « Soumettre une question » (E1 : champ manquant).],
+)
+
+#figure(
   image("11_souscrireabonnement_conc.svg", width: 100%),
   caption: [Collaboration de conception — « Souscrire un abonnement ».],
+)
+
+#figure(
+  image("11_souscrireabonnement_conc_err.svg", width: 95%),
+  caption: [Collaboration de conception — « Souscrire un abonnement » (E1 : paiement refusé).],
 )
 
 = Diagramme d'activité
@@ -936,9 +1087,7 @@ Le diagramme de packages organise les classes du système en paquets cohérents 
   caption: [Diagramme de packages du système « Projet Cultissime ».],
 )
 
-Trois paquets sont identifiés : #emph[Comptes] regroupe les acteurs et leur abonnement (Joueur, Invité, Membre, Abonnement) ; #emph[Jeu] rassemble la mécanique de partie (Salon, Partie, Participation) ; #emph[Contenu] contient le matériel de jeu et son évaluation (Pack, Question, Réponse, Média, Tag, Vote). Les dépendances sont orientées sans cycle : le paquet #emph[Jeu] dépend de #emph[Comptes] et de #emph[Contenu], et le paquet #emph[Contenu] dépend de #emph[Comptes].
-
-
+Trois paquets sont identifiés : #emph[Comptes] regroupe les acteurs et leur abonnement (Joueur, Invité, Membre, Abonnement) ; #emph[Jeu] rassemble la mécanique de partie (Salon, Partie, Participation) ; #emph[Contenu] contient le matériel de jeu et son évaluation (Pack, Question, Réponse, Média, Tag, Vote). Les dépendances sont orientées sans cycle : le paquet #emph[Jeu] dépend de #emph[Comptes] et de #emph[Contenu], et le paquet #emph[Contenu] dépend de #emph[Comptes]. Il s'agit de dépendances d'#emph[accès] (stéréotype « use ») : un paquet nécessite le soutien des éléments d'un autre, sans en importer le contenu.
 
 = Traduction des classes en code
 
@@ -971,7 +1120,7 @@ L'extrait ci-dessous traduit les entités les plus représentatives : la hiérar
   [Pack créé et soumis par un utilisateur, rendu jouable uniquement après validation par la modération.],
 
   [Cotation],
-  [Règle d'attribution des points. Deux modes sont prévus : la cotation _au temps_ (le plus rapide marque le plus de points) et la cotation _par validation en fin de manche_ (les réponses sont jugées à la fin, ce qui assouplit la tolérance orthographique).],
+  [Règle d'attribution des points. Deux modes sont prévus : la cotation _au temps_ (le plus rapide marque le plus de points) et la cotation _par validation en fin de partie_ (les réponses sont jugées à la fin, ce qui assouplit la tolérance orthographique).],
 
   [Vote (up/down)],
   [Appréciation positive ou négative qu'un joueur attribue à une question ; elle alimente le tri automatique du contenu.],
@@ -1018,3 +1167,14 @@ L'extrait ci-dessous traduit les entités les plus représentatives : la hiérar
   [RGPD],
   [Règlement général sur la protection des données : cadre légal européen encadrant le traitement des données personnelles.],
 )
+
+
+#page(flipped: true)[
+  = Annexe : diagramme de classes en pleine page
+  #v(1fr)
+  #figure(
+    image("classdiagramm.svg", width: 100%),
+    caption: [Diagramme de classes de conception — version agrandie en pleine page.],
+  ) <fig-classes-annexe>
+  #v(1fr)
+]

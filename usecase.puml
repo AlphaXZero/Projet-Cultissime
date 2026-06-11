@@ -17,6 +17,10 @@ skinparam actor {
   BorderColor #333333
   BackgroundColor #ffffff
 }
+skinparam note {
+  BackgroundColor #fffbea
+  BorderColor #6e1423
+}
 
 actor "Visiteur" as V
 actor "Utilisateur\nauthentifié" as U
@@ -29,9 +33,11 @@ rectangle "Projet Cultissime" {
 
   ' --- Cas accessibles au Visiteur (donc aussi à l'authentifié) ---
   usecase "S'authentifier" as UC_AUTH
+  usecase "Récupérer son\nmot de passe" as UC_PWD
   usecase "Rejoindre un salon" as UC_JOIN
   usecase "Créer un salon" as UC_CREATE
   usecase "Configurer la partie" as UC_CONFIG
+  usecase "Gérer son salon\n(exclure, fermer)" as UC_MANAGE
   usecase "Jouer une partie" as UC_PLAY
   usecase "Noter une question\n(up / down)" as UC_RATE
 
@@ -46,8 +52,10 @@ rectangle "Projet Cultissime" {
 
 ' ===== Associations acteur / cas =====
 V -- UC_AUTH
+V -- UC_PWD
 V -- UC_JOIN
 V -- UC_CREATE
+V -- UC_MANAGE
 V -- UC_PLAY
 
 U -- UC_PROFILE
@@ -57,10 +65,21 @@ U -- UC_SUB
 A -- UC_MOD
 
 ' ===== Relations entre cas (UML 1.4.1) =====
-' include : le cas de base pointe vers le cas inclus (obligatoire)
 UC_CREATE ..> UC_CONFIG : <<include>>
-
-' extend : le cas d'extension pointe vers le cas de base (optionnel)
 UC_RATE ..> UC_PLAY : <<extend>>
+
+' ===== Commentaires fonctionnels =====
+note bottom of UC_PLAY
+  L'accès en mode invité est
+  possible : aucun compte n'est
+  requis pour jouer.
+end note
+
+note bottom of UC_RATE
+  Les votes alimentent le tri du
+  contenu ; un taux de votes négatifs
+  élevé renvoie la question
+  en modération.
+end note
 
 @enduml

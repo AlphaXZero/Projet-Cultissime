@@ -1,0 +1,20 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam objectBorderColor #6e1423
+skinparam objectBackgroundColor #faf5f5
+skinparam ArrowColor #6e1423
+left to right direction
+title Créer un salon — collaboration de conception (E2 : configuration incohérente)
+
+
+object "Joueur" as A
+object ":IHMSalon" as IHM
+object ":CtrlSalon" as C
+
+A -[#6e1423]-> IHM : 1: configurerPartie(paramètres)
+IHM -[#6e1423]-> C : 2: créerSalon(config, idHôte)
+C -[#6e1423]-> C : 3: vérifierCohérence(config)
+C -[#6e1423]-> IHM : 4: paramètresEnConflit(détails)
+IHM -[#6e1423]-> A : 5: signalerConflit(détails)
+@enduml

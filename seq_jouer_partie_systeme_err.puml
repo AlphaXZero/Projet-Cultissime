@@ -1,0 +1,23 @@
+@startuml
+title Jouer une partie — séquence système (E3 : temps écoulé sans réponse)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Joueur" as J
+participant "Système" as S
+
+S ->> J : <<minuté>> afficherQuestion(question, tempsImparti)
+activate S
+S -> S : échéanceChronomètre()
+J ->x S : <<dérobant>> soumettreRéponse(réponse)
+note right of S : la réponse arrive après\nl'échéance : le message\nest abandonné
+S ->> J : questionNonRépondue(0 point)
+S ->> J : afficherClassement(classement)
+deactivate S
+
+@enduml

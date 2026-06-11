@@ -1,0 +1,25 @@
+@startuml
+title Soumettre une question — séquence système (E1 : champ obligatoire manquant)
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam sequenceArrowColor #6e1423
+skinparam sequenceLifeLineBorderColor #6e1423
+skinparam sequenceParticipantBorderColor #6e1423
+skinparam sequenceParticipantBackgroundColor #faf5f5
+skinparam actorBorderColor #333333
+
+actor "Utilisateur\nauthentifié" as U
+participant "Système" as S
+
+U -> S : soumettreQuestion(donnéesIncomplètes)
+activate S
+S -> S : validerChamps()
+S --> U : champsManquants(liste)
+deactivate S
+U -> S : soumettreQuestion(donnéesComplétées)
+activate S
+S -> S : validerChamps()
+S --> U : confirmationSoumission()
+deactivate S
+
+@enduml
